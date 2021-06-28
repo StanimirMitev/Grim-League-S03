@@ -1,422 +1,445 @@
-/*
-
-	GRIM DAWN
-
-	For more information, visit us at http://www.grimdawn.com
-
-*/
-
 gd.GDLeague = {}
 
 gd.GDLeague.TokenTable = {
 	Dungeon_SoT = {
-		token = "GDL_Token_StepsOfTorment",
-		item = "records/items/grimleagues02/questitems/token_dungeon_steps_of_torment.dbr",
+		token = "GDL_Dungeon_StepsOfTorment",
+		item = "records/items/grimleagues03/questitems/token_dungeon_steps_of_torment.dbr",
 		notification = "tagGDLeagueDungeonTokenNotification",
 		reward_notification = "tagGDLeagueSoTNothification",
 		points = 10
 	},
 	Dungeon_BoC = {
-		token = "GDL_Token_Bastion",
-		item = "records/items/grimleagues02/questitems/token_dungeon_bastion_of_chaos.dbr",
+		token = "GDL_Dungeon_Bastion",
+		item = "records/items/grimleagues03/questitems/token_dungeon_bastion_of_chaos.dbr",
 		notification = "tagGDLeagueDungeonTokenNotification",
 		reward_notification = "tagGDLeagueBoCNothification",
 		points = 15
 	},
 	Dungeon_PV = {
-		token = "GDL_Token_Valbury",
-		item = "records/items/grimleagues02/questitems/token_dungeon_port_valbury.dbr",
+		token = "GDL_Dungeon_Valbury",
+		item = "records/items/grimleagues03/questitems/token_dungeon_port_valbury.dbr",
 		notification = "tagGDLeagueDungeonTokenNotification",
 		reward_notification = "tagGDLeaguePVNothification",
 		points = 20
 	},
 	Dungeon_AG = {
-		token = "GDL_Token_Grove",
-		item = "records/items/grimleagues02/questitems/token_dungeon_ancient_grove.dbr",
+		token = "GDL_Dungeon_Grove",
+		item = "records/items/grimleagues03/questitems/token_dungeon_ancient_grove.dbr",
 		notification = "tagGDLeagueDungeonTokenNotification",
 		reward_notification = "tagGDLeagueAGNothification",
 		points = 30
 	},
 	Dungeon_TotH = {
-		token = "GDL_Token_TombHeretic",
-		item = "records/items/grimleagues02/questitems/token_dungeon_tomb_of_the_heretic.dbr",
+		token = "GDL_Dungeon_TombHeretic",
+		item = "records/items/grimleagues03/questitems/token_dungeon_tomb_of_the_heretic.dbr",
 		notification = "tagGDLeagueDungeonTokenNotification",
 		reward_notification = "tagGDLeagueToHNothification",
 		points = 45
 	},
 	Nemesis_Valdaran = {
-		token = "GDL_Token_Valdaran",
-		item = "records/items/grimleagues02/questitems/token_nemesis_aetherial.dbr",
+		token = "GDL_Nemesis_Valdaran_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_aetherial.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisAetherialNothification",
 		points = 10
 	},
 	Nemesis_Aleksander = {
-		token = "GDL_Token_Aleksander",
-		item = "records/items/grimleagues02/questitems/token_nemesis_aetherial_vanguard.dbr",
+		token = "GDL_Nemesis_Aleksander_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_aetherial_vanguard.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisVanguardNothification",
 		points = 10
 	},
 	Nemesis_Benjar = {
-		token = "GDL_Token_Benjhar",
-		item = "records/items/grimleagues02/questitems/token_nemesis_chthonic.dbr",
+		token = "GDL_Nemesis_Bennjahr_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_chthonic.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisChthoniansNothification",
 		points = 10
 	},
 	Nemesis_Grava = {
-		token = "GDL_Token_Grava",
-		item = "records/items/grimleagues02/questitems/token_nemesis_chthonic_grava.dbr",
+		token = "GDL_Nemesis_Grava_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_chthonic_grava.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisChthoninsAoMNothification",
 		points = 10
 	},
 	Nemesis_Fabious = {
-		token = "GDL_Token_Fabious",
-		item = "records/items/grimleagues02/questitems/token_nemesis_outlaw.dbr",
+		token = "GDL_Nemesis_Fabius_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_outlaw.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisCronleyNothification",
 		points = 10
 	},
 	Nemesis_Maiden = {
-		token = "GDL_Token_HostileGDFaction",
-		item = "records/items/grimleagues02/questitems/token_nemesis_kymon.dbr",
+		token = "GDL_Nemesis_SideFaction_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_kymon.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisKymonNothification",
 		points = 10
 	},
 	Nemesis_Zantarin = {
-		token = "GDL_Token_HostileGDFaction",
-		item = "records/items/grimleagues02/questitems/token_nemesis_order.dbr",
+		token = "GDL_Nemesis_SideFaction_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_order.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisVigilNothification",
 		points = 10
 	},
 	Nemesis_Eldritch = {
-		token = "GDL_Token_Kaisan",
-		item = "records/items/grimleagues02/questitems/token_nemesis_eldritch.dbr",
+		token = "GDL_Nemesis_Kaisan_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_eldritch.dbr",
 		notification = "tagGDLeagueNemesisKillNotification", 
 		reward_notification = "tagGDLeagueNemesisEldritchNothification", 
 		points = 10
 	},
 	Nemesis_Undead = {
-		token = "GDL_Token_Undead",
-		item = "records/items/grimleagues02/questitems/token_nemesis_undead.dbr",
+		token = "GDL_Nemesis_Moosilauke_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_undead.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisUndeadNothification",
 		points = 10
 	},
 	Nemesis_Beast = {
-		token = "GDL_Token_Beast",
-		item = "records/items/grimleagues02/questitems/token_nemesis_beast.dbr",
+		token = "GDL_Nemesis_Kubacabra_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_beast.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisBeastNothification",
 		points = 10
 	},
 	Nemesis_Wendigo = {
-		token = "GBL_Token_Reaper",
-		item = "records/items/grimleagues02/questitems/token_nemesis_wendigo.dbr",
+		token = "GDL_Nemesis_Reaper_",
+		item = "records/items/grimleagues03/questitems/token_nemesis_wendigo.dbr",
 		notification = "tagGDLeagueNemesisKillNotification",
 		reward_notification = "tagGDLeagueNemesisBarrowholmNothification",
 		points = 0
 	},
+	Nemesis_Normal = {
+		token = "GDL_Nemesis_Normal",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
 	Shatterred_Realms_16 = {
 		token = "GDL_SR_16",
-		item = "records/items/grimleagues02/questitems/token_sr_level16.dbr",
+		item = "records/items/grimleagues03/questitems/token_sr_level16.dbr",
 		notification = "tagGDLeagueSRTokenEarned",
 		reward_notification = "tagGDLeagueSR16Notification",
 		points = 5
 	},
 	Shatterred_Realms_31 = {
 		token = "GDL_SR_31",
-		item = "records/items/grimleagues02/questitems/token_sr_level31.dbr",
+		item = "records/items/grimleagues03/questitems/token_sr_level31.dbr",
 		notification = "tagGDLeagueSRTokenEarned",
 		reward_notification = "tagGDLeagueSR31Notification",
 		points = 15
 	},
 	Shatterred_Realms_46 = {
 		token = "GDL_SR_46",
-		item = "records/items/grimleagues02/questitems/token_sr_level46.dbr",
+		item = "records/items/grimleagues03/questitems/token_sr_level46.dbr",
 		notification = "tagGDLeagueSRTokenEarned",
 		reward_notification = "tagGDLeagueSR46Notification",
 		points = 35
 	},
 	Shatterred_Realms_61 = {
 		token = "GDL_SR_61",
-		item = "records/items/grimleagues02/questitems/token_sr_level61.dbr",
+		item = "records/items/grimleagues03/questitems/token_sr_level61.dbr",
 		notification = "tagGDLeagueSRTokenEarned",
 		reward_notification = "tagGDLeagueSR61Notification",
 		points = 55
 	},
 	Shatterred_Realms_76 = {
 		token = "GDL_SR_76",
-		item = "records/items/grimleagues02/questitems/token_sr_level76.dbr",
+		item = "records/items/grimleagues03/questitems/token_sr_level76.dbr",
 		notification = "tagGDLeagueSRTokenEarned",
 		reward_notification = "tagGDLeagueSR76Notification",
 		points = 90
 	},
-	Shatterred_Realms_50_Challenge = {
-		token = "GDL_SR_50_Challenge",
-		item = "records/items/grimleagues02/questitems/token_sr_level_50_challenge.dbr",
+	Shatterred_Realms_65_Challenge = {
+		token = "GDL_SR_65_Challenge",
+		item = "records/items/grimleagues03/questitems/token_sr_level_50_challenge.dbr",
 		notification = "tagGDLeagueSRChallengeTokenEarned",
 		reward_notification = "tagGDLeagueSR50ChallengeNotification",
 		points = 40
 	},
 	Boss_Protoss = {
 		token = "GDL_Boss_Protoss",
-		item = "records/items/grimleagues02/questitems/token_boss_protoss.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_protoss.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossProtossNitification",
 		points = 5
 	},
 	Boss_Aldric = {
 		token = "GDL_Boss_Aldric",
-		item = "records/items/grimleagues02/questitems/token_boss_aldric.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_aldric.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossAldricNitification",
 		points = 10
 	},
 	Boss_Aldric2 = {
 		token = "GDL_Boss_Aldric2",
-		item = "records/items/grimleagues02/questitems/token_boss_aldric_2.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_aldric_2.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossAldricNitification2",
 		points = 5
 	},
 	Boss_Loxmere = {
 		token = "GDL_Boss_Loxmere",
-		item = "records/items/grimleagues02/questitems/token_boss_loxmere.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_loxmere.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossLoxmereNitification",
 		points = 10
 	},
 	Boss_Kraval = {
 		token = "GDL_Boss_Kraval",
-		item = "records/items/grimleagues02/questitems/token_boss_kraval.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_kraval.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossKravalNitification",
 		points = 10
 	},
 	Boss_Rashalga = {
 		token = "GDL_Boss_Rashalga",
-		item = "records/items/grimleagues02/questitems/token_boss_madqueen.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_madqueen.dbr",
 		notification = "tagGDLeagueWorldBossKillNotification",
 		reward_notification = "tagGDLeagueBossMadQueenNitification",
 		points = 15
 	},
 	Super_Boss_Lokarr = {
 		token = "GDL_Boss_Lokarr",
-		item = "records/items/grimleagues02/questitems/token_boss_lokarr.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_lokarr.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossLokarrNitification",
 		points = 25
 	},
 	Super_Boss_Bourbon = {
 		token = "GDL_Boss_Bourbon",
-		item = "records/items/grimleagues02/questitems/token_boss_bourbon.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_bourbon.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossBourbonNitification",
 		points = 30
 	},
 	Super_Boss_Mogdrogen = {
 		token = "GDL_Boss_Mogdrogen",
-		item = "records/items/grimleagues02/questitems/token_boss_mogdrogen.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_mogdrogen.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossMogdrogenNitification",
 		points = 50
 	},
 	Super_Boss_Ravager = {
 		token = "GDL_Boss_Ravager",
-		item = "records/items/grimleagues02/questitems/token_boss_ravager.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_ravager.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossRavagerNitification",
 		points = 75
 	},
 	Super_Boss_Callagadra = {
 		token = "GDL_Boss_Callagadra",
-		item = "records/items/grimleagues02/questitems/token_boss_callagadra.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_callagadra.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossCallagadraNitification",
 		points = 150
 	},
 	Super_Boss_Crate = {
 		token = "GDL_Boss_Crate",
-		item = "records/items/grimleagues02/questitems/token_boss_crate.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_crate.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossCrateNitification",
 		points = 150
 	},
 	Boss_Elite_Challenge_Theodin= {
 		token = "GDL_Boss_Theodin",
-		item = "records/items/grimleagues02/questitems/token_boss_theodin.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_theodin.dbr",
 		notification = "tagGDLeagueWorldBossChallengeNotification",
 		reward_notification = "tagGDLeagueBossTheodinNitification",
 		points = 15
 	},
 	Boss_Elite_Challenge_Korvaak= {
 		token = "GDL_Boss_Korvaak",
-		item = "records/items/grimleagues02/questitems/token_boss_korvaak.dbr",
+		item = "records/items/grimleagues03/questitems/token_boss_korvaak.dbr",
 		notification = "tagGDLeagueWorldBossChallengeNotification",
 		reward_notification = "tagGDLeagueBossKorvaakNitification",
 		points = 20
 	},
-	Item_Anquish= {
-		token = "GDL_Item_Anguish",
-		item = "records/items/upgraded/gearaccessories/rings/d016_ring.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemAnguishNotification",
-		points = 10
-	},
-	Item_Dread= {
-		token = "GDL_Item_Dread",
-		item = "records/items/upgraded/gearaccessories/rings/d015_ring.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemDreadNotification",
-		points = 10
-	},
-	Item_Soulrend= {
-		token = "GDL_Item_Soulrend",
-		item = "records/items/upgraded/gearweapons/melee2h/d012_axe2h.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemSoulrendNotification",
-		points = 5
-	},
-	Item_Worldeater= {
-		token = "GDL_Item_WorldEarter",
-		item = "records/items/upgraded/gearweapons/melee2h/d013_blunt2h.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemWorldEaterNotification",
-		points = 10
-	},
-	Item_DecreeAldrich= {
-		token = "GDL_Item_DecreeAldrich",
-		item = "records/items/upgraded/gearweapons/caster/d019_scepter.dbr", 
-		notification = "",
-		reward_notification = "tagGDLeagueItemDecreeAldrichNotification",
-		points = 10
-	},
-	Item_Corruption= {
-		token = "GDL_Item_Gargabol",
-		item = "records/items/gearweapons/guns1h/d114_gun1h.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemGargabolNotification",
-		points = 5
-	},
-	Item_Nightbringer= {
-		token = "GDL_Item_Nigthbringer",
-		item = "records/items/gearweapons/melee2h/d207_blunt2h.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemNigthbringerNotification",
-		points = 10
-	},
-	Item_Nightshard= {
-		token = "GDL_Item_Nightshard",
-		item = "records/items/gearweapons/shields/d209_shield.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemNightshardNotification",
-		points = 5
-	},
-	Item_MorgonethVisage= {
-		token = "GDL_Item_MorgonethVisage",
-		item = "records/items/gearhead/d226_head.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemMorgonethVisageNotification",
-		points = 5
-	},
-	Item_DecreeMalmouth= {
-		token = "GDL_Item_DecreeMalmouth",
-		item = "records/items/gearweapons/caster/d119_scepter.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemDecreeMalmouthNotification",
-		points = 5
-	},
-	Item_HeartSandKing= {
-		token = "GDL_Item_SandKingHearth",
-		item = "records/items/gearaccessories/necklaces/d210_necklace.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemSandKingHearthNotification",
-		points = 5
-	},
-	Item_OutcastSecret= {
-		token = "GDL_Item_OutcastSecret",
-		item = "records/items/upgraded/gearhead/d021_head.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemOutcastSecretNotification",
-		points = 15
-	},
-	Item_PrimeRing = {
-		token = "GDL_Item_PrimeRing",
-		item = "records/items/grimleagues02/questitems/token_item_prime_ring.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemPrimeRingNotification",
-		points = 10
-	},
-	Item_VanquisherHelm = {
-		token = "GDL_Item_vanquisher_helm",
-		item = "records/items/grimleagues02/questitems/token_item_vanquisher_helm.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemVanquisherHelmNotification",
-		points = 10
-	},
-	Item_VanquisherMantle = {
-		token = "GDL_Item_vanquisher_mantle",
-		item = "records/items/grimleagues02/questitems/token_item_vanquisher_mantle.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemVanquisherMantleNotification",
-		points = 10
-	},
-	Item_VanquisherArmor = {
-		token = "GDL_Item_vanquisher_armor",
-		item = "records/items/grimleagues02/questitems/token_item_vanquisher_armor.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemVanquisherArmorNotification",
-		points = 10
-	},
-	Item_VanquisherGem = {
-		token = "GDL_Item_vanquisher_gem",
-		item = "records/items/grimleagues02/questitems/token_item_vanquisher_gem.dbr",
-		notification = "",
-		reward_notification = "tagGDLeagueItemVanquisherGemNotification",
-		points = 10
-	},
 	Super_Boss_Mod_Galakros = {
-		token = "GDL_BossMod_Galakros",
-		item = "records/items/grimleagues02/questitems/token_bossmod_galakros.dbr",
+		token = "GDL_Boss_Galakros",
+		item = "records/items/grimleagues03/questitems/token_bossmod_galakros.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossGalakrosNitification",
 		points = 100
 	},
 	Super_Boss_Mod_BallogNath = {
-		token = "GDL_BossMod_BallogNath",
-		item = "records/items/grimleagues02/questitems/token_bossmod_ballognath.dbr",
+		token = "GDL_Boss_BallogNath",
+		item = "records/items/grimleagues03/questitems/token_bossmod_ballognath.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossBallogNathNitification",
 		points = 100
 	},
 	Super_Boss_Mod_Rolderathis = {
-		token = "GDL_BossMod_Rolderathis",
-		item = "records/items/grimleagues02/questitems/token_bossmod_rolderathis.dbr",
+		token = "GDL_Boss_Rolderathis",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
 		notification = "tagGDLeagueSuperBossKillNotification",
 		reward_notification = "tagGDLeagueBossRolderathisNitification",
 		points = 100
 	},
+	Boss_Galeslice = {
+		token = "GDL_Boss_Galeslice",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_NarenKur = {
+		token = "GDL_Boss_NarenKur",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Karnath = {
+		token = "GDL_Boss_Karnath",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Rutnick = {
+		token = "GDL_Boss_Rutnick",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Blugrug = {
+		token = "GDL_Boss_Blugrug",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Astros = {
+		token = "GDL_Boss_Astros",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Abaddoth = {
+		token = "GDL_Boss_Abaddoth",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Celestial_Totem = {
+		token = "GDL_Totem",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Gutworm = {
+		token = "GDL_Boss_Gutworm",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_HeraldStars = {
+		token = "GDL_Boss_HeraldStars",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_HeraldDestruction = {
+		token = "GDL_Boss_HeraldDestruction",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_HeraldFlame = {
+		token = "GDL_Boss_HeraldFlame",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Krieg = {
+		token = "GDL_Boss_Krieg",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
+	Boss_Cronley = {
+		token = "GDL_Boss_Cronley",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "",
+		reward_notification = "",
+		points = 100
+	},
 }
 
-local LeaguePointsItem = "records/items/grimleagues02/questitems/GDLeagueToken.dbr"
-local LeaguePenaltyPointsItem = "records/items/grimleagues02/questitems/GDLeaguePenaltyToken.dbr"
-local LeagueDummyToken = "records/items/grimleagues02/questitems/GDLeagueDummyToken.dbr"
-local LeagueEntryToken = "records/items/grimleagues02/questitems/grim_league_s02_participation_token.dbr"
-local recoveryToken = 'records/items/grimleagues02/questitems/grim_league_s02_recovery_token.dbr'
-local participationtoken = "S02_Participation"
+local LeaguePointsItem = "records/items/grimleagues03/questitems/GDLeagueToken.dbr"
+local LeaguePenaltyPointsItem = "records/items/grimleagues03/questitems/GDLeaguePenaltyToken.dbr"
+local LeagueDummyToken = "records/items/grimleagues03/questitems/GDLeagueDummyToken.dbr"
+local LeagueEntryToken = "records/items/grimleagues03/questitems/grim_league_participation_token.dbr"
+local recoveryToken = 'records/items/grimleagues03/questitems/grim_league_s02_recovery_token.dbr'
+local participationtoken = "S03_Participation"
 
 local LeagueDifficultyRequirement = Game.Difficulty.Legendary
--- local LeagueDifficultyRequirement = Game.Difficulty.Normal
 local LeaguePenaltyPoints = 5
 local LeagueLevelRequirement = 100
-local LeagueSRChallengeRequirement = 75
-local LeagueEliteChallengeRequirement = 85
+local LeagueSRChallengeRequirement = 25
+local LeagueNormalBossRequirement = 25
+local LeagueNormalNemesisRequirement = 45
+local LeagueEliteSideBossRequirement = 45
+local LeagueEliteDungeonRequirement = 65
+local LeagueEliteChallengeRequirement = 75
+local LeagueUltimateBossesRequirement = 90
+local LeagueUltimateBossChallengeRequirement = 35
 local level_to_enter_sr = 0
+
+function gd.GDLeague.DefaultLeagueCondition(player)
+	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement and player:GetLevel() >= LeagueLevelRequirement )
+end
+
+function gd.GDLeague.SR65LeagueCondition(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Normal and level_to_enter_sr <= LeagueSRChallengeRequirement)
+end
+
+function gd.GDLeague.EliteLeagueRequirement(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Epic and player:GetLevel() <= LeagueEliteChallengeRequirement )
+end
+
+function gd.GDLeague.UltimateBossRequirement(player)
+	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement and player:GetLevel() <= LeagueUltimateBossesRequirement )
+end
+
+function gd.GDLeague.UltimateBossChallengeRequirement(player)
+	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement and player:GetLevel() <= LeagueUltimateBossChallengeRequirement )
+end
+
+function gd.GDLeague.EliteDungeonRequirement(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Epic and player:GetLevel() <= LeagueEliteDungeonRequirement )
+end
+
+function gd.GDLeague.NormalBossRequirement(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Normal and player:GetLevel() <= LeagueNormalBossRequirement )
+end
+
+function gd.GDLeague.NormalNemesisRequirement(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Normal and player:GetLevel() <= LeagueNormalNemesisRequirement )
+end
+
+function gd.GDLeague.RedeemCondition(player)
+	return (Game.GetGameDifficulty() == Game.Difficulty.Normal and player:GetLevel() == 4)
+end
+
+function gd.GDLeague.EliteSideBossRequirement(player)
+	return ( Game.GetGameDifficulty() == Game.Difficulty.Epic and player:GetLevel() <= LeagueEliteSideBossRequirement )
+end
 
 -- checks if player has achivement tokens and grants them that achivement. Prevent double dipping for points.
 function gd.GDLeague.CheckForLeagueAchievementTokens()
@@ -461,24 +484,6 @@ function gd.GDLeague.CheckForLeagueAchievementTokens()
 	gd.GDLeague.GrantPointsKorvaak()
 	gd.GDLeague.GrantPointsTheodin()
 
-	-- gd.GDLeague.CheckItemAnguish()
-	-- gd.GDLeague.CheckItemDread()
-	-- gd.GDLeague.CheckItemSoulrend()
-	-- gd.GDLeague.CheckItemWorldEarter()
-	-- gd.GDLeague.CheckItemDecreeAldrich()
-	-- gd.GDLeague.CheckItemGargabol()
-	gd.GDLeague.CheckItemPrimeRing()
-	-- gd.GDLeague.CheckItemNigthbringer()
-	-- gd.GDLeague.CheckItemMorgonethVisage()
-	-- gd.GDLeague.CheckItemDecreeMalmouth()
-	-- gd.GDLeague.CheckItemSandKingHearth()
-	-- gd.GDLeague.CheckItemOutcastSecret()
-	-- gd.GDLeague.CheckItemNightshard()
-	gd.GDLeague.CheckItemVanquisherGem()
-	gd.GDLeague.CheckItemVanquisherArmor()
-	gd.GDLeague.CheckItemVanquisherMantle()
-	gd.GDLeague.CheckItemVanquisherHelm()
-
 	gd.GDLeague.GrantPointsRolderathis()
 	gd.GDLeague.GrantPointsBallogNath()
 	gd.GDLeague.GrantPointsGalakros()
@@ -486,45 +491,43 @@ end
 
 local is_recovert_completed = false
 function gd.GDLeague.RecoverToken()
-	-- TODO REMOVE COMMENT
-	-- local player = Game.GetLocalPlayer()
-	-- if (player:HasToken(participationtoken) && not player:HasItem(LeagueEntryToken, 1, false)) then
-	-- 	player:GiveItem(LeagueEntryToken, 1, false)
-	-- end
-	-- if (player:HasItem(LeagueEntryToken, 1, false) && player:HasItem(recoveryToken, 1, false) && not is_recovert_completed) then
-	-- 	for i,TableEntry in pairs(gd.GDLeague.TokenTable) do 
-	-- 		if(player:HasToken(TableEntry["token"])) then
-	-- 			player:GiveItem(TableEntry["item"], 1, false)
-	-- 		end
-	-- 	end
-	-- 	gd.GDLeague.RecoverDeepSRToken()
-	-- 	player:TakeItem(recoveryToken, 1, false)
-	-- 	is_recovert_completed = true
-	--end
+	local player = Game.GetLocalPlayer()
+	if (player:HasToken(participationtoken) and not player:HasItem(LeagueEntryToken, 1, false)) then
+		player:GiveItem(LeagueEntryToken, 1, false)
+	end
+	if (player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(recoveryToken, 1, false) and not is_recovert_completed) then
+		for i,TableEntry in pairs(gd.GDLeague.TokenTable) do 
+			if(player:HasToken(TableEntry["token"])) then
+				player:GiveItem(TableEntry["item"], 1, false)
+			end
+		end
+		gd.GDLeague.RecoverDeepSRToken()
+		player:TakeItem(recoveryToken, 1, false)
+		is_recovert_completed = true
+	end
 end
 
-function gd.GDLeague.RecoverDeepSRToken()
-	-- TODO REMOVE COMMENT
-	-- TODO FIX RECOVETING ALL TOKENS
-	-- local player = Game.GetLocalPlayer()
-	-- for i=130, 80, -1 do
-	-- 	local gl_token = "GDL_SR_"..i
-	-- 	if(player:HasToken(gl_token)) then
-	-- 		local drb_path = "records/items/grimleagues02/questitems/SREndless/token_SR"
-	-- 		if(i > 99) then
-	-- 			drb_path = drb_path..i..".dbr"
-	-- 		else
-	-- 			drb_path = drb_path.."0"..i..".dbr"
-	-- 		end
-	-- 		player:GiveItem(drb_path, 1, false)
-	-- 		break
-	-- 	end
-	-- end
-end
+-- function gd.GDLeague.RecoverDeepSRToken()
+-- 	TODO FIX RECOVETING ALL TOKENS
+-- 	local player = Game.GetLocalPlayer()
+-- 	for i=130, 80, -1 do
+-- 		local gl_token = "GDL_SR_"..i
+-- 		if(player:HasToken(gl_token)) then
+-- 			local drb_path = "records/items/grimleagues03/questitems/SREndless/token_SR"
+-- 			if(i > 99) then
+-- 				drb_path = drb_path..i..".dbr"
+-- 			else
+-- 				drb_path = drb_path.."0"..i..".dbr"
+-- 			end
+-- 			player:GiveItem(drb_path, 1, false)
+-- 			break
+-- 		end
+-- 	end
+-- end
 
 function gd.GDLeague.TestAllTokens()
 	local player = Game.GetLocalPlayer()
-	if(player:HasItem("records/items/grimleagues02/questitems/grim_league_s02_test_all_token.dbr", 1, false)) then	
+	if(player:HasItem("records/items/grimleagues03/questitems/grim_league_s02_test_all_token.dbr", 1, false)) then	
 		gd.GDLeague.GrantTokenDungeonSoT()
 		gd.GDLeague.GrantTokenDungeonBoC()
 		gd.GDLeague.GrantTokenDungeonPV()
@@ -555,7 +558,7 @@ function gd.GDLeague.TestAllTokens()
 		gd.GDLeague.GrantTokenShatteredRealm31()
 		gd.GDLeague.GrantTokenShatteredRealm16()
 		gd.GDLeague.GrantTokenShatteredRealm50Challenge()
-		player:TakeItem("records/items/grimleagues02/questitems/grim_league_s02_test_all_token.dbr", 1, false)
+		player:TakeItem("records/items/grimleagues03/questitems/grim_league_s02_test_all_token.dbr", 1, false)
 		gd.GDLeague.GrantTokenProtossKill()
 		gd.GDLeague.GrantTokenAldricKill()
 		gd.GDLeague.GrantTokenAldricKill2()
@@ -592,57 +595,51 @@ function gd.GDLeague.GrantDeathPenaltyPoints(id)
 	player:GiveItem(LeaguePenaltyPointsItem, LeaguePenaltyPoints, false)
 end
 
-function gd.GDLeague.DefaultLeagueCondition(player)
-	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement && player:GetLevel() >= LeagueLevelRequirement )
-end
-
-function gd.GDLeague.SR50LeagueCondition(player)
-	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement && level_to_enter_sr < LeagueSRChallengeRequirement)
-end
-
-function gd.GDLeague.EliteLeagueRequirement(player)
-	return ( Game.GetGameDifficulty() == Game.Difficulty.Epic && player:GetLevel() <= LeagueEliteChallengeRequirement )
-end
-
-function gd.GDLeague.RedeemCondition(player)
-	return (Game.GetGameDifficulty() == Game.Difficulty.Normal && player:GetLevel() == 4)
-end
-
 function gd.GDLeague.GrantGDLTokenItem(key, condition)
-	-- TODO REMOVE COMMENT
-	-- local player = Game.GetLocalPlayer()
-	-- -- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
-	-- condition = condition or gd.GDLeague.DefaultLeagueCondition
-	-- if (player:HasItem(LeagueEntryToken, 1, false) && condition(player) && not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
-	-- 	player:GiveItem(gd.GDLeague.TokenTable[key]["item"], 1, false)
-	-- 	if(player:HasItem(gd.GDLeague.TokenTable[key]["item"], 1, false)) then
-	-- 		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
-	-- 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
-	-- 	else
-	-- 		UI.Notify("tagGDLeagueFullInventoryNotification")
-	-- 	end
-	-- end
+	local player = Game.GetLocalPlayer()
+	-- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
+	condition = condition or gd.GDLeague.DefaultLeagueCondition
+	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
+		player:GiveItem(gd.GDLeague.TokenTable[key]["item"], 1, false)
+		if(player:HasItem(gd.GDLeague.TokenTable[key]["item"], 1, false)) then
+			GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
+			UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
+		else
+			UI.Notify("tagGDLeagueFullInventoryNotification")
+		end
+	end
+end
+
+function gd.GDLeague.GrantGDLNemesisToken(key)
+	local player = Game.GetLocalPlayer()
+	if (player:HasItem(LeagueEntryToken, 1, false) and Game.GetGameDifficulty() == Game.Difficulty.Legendary and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
+		player:GiveItem(gd.GDLeague.TokenTable[key]["item"], 1, false)
+		if(player:HasItem(gd.GDLeague.TokenTable[key]["item"], 1, false)) then
+			GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"]..player:GetLevel())
+			UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
+		else
+			UI.Notify("tagGDLeagueFullInventoryNotification")
+		end
+	end
 end
 
 function gd.GDLeague.GrantGDLPoints(key)
-	-- TODO REMOVE COMMENT
-	-- local player = Game.GetLocalPlayer()
-	-- if(player:HasItem(LeagueEntryToken, 1, false) && player:HasItem(gd.GDLeague.TokenTable[key]["item"], 1, false)) then
-	-- 	if(not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
-	-- 		player:GiveItem(LeaguePointsItem, gd.GDLeague.TokenTable[key]["points"], false)
-	-- 		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
-	-- 		UI.Notify(gd.GDLeague.TokenTable[key]["reward_notification"])
-	-- 	end
-	-- end
+	local player = Game.GetLocalPlayer()
+	if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(gd.GDLeague.TokenTable[key]["item"], 1, false)) then
+		if(not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
+			player:GiveItem(LeaguePointsItem, gd.GDLeague.TokenTable[key]["points"], false)
+			GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
+			UI.Notify(gd.GDLeague.TokenTable[key]["reward_notification"])
+		end
+	end
 end
 
 function gd.GDLeague.GrantItemRewards(item, key)
-	-- TODO REMOVE COMMENT
-	-- local player = Game.GetLocalPlayer()
-	-- if (player:HasItem(item, 1, false) && not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
-	-- 	player:GiveItem(gd.GDLeague.TokenTable[key]["item"], 1, false)
-	-- 	gd.GDLeague.GrantGDLPoints(key)
-	-- end
+	local player = Game.GetLocalPlayer()
+	if (player:HasItem(item, 1, false) and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
+		player:GiveItem(gd.GDLeague.TokenTable[key]["item"], 1, false)
+		gd.GDLeague.GrantGDLPoints(key)
+	end
 end
 
 -- Grant starter itmes to new characters
@@ -650,14 +647,13 @@ function gd.GDLeague.GiveStartingItems(id)
 	local player = Game.GetLocalPlayer()
 	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
 
-	-- TODO REMOVE COMMENT
-	-- if (gd.GDLeague.RedeemCondition(player)) then
-	-- 	gd.GDLeague.CheckForLeagueAchievementTokens()
-	-- end
+	if (gd.GDLeague.RedeemCondition(player)) then
+		gd.GDLeague.CheckForLeagueAchievementTokens()
+	end
 
-	-- gd.GDLeague.RecoverToken()
+	gd.GDLeague.RecoverToken()
 	
-	if(player:HasToken("Received_Start_Items") || player:GetLevel() > 2 || Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
+	if(player:HasToken("Received_Start_Items") or player:GetLevel() > 2 or Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
 		return
 	end
 	GiveTokenToLocalPlayer("Received_Start_Items")
@@ -686,7 +682,82 @@ function gd.GDLeague.GiveStartingItems(id)
 end
 
 
+-- Normal Boss Challenges
+local quest_boss_Galeslice = "Boss_Galeslice"
+local quest_boss_NarenKur = "Boss_NarenKur"
+local quest_boss_Karnath = "Boss_Karnath"
+local quest_boss_Rutnick = "Boss_Rutnick"
+local quest_boss_Blugrug = "Boss_Blugrug"
+local quest_boss_Astros = "Boss_Astros"
+local quest_boss_Abaddoth = "Boss_Abaddoth"
+local quest_celestial_totem = "Celestial_Totem"
+local quest_boss_gutworm = "Boss_Gutworm"
+local quest_boss_heraldstars = "Boss_HeraldStars"
+local quest_boss_heralddestruction = "Boss_HeraldDestruction"
+local quest_boss_heraldflame = "Boss_HeraldFlame"
+local quest_boss_Krieg = "Boss_Krieg"
+local quest_boss_Cronley = "Boss_Cronley"
 
+function gd.GDLeague.GrantTokenBoss_Galeslice()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Galeslice, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_NarenKur()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_NarenKur, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_Karnath()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Karnath, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_Rutnick()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Rutnick, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_Blugrug()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Blugrug, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_Astros()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Astros, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenBoss_Abaddoth()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Abaddoth, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenCelestialTotem()
+	gd.GDLeague.GrantGDLTokenItem(quest_celestial_totem, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenGutworm()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_gutworm, gd.GDLeague.NormalBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenHeraldStars()
+	gd.quests.areaDPortValburyBosses.doorGuardianKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_heraldstars, gd.GDLeague.EliteSideBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenHeraldDestruction()
+	gd.quests.areaCQuestLegionPriority.bossKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_heralddestruction, gd.GDLeague.EliteSideBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenHeraldFlame()
+	gd.homesteadRepairs.heraldOfFlameKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_heraldflame, gd.GDLeague.EliteSideBossRequirement)
+end
+
+function gd.GDLeague.GrantTokenKrieg()
+	gd.quests.devilsCrossingQuestWarden.wardenKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Krieg, gd.GDLeague.UltimateBossChallengeRequirement)
+end
+
+function gd.GDLeague.GrantTokenCronley()
+	gd.quests.homesteadQuestRemoveTheHead.dariusKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_Cronley, gd.GDLeague.UltimateBossChallengeRequirement)
+end
 
 -- Skeleton Key Dungeons
 local quest_dungeon_SoT = "Dungeon_SoT"
@@ -698,7 +769,8 @@ local quest_dungeon_TotH = "Dungeon_TotH"
 -- Gives token for completing the Steps Of Torment
 function gd.GDLeague.GrantTokenDungeonSoT()
 	gd.quests.homesteadStepsOfTormentBosses.unlockShortcut()
-	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_SoT)
+	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_SoT, gd.GDLeague.EliteDungeonRequirement)
+	gd.GDLeague.Chests.OnOpenTier4()
 end
 -- Grants points for holding the Steps of Torment token
 function gd.GDLeague.GrantPointsDungeonSoT()
@@ -707,7 +779,8 @@ end
 
 -- Gives token for completing the Bastion of Chaos
 function gd.GDLeague.GrantTokenDungeonBoC()
-	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_BoC)
+	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_BoC, gd.GDLeague.EliteDungeonRequirement)
+	gd.GDLeague.Chests.OnOpenTier4()
 end
 
 -- Grants points for holding the Bastion of Chaos token
@@ -718,7 +791,8 @@ end
 -- Gives token for completing the Port Valbury
 function gd.GDLeague.GrantTokenDungeonPV()
 	gd.quests.areaDPortValburyBosses.unlockShortcut()
-	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_PV)
+	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_PV, gd.GDLeague.EliteDungeonRequirement)
+	gd.GDLeague.Chests.OnOpenTier4()
 end
 
 -- Grants points for holding the Port Valbury token
@@ -729,7 +803,8 @@ end
 -- Gives token for completing the Ancient Grove
 function gd.GDLeague.GrantTokenDungeonAG()
 	gd.quests.areaEAncientGroveBosses.unlockShortcut()
-	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_AG)
+	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_AG, gd.GDLeague.EliteDungeonRequirement)
+	gd.GDLeague.Chests.OnOpenTier4()
 end
 
 -- Grants points for holding the Ancient Grove token
@@ -740,7 +815,8 @@ end
 -- Gives token for completing the Tomb of The Heretic
 function gd.GDLeague.GrantTokenDungeonTotH()
 	gd.quests.areaGTombOfHereticBosses.unlockShortcut()
-	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_TotH)
+	gd.GDLeague.GrantGDLTokenItem(quest_dungeon_TotH, gd.GDLeague.EliteDungeonRequirement)
+	gd.GDLeague.Chests.OnOpenTier4()
 end
 
 -- Grants points for holding the Tomb of the Heretic token
@@ -761,11 +837,13 @@ local quest_nemesis_eldritch= "Nemesis_Eldritch"
 local quest_nemesis_undead= "Nemesis_Undead"
 local quest_nemesis_beast= "Nemesis_Beast"
 local quest_nemesis_wendigo = "Nemesis_Wendigo"
+local quest_nemesis_normal = "Nemesis_Normal"
 
 -- Gives token for killing the Aehterial Nemesis
 function gd.GDLeague.GrantTokenNemesisAetherial()
-	gd.nemesis.aetherialNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_valdaran)
+	gd.GDLeague.Nemesis.aetherialNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal,  gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_valdaran)
 end
 
 -- Grants points for holding the Aehterial Nemesis token
@@ -775,8 +853,9 @@ end
 
 -- Gives token for killing the Aetherial Vanguard Nemesis
 function gd.GDLeague.GrantTokenNemesisVanguard()
-	gd.nemesisGDX1.aetherialVanguardNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_aleksander)
+	gd.GDLeague.Nemesis.aetherialVanguardNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_aleksander)
 end
 
 -- Grants points for holding the Aetherial Vanguard token
@@ -786,8 +865,9 @@ end
 
 -- Gives token for killing the Chthonian Nemesis
 function gd.GDLeague.GrantTokenNemesisChthonian()
-	gd.nemesis.chthonianNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_benjar)
+	gd.GDLeague.Nemesis.chthonianNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_benjar)
 end
 
 -- Grants points for holding the Chthonian Nemesis token
@@ -797,8 +877,9 @@ end
 
 -- Gives token for killing the Chthonian Nemesis Ashesh of Malmouth
 function gd.GDLeague.GrantTokenNemesisAOMChthonian()
-	gd.nemesisGDX1.chthonianVoidbornNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_grava)
+	gd.GDLeague.Nemesis.chthonianVoidbornNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_grava)
 end
 
 -- Grants points for holding the Chthonian Nemesis Ashesh of Malmouth token
@@ -808,8 +889,9 @@ end
 
 -- Gives token for killing the Cronley's Ganag Nemesis
 function gd.GDLeague.GrantTokenNemesisOutlaw()
-	gd.nemesis.outlawNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_fabious)
+	gd.GDLeague.Nemesis.outlawNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_fabious)
 end
 
 -- Grants points for holding the Cronley's Ganag Nemesis token
@@ -819,8 +901,9 @@ end
 
 -- Gives token for killing the Kymon's Chosen Nemesis
 function gd.GDLeague.GrantTokenNemesisMaiden()
-	gd.nemesis.kymonChosenNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_maiden)
+	gd.GDLeague.Nemesis.kymonChosenNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_maiden)
 end
 
 -- Grants points for holding the Kymon's Chosen Nemesis token
@@ -830,8 +913,9 @@ end
 
 -- Gives token for killing the Order of Death's VIgil Nemesis
 function gd.GDLeague.GrantTokenNemesisOrder()
-	gd.nemesis.orderDeathVigilNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_zantarin)
+	gd.GDLeague.Nemesis.orderDeathVigilNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_zantarin)
 end
 
 -- Grants points for holding the Order of Death's VIgil Nemesis token
@@ -841,8 +925,9 @@ end
 	
 -- Gives token for killing the Eldrith Nemesis
 function gd.GDLeague.GrantTokenNemesisEldritch()
-	gd.nemesisGDX2.eldritchNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_eldritch)
+	gd.GDLeague.Nemesis.eldritchNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_eldritch)
 end
 
 -- Grants points for holding the Eldrith Nemesis token
@@ -852,8 +937,9 @@ end
 
 -- Gives token for killing the Undead Nemesis
 function gd.GDLeague.GrantTokenNemesisUndead()
-	gd.nemesis.undeadNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_undead)
+	gd.GDLeague.Nemesis.undeadNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_undead)
 end
 
 -- Grants points for holding the Undead Nemesis token
@@ -866,11 +952,12 @@ local killcount = 0
 function gd.GDLeague.GrantTokenNemesisBeast()
 	killcount = killcount + 1
 	if(killcount == 4) then
-		gd.GDLeague.GrantGDLTokenItem(quest_nemesis_beast)
-		gd.nemesisGDX1.beastNemesisP03AKilled()
-		gd.nemesisGDX1.beastNemesisP03BKilled()
-		gd.nemesisGDX1.beastNemesisP03CKilled()
-		gd.nemesisGDX1.beastNemesisP03DKilled()
+		gd.GDLeague.Nemesis.beastNemesisP03AKilled()
+		gd.GDLeague.Nemesis.beastNemesisP03BKilled()
+		gd.GDLeague.Nemesis.beastNemesisP03CKilled()
+		gd.GDLeague.Nemesis.beastNemesisP03DKilled()
+		gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+		gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_beast)
 		killcount = 0
 	end
 end
@@ -882,8 +969,9 @@ end
 
 -- Gives token for killing the Barrowholm Nemesis
 function gd.GDLeague.GrantTokenNemesisReaper()
-	gd.nemesisGDX1.wendigoNemesisKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_wendigo)
+	gd.GDLeague.Nemesis.wendigoNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
+	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_wendigo)
 end
 
 -- Grants points for holding the Barrowholm Nemesis token
@@ -898,41 +986,40 @@ local quest_shatterred_realms_31 = "Shatterred_Realms_31"
 local quest_shatterred_realms_46 = "Shatterred_Realms_46"
 local quest_shatterred_realms_61 = "Shatterred_Realms_61"
 local quest_shatterred_realms_76 = "Shatterred_Realms_76"
-local quest_shatterred_realms_50_challenge = "Shatterred_Realms_50_Challenge"
+local quest_shatterred_realms_65_challenge = "Shatterred_Realms_65_Challenge"
 
 -- checks if player has beaten the time and awards tokens for the respective shard. Earning a token for a higher shard also awards the lower tiers.
 function gd.GDLeague.GrantTokenShatteredRealm()
 	gd.endlessDungeon.core.dispenseTreasure()
-	-- TODO REMOVE COMMENT
-	-- local player = Game.GetLocalPlayer()
-	-- if (Game.IsEndlessDungeonBonusComplete()) then
-	-- 	local rewardTier = Game.GetEndlessDungeonsGenerated()
-	-- 	if(rewardTier > 80) then
-	-- 		gd.GDLeague.GrantTokenDeepShatteredRealm(rewardTier)
-	-- 	end
-	-- 	if(rewardTier == 50) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm50Challenge()
-	-- 	end
-	-- 	if(rewardTier >= 76) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm76()
-	-- 	end
-	-- 	if(rewardTier >= 61) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm61()
-	-- 	end
-	-- 	if(rewardTier >= 46) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm46()
-	-- 	end
-	-- 	if(rewardTier >= 31) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm31()
-	-- 	end
-	-- 	if(rewardTier >= 16) then
-	-- 		gd.GDLeague.GrantTokenShatteredRealm16()
-	-- 	end
-	-- end
+	local player = Game.GetLocalPlayer()
+	if (Game.IsEndlessDungeonBonusComplete()) then
+		local rewardTier = Game.GetEndlessDungeonsGenerated()
+		if(rewardTier > 80) then
+			gd.GDLeague.GrantTokenDeepShatteredRealm(rewardTier)
+		end
+		if(rewardTier == 65) then
+			gd.GDLeague.GrantTokenShatteredRealm50Challenge()
+		end
+		if(rewardTier >= 76) then
+			gd.GDLeague.GrantTokenShatteredRealm76()
+		end
+		if(rewardTier >= 61) then
+			gd.GDLeague.GrantTokenShatteredRealm61()
+		end
+		if(rewardTier >= 46) then
+			gd.GDLeague.GrantTokenShatteredRealm46()
+		end
+		if(rewardTier >= 31) then
+			gd.GDLeague.GrantTokenShatteredRealm31()
+		end
+		if(rewardTier >= 16) then
+			gd.GDLeague.GrantTokenShatteredRealm16()
+		end
+	end
 end
 -- grant toke for SR level 80+
 function gd.GDLeague.GrantTokenDeepShatteredRealm(rewardTier)
-	local drb_path = "records/items/grimleagues02/questitems/SREndless/token_SR"
+	local drb_path = "records/items/grimleagues03/questitems/SREndless/token_SR"
 	if(rewardTier > 99) then
 		drb_path = drb_path..rewardTier..".dbr"
 	else
@@ -950,7 +1037,7 @@ function gd.GDLeague.GrantTokenDeepShatteredRealm(rewardTier)
 end
 
 function gd.GDLeague.GrantPointsDeepShatteredRealm()
-	local dbr_path = "records/items/grimleagues02/questitems/SREndless/token_SR"
+	local dbr_path = "records/items/grimleagues03/questitems/SREndless/token_SR"
 	local player = Game.GetLocalPlayer()
 	for sr_tier=130, 81, -1 do
 		local token_dbr = ""
@@ -976,12 +1063,12 @@ end
 
 -- grants token for completing SR50 Ult Challenge
 function gd.GDLeague.GrantTokenShatteredRealm50Challenge()
-	gd.GDLeague.GrantGDLTokenItem(quest_shatterred_realms_50_challenge,  gd.GDLeague.SR50LeagueCondition)
+	gd.GDLeague.GrantGDLTokenItem(quest_shatterred_realms_65_challenge,  gd.GDLeague.SR65LeagueCondition)
 end
 
 -- gives points if the player is holding the SR50 challenge token
 function gd.GDLeague.GrantPointsShatteredRealm50Challenge()
-	gd.GDLeague.GrantGDLPoints(quest_shatterred_realms_50_challenge)
+	gd.GDLeague.GrantGDLPoints(quest_shatterred_realms_65_challenge)
 end
 
 -- grants token for completing SR76
@@ -1050,7 +1137,7 @@ local quest_boss_rashalga = "Boss_Rashalga"
 
 -- grants the token to the player when Protoss is killed
 function gd.GDLeague.GrantTokenProtossKill()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_protoss)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_protoss, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Protoss token
@@ -1060,7 +1147,7 @@ end
 
 -- grants the token to the player when Alric is killed
 function gd.GDLeague.GrantTokenAldricKill()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_aldric)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_aldric, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Aldric token
@@ -1070,7 +1157,7 @@ end
 
 -- grants the token to the player when Alric #2 is killed
 function gd.GDLeague.GrantTokenAldricKill2()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_aldric2)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_aldric2, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Aldric token #2
@@ -1080,7 +1167,7 @@ end
 
 -- grants the token to the player when Loxemere is killed
 function gd.GDLeague.GrantTokenLoxmereKill()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_loxmere)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_loxmere, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Loxmere token
@@ -1091,7 +1178,7 @@ end
 -- grants the token to the player when Kra'val is killed
 function gd.GDLeague.GrantTokenKravalKill()
 	gd.quests.areaEQuestUgdenbog.krakenKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_kraval)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_kraval, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Kra'val token
@@ -1102,7 +1189,7 @@ end
 -- grants the token to the player when Rashsalga is killed
 function gd.GDLeague.GrantTokenRashalgaKill()
 	gd.quests.devilsCrossingWitchGodShrines.secretBossKilled()
-	gd.GDLeague.GrantGDLTokenItem(quest_boss_rashalga)
+	gd.GDLeague.GrantGDLTokenItem(quest_boss_rashalga, gd.GDLeague.UltimateBossRequirement)
 end
 
 -- rewards points to the player for holding the Rashalga token
@@ -1349,9 +1436,9 @@ end
 local quest_super_boss_mod_rolderathis = "Super_Boss_Mod_Rolderathis"
 local Rolderathis_Shortcut_id
 local is_Rolderathis_spawned = false
-local rolderathis_key1 = "records/items/grimleagues02/questitems/rolderathis_key1.dbr"
-local rolderathis_key2 = "records/items/grimleagues02/questitems/rolderathis_key2.dbr"
-local rolderathis_key3 = "records/items/grimleagues02/questitems/rolderathis_key3.dbr"
+local rolderathis_key1 = "records/items/grimleagues03/questitems/rolderathis_key1.dbr"
+local rolderathis_key2 = "records/items/grimleagues03/questitems/rolderathis_key2.dbr"
+local rolderathis_key3 = "records/items/grimleagues03/questitems/rolderathis_key3.dbr"
 
 function gd.GDLeague.SpawnRolderathis(id)
 	local player = Game.GetLocalPlayer()
@@ -1383,22 +1470,22 @@ end
 
 function gd.GDLeague.UnlockDoorRolderathis(id)
 	local player = Game.GetLocalPlayer()
-	-- TODO REMOVE COMMENT
-	-- if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(rolderathis_key1, 1, false) and player:HasItem(rolderathis_key2, 1, false) and player:HasItem(rolderathis_key3, 1, false)) then
+	if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(rolderathis_key1, 1, false) and player:HasItem(rolderathis_key2, 1, false) and player:HasItem(rolderathis_key3, 1, false)) then
 	if(true) then
 		local door = Door.Get(id)
 		door:SetLocked(false)
 		door:Open()
 	end
 end
+end
 
 
 local quest_super_boss_mod_galakros = "Super_Boss_Mod_Galakros"
 local Galakros_Shortcut_id
 local is_Galakros_spawned = false
-local galakros_key1 = "records/items/grimleagues02/questitems/galakros_key1.dbr"
-local galakros_key2 = "records/items/grimleagues02/questitems/galakros_key2.dbr"
-local galakros_key3 = "records/items/grimleagues02/questitems/galakros_key3.dbr"
+local galakros_key1 = "records/items/grimleagues03/questitems/galakros_key1.dbr"
+local galakros_key2 = "records/items/grimleagues03/questitems/galakros_key2.dbr"
+local galakros_key3 = "records/items/grimleagues03/questitems/galakros_key3.dbr"
 
 function gd.GDLeague.SpawnGalakros(id)
 	local player = Game.GetLocalPlayer()
@@ -1430,12 +1517,12 @@ end
 
 function gd.GDLeague.UnlockDoorGalakros(id)
 	local player = Game.GetLocalPlayer()
-	-- TODO REMOVE COMMENT
-	-- if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(galakros_key1, 1, false) and player:HasItem(galakros_key2, 1, false) and player:HasItem(galakros_key3, 1, false)) then
-	if(true) then
-		local door = Door.Get(id)
-		door:SetLocked(false)
-		door:Open()
+	if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(galakros_key1, 1, false) and player:HasItem(galakros_key2, 1, false) and player:HasItem(galakros_key3, 1, false)) then
+		if(true) then
+			local door = Door.Get(id)
+			door:SetLocked(false)
+			door:Open()
+		end
 	end
 end
 
@@ -1443,9 +1530,9 @@ end
 local quest_super_boss_mod_ballognath = "Super_Boss_Mod_BallogNath"
 local BallogNath_Shortcut_id
 local is_BallogNath_spawned = false
-local ballognath_key1 = "records/items/grimleagues02/questitems/ballognath_key1.dbr"
-local ballognath_key2 = "records/items/grimleagues02/questitems/ballognath_key2.dbr"
-local ballognath_key3 = "records/items/grimleagues02/questitems/ballognath_key3.dbr"
+local ballognath_key1 = "records/items/grimleagues03/questitems/ballognath_key1.dbr"
+local ballognath_key2 = "records/items/grimleagues03/questitems/ballognath_key2.dbr"
+local ballognath_key3 = "records/items/grimleagues03/questitems/ballognath_key3.dbr"
 
 function gd.GDLeague.SpawnBallogNath(id)
 	local player = Game.GetLocalPlayer()
@@ -1473,13 +1560,13 @@ end
 
 function gd.GDLeague.UnlockDoorBallogNath(id)
 	local player = Game.GetLocalPlayer()
-	-- TODO REMOVE COMMENT
-	-- if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(ballognath_key1, 1, false) and player:HasItem(ballognath_key2, 1, false) and player:HasItem(ballognath_key3, 1, false)) then
+	if(player:HasItem(LeagueEntryToken, 1, false) and player:HasItem(ballognath_key1, 1, false) and player:HasItem(ballognath_key2, 1, false) and player:HasItem(ballognath_key3, 1, false)) then
 	if(true) then
 		local door = Door.Get(id)
 		door:SetLocked(false)
 		door:Open()
 	end
+end
 end
 
 function gd.GDLeague.LockDoorBallogNath(id)
@@ -1488,7 +1575,7 @@ function gd.GDLeague.LockDoorBallogNath(id)
 		entity:Destroy()	
 	end
 end
-
+ 
 function gd.GDLeague.GrantQuestItemBallogNath()
 	gd.GDLeague.GrantQuestItems(ballognath_key1, ballognath_key2, ballognath_key3)
 end

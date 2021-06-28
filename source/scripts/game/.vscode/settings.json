@@ -1,0 +1,13 @@
+{
+    "Lua.diagnostics.globals": [
+        "Chest",
+        "Server",
+        "Entity",
+        "Game",
+        "GiveTokenToLocalPlayer",
+        "UI",
+        "Door",
+        "Character",
+        "GiveTokenToLocalPlayer"
+    ]
+}
