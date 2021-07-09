@@ -1,2 +1,5 @@
 resources/**.arc
 database/**.arz
+source/levels/*
+
+!source/levels/GrimLeague/
