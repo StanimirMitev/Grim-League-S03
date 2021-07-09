@@ -644,6 +644,7 @@ end
 
 -- Grant starter itmes to new characters
 function gd.GDLeague.GiveStartingItems(id)
+	print(gi_versions)
 	local player = Game.GetLocalPlayer()
 	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
 

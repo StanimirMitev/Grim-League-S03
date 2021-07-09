@@ -294,6 +294,7 @@ tagGDLeagueSuperBoss3Mirror1MinionMelee=Grim Legionary ~ Dimachaerus
 tagGDLeagueSuperBoss3Mirror1MinionRange=Grim Legionary ~ Sagittarius
 tagGDLeagueSuperBoss3Mirror1MinionCaster=Grim Legionary ~ Conjurer
 tagGDLeagueSuperBoss3Mirror1Minion=Grim Legion ~ War Golem
+tagGDLeagueSuperBoss4=Aranea, the Weaver of Agony
 
 #Level Art
 tagGDLeagueRiftRolderathis=Way To Rolderathis
