@@ -1,0 +1,6 @@
+templateName,database/templates/musicpak.tpl,
+ActorName,,
+Class,MusicSession,
+FileDescription,,
+tracks,sound/music/foot of earth.ogg;sound/music/four years in.ogg;sound/music/gdx_ost_malmouth_ruins.ogg,
+randomize,1,

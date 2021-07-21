@@ -1,0 +1,6 @@
+templateName,database/templates/musicpak.tpl,
+ActorName,,
+Class,MusicSession,
+FileDescription,,
+tracks,sound/music/gdx2_ruins_low.ogg,
+randomize,1,
