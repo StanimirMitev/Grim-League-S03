@@ -3,6 +3,12 @@ gd.map = {}
 local boss_fee = "records/items/crafting/materials/craft_skeletonkey.dbr"
 local boss_fee_amount = 1
 
+local dungeon_completed_01 = false
+local dungeon_completed_02 = false
+local dungeon_completed_03 = false
+local dungeon_completed_04 = false
+local dungeon_completed_05 = false
+
 -- After completing a fight, the exit gets moved to the given coordinates
 -- The functions below should be called when a boss dies / the dungeon is completed
 
@@ -10,28 +16,38 @@ local boss_fee_amount = 1
 function gd.map.moveDungeonPortal01()
 	dungeon_portal_01:SetCoords(dungeon_portal_coords_01)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_01)
+	dungeon_completed_01 = true
+	dungeon_door_01:Open()
 end
 
 --- Spider Nest
 function gd.map.moveDungeonPortal02()
 	dungeon_portal_02:SetCoords(dungeon_portal_coords_02)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_02)
+	dungeon_completed_02 = true
+	dungeon_door_02:Open()
 end
 
 function gd.map.moveDungeonPortal03()
 	dungeon_portal_03:SetCoords(dungeon_portal_coords_03)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_03)
+	dungeon_completed_03 = true
+	dungeon_door_03:Open()
 end
 
 --- Town Square
 function gd.map.moveDungeonPortal04()
 	dungeon_portal_04:SetCoords(dungeon_portal_coords_04)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_04)
+	dungeon_completed_04 = true
+	dungeon_door_04:Open()
 end
 
 function gd.map.moveDungeonPortal05()
 	dungeon_portal_05:SetCoords(dungeon_portal_coords_05)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_05)
+	dungeon_completed_05 = true
+	dungeon_door_05:Open()
 end
 
 function gd.map.triggerHideout()
@@ -172,4 +188,76 @@ end
 
 function gd.map.getDungeonPortal05(objectId)
 	dungeon_portal_05 = Entity.Get(objectId)
+end
+
+-- Dungeons
+
+function gd.map.getDungeonDoor01(objectId)
+	dungeon_door_01 = Door.Get(objectId)
+end
+
+function gd.map.getDungeonDoor02(objectId)
+	dungeon_door_02 = Door.Get(objectId)
+end
+
+function gd.map.getDungeonDoor03(objectId)
+	dungeon_door_03 = Door.Get(objectId)
+end
+
+function gd.map.getDungeonDoor04(objectId)
+	dungeon_door_04 = Door.Get(objectId)
+end
+
+function gd.map.getDungeonDoor05(objectId)
+	dungeon_door_05 = Door.Get(objectId)
+end
+
+function gd.map.triggerOpenDungeonDoor01()
+	dungeon_door_01:Open()
+end
+
+function gd.map.triggerOpenDungeonDoor02()
+	dungeon_door_02:Open()
+end
+
+function gd.map.triggerOpenDungeonDoor03()
+	dungeon_door_03:Open()
+end
+
+function gd.map.triggerOpenDungeonDoor04()
+	dungeon_door_04:Open()
+end
+
+function gd.map.triggerOpenDungeonDoor05()
+	dungeon_door_05:Open()
+end
+
+function gd.map.triggerCloseDungeonDoor01()
+	if (not dungeon_completed_01) then
+		dungeon_door_01:Close()
+	end
+end
+
+function gd.map.triggerCloseDungeonDoor02()
+	if (not dungeon_completed_02) then
+		dungeon_door_02:Close()
+	end
+end
+
+function gd.map.triggerCloseDungeonDoor03()
+	if (not dungeon_completed_03) then
+		dungeon_door_03:Close()
+	end
+end
+
+function gd.map.triggerCloseDungeonDoor04()
+	if (not dungeon_completed_04) then
+		dungeon_door_04:Close()
+	end
+end
+
+function gd.map.triggerCloseDungeonDoor05()
+	if (not dungeon_completed_05) then
+		dungeon_door_05:Close()
+	end
 end
