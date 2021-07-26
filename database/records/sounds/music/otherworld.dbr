@@ -1,0 +1,7 @@
+templateName,database/templates/musicpak.tpl,
+ActorName,,
+Class,MusicSession,
+FileDescription,,
+randomize,1,
+tracks,sound/music/gdx2_ruins_low.ogg,
+fileNameHistoryEntry,mods/grim-league-s03/records/sounds/music/copy of hideout.dbr,

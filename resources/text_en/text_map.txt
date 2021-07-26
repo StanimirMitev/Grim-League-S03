@@ -3,7 +3,7 @@
 tag_Hideout=Hideout
 tag_RiftgateHideout=Hideout
 
-tag_Portals=Portals ^a(Boss Fights)
+tag_Portals=Portals ^o(Boss Fights)
 tag_ShortcutHideout=^yShortcut to Portals
 
 tag_EntranceHideout=Boat ^a(Hideout)
@@ -11,14 +11,14 @@ tag_EntranceDungeon01=Portal to ^oDesert Ruins
 tag_EntranceDungeon02=Portal to ^oSpider Nest
 tag_EntranceDungeon03=Portal to ^oAshen Waste
 tag_EntranceDungeon04=Portal to ^oTown Square
-tag_EntranceDungeon05=Portal to ^oNowhere
-tag_DungeonBack=Portal to ^aHideout
+tag_EntranceDungeon05=Portal to ^oOtherworld
+tag_DungeonBack=Portal to ^yHideout
 
 tag_DoorDungeon01=Desert Ruins
 tag_DoorDungeon02=Spider Nest
 tag_DoorDungeon03=Ashen Waste
 tag_DoorDungeon04=Town Square
-tag_DoorDungeon05=None
+tag_DoorDungeon05=Otherworld
 
 tag_DoorDungeon01Locked=^r(Something is required)
 tag_DoorDungeon02Locked=^r(Something is required)
@@ -30,6 +30,8 @@ tag_DoorPortals=Protected Gate
 tag_DoorPortalsLocked=^r(Level 100 and Ultimate)
 
 tag_CompletionDungeon=^cYou can now leave near the entrance
+
+tag_DungeonTeleporter=Temporary Dungeon
 
 ## NPCs
 
