@@ -11,7 +11,7 @@ tagGDLeagueTokenSRPushDesc=To redeem points, transfer to a level 4 character and
 tagGDLeagueDummyToken=Grim League Dummy Token
 tagGDLeagueDummyTokenFlovorText=Reserves inventory space for something else.
 tagGDLeagueEntryToken=Grim League S02
-tagGDLeagueEntryTokenFlovorText=Must be kept in inventory at all times
+tagGDLeagueEntryTokenFlovorText=Must be kept in inventory at all times.
 tagGDLeagueRecoveryToken=Grim League Recovery Token
 tagGDLeagueRecoveryTokenFlovorText=To regain lost items, first go to Devils Crossing on Normal. Then visit Devils Crossing on each difficulty, the character has earned tokens on.
 
