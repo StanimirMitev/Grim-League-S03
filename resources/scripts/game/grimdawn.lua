@@ -11,6 +11,7 @@ gd = {}
 
 Script.Load("Scripts/game/GDLeague/GDLeagueS02.lua")
 Script.Load("Scripts/game/GDLeague/gdl_nemesis.lua")
+Script.Load("Scripts/game/GDLeague/gdl_bosses.lua")
 
 Script.Load("scripts/game/map.lua")
 

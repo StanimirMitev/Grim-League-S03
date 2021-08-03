@@ -1,0 +1,6 @@
+templateName,database/templates/skill_attackprojectiledebuf.tpl,
+ActorName,,
+Class,Skill_AttackProjectileDebuf,
+FileDescription,,
+buffSkillName,records/skills/grimleague/aranea/bomber_silk_web_buff.dbr,
+projectileNames,records/fx/grim_league/aranea/aranea_bomber_trap_projectile.dbr,

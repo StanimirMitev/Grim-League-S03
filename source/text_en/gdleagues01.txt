@@ -295,6 +295,12 @@ tagGDLeagueSuperBoss3Mirror1MinionRange=Grim Legionary ~ Sagittarius
 tagGDLeagueSuperBoss3Mirror1MinionCaster=Grim Legionary ~ Conjurer
 tagGDLeagueSuperBoss3Mirror1Minion=Grim Legion ~ War Golem
 tagGDLeagueSuperBoss4=Aranea, the Weaver of Agony
+tagGDLeagueSuperBoss4Egg=Spider Eggs
+tagGDLeagueSuperBoss4EggDestory01=You should not have done that!!! Spider Eggs Destoryed (1/5)
+tagGDLeagueSuperBoss4EggDestory02=You should not have done that!!! Spider Eggs Destoryed (2/5)
+tagGDLeagueSuperBoss4EggDestory03=You should not have done that!!! Spider Eggs Destoryed (3/5)
+tagGDLeagueSuperBoss4EggDestory04=You should not have done that!!! Spider Eggs Destoryed (4/5)
+tagGDLeagueSuperBoss4EggDestory05=Spider Eggs Destoryed (5/5). WHAT is that SOUND?
 
 #Level Art
 tagGDLeagueRiftRolderathis=Way To Rolderathis

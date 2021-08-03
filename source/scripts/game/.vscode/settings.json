@@ -8,6 +8,9 @@
         "UI",
         "Door",
         "Character",
-        "GiveTokenToLocalPlayer"
+        "GiveTokenToLocalPlayer",
+        "Proxy",
+        "Time",
+        "random"
     ]
 }
