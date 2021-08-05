@@ -10,6 +10,15 @@ function gd.GDLeague.Bosses.SpawnMonster(id, record)
 	spawn:SetCoords(coords)
 end
 
+function gd.GDLeague.Bosses.MoveMonster(to_move_id, location_id)
+	Entity.Get(to_move_id):SetCoords(Entity.Get(location_id):GetCoords())
+end
+
+function gd.GDLeague.Bosses.ProxyRun(id)
+	local proxy = Proxy.Get(id)
+	proxy:Run()
+end
+
 -- ARANEA THE WEAVER OF AGONY
 
 local spider_script_spawns = {0,0,0,0,0,0,0,0}
@@ -220,4 +229,33 @@ function gd.GDLeague.Bosses.SpawnGalakrosCrystals(id)
 		gd.GDLeague.Bosses.SpawnMonster(i, crystal_dbr)
 	end
 	crystals_counter = crystals_counter + 1
+end
+
+
+-- Ascended Spellbreaker Moira
+local blade_spirit_proxy_ids = {}
+local blade_spirit_script_spawns_01 = {}
+local blade_spirit_script_spawns_02 = {}
+
+function gd.GDLeague.Bosses.onAddToWorldBladeSpiritPatrol(id)
+	--Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
+	--table.insert(blade_spirit_proxy_ids, id)
+end
+
+function gd.GDLeague.Bosses.onAddToWorldBladeSpiritSpawns01(id)
+	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
+	table.insert(blade_spirit_script_spawns_01, id)
+end
+
+function gd.GDLeague.Bosses.onAddToWorldBladeSpiritSpawns02(id)
+	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
+	table.insert(blade_spirit_script_spawns_02, id)
+end
+
+function gd.GDLeague.Bosses.SetUpBladeSpiritPatrol01(id)
+	-- scion01:UseSkillAction("records/skills/nonplayerskillsgdx2/bossskills/nemesis/sandscion_specialenrage.dbr", specialBossAvatar01Id, false)
+	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_01[1])
+	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_01[2])
+	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_02[1])
+	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_02[2])
 end
