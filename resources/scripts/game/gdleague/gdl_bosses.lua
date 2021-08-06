@@ -236,6 +236,7 @@ end
 local blade_spirit_proxy_ids = {}
 local blade_spirit_script_spawns_01 = {}
 local blade_spirit_script_spawns_02 = {}
+local swap_location_id = nil
 
 function gd.GDLeague.Bosses.onAddToWorldBladeSpiritPatrol(id)
 	--Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
@@ -251,11 +252,35 @@ function gd.GDLeague.Bosses.onAddToWorldBladeSpiritSpawns02(id)
 	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
 	table.insert(blade_spirit_script_spawns_02, id)
 end
-
+local test_list = {}
 function gd.GDLeague.Bosses.SetUpBladeSpiritPatrol01(id)
 	-- scion01:UseSkillAction("records/skills/nonplayerskillsgdx2/bossskills/nemesis/sandscion_specialenrage.dbr", specialBossAvatar01Id, false)
 	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_01[1])
 	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_01[2])
 	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_02[1])
 	gd.GDLeague.Bosses.ProxyRun(blade_spirit_script_spawns_02[2])
+	gd.GDLeague.Bosses.onDeathSetUpNextStage(id)
+end
+
+function gd.GDLeague.Bosses.quicktest()
+	-- for index, value in ipairs(test_list) do
+	-- 	Character.Get(value):UseSkillAction("records/skills/GrimLeague/moira/blade_spirit_patrol_aura.dbr", value, false)
+	-- 	Character.Get(value):UseSkillAction("records/skills/GrimLeague/moira/blade_spirit_patrol_aura_01.dbr", value, false)
+	-- end
+end
+
+function gd.GDLeague.Bosses.BladeSpiritSuicide(id)
+	test_list[#test_list+1] = id
+	gd.GDLeague.Bosses.MoveMonster(id, Game.GetLocalPlayer():GetId())
+	--Character.Get(id):UseSkillAction("records/skills/grimleague/moira/blade_spirit_patrol_aura.dbr", id, false)
+	--Character.Get(id):UseSkillAction("records/skills/grimleague/moira/blade_spirit_patrol_aura.dbr", id, false)
+end
+
+function gd.GDLeague.Bosses.onDeathSetUpNextStage(id)
+	Proxy.Create("records/proxies/GrimLeague/proxy_boss_moira_invunerable_stage_01.dbr", Entity.Get(id):GetCoords().origin, true)
+end
+
+
+function gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
+	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_swap_point")
 end
