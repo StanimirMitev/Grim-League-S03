@@ -1,8 +1,5 @@
 gd.map = {}
 
-local boss_fee = "records/items/crafting/materials/craft_skeletonkey.dbr"
-local boss_fee_amount = 1
-
 local dungeon_completed_01 = false
 local dungeon_completed_02 = false
 local dungeon_completed_03 = false
@@ -10,7 +7,14 @@ local dungeon_completed_04 = false
 local dungeon_completed_05 = false
 
 -- After completing a fight, the exit gets moved to the given coordinates
--- The functions below should be called when a boss dies / the dungeon is completed
+-- moveDungeonPortal() should be called when the dungeon is completed
+
+--- interactPortalDoor()
+-- Replace condition (false) of the if statements with the functions below and add a return value to them > return true when door requirement is met
+
+-- gd.GDLeague.UnlockDoorGalakros(objectId)
+-- gd.GDLeague.UnlockDoorRolderathis(objectId)
+-- gd.GDLeague.UnlockDoorBallogNath(objectId)
 
 --- Desert Ruins
 function gd.map.moveDungeonPortal01()
@@ -18,6 +22,16 @@ function gd.map.moveDungeonPortal01()
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_01)
 	dungeon_completed_01 = true
 	dungeon_door_01:Open()
+end
+
+function gd.map.interactPortalDoor01(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
 end
 
 --- Spider Nest
@@ -28,11 +42,72 @@ function gd.map.moveDungeonPortal02()
 	dungeon_door_02:Open()
 end
 
+function gd.map.interactPortalDoor02(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
+end
+
+function gd.map.destroyEggs01(objectId)
+	gd.GDLeague.Bosses.SpiderEggDestroyed()
+	spider_egg_01a:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_01b:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_01b2:Destroy(Vec(0,1,0), 10, true)
+	gd.map.spawnSpidersOnEggs(Entity.Get(objectId):GetCoords())
+end
+
+function gd.map.destroyEggs02(objectId)
+	gd.GDLeague.Bosses.SpiderEggDestroyed()
+	spider_egg_02a:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_02a2:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_02b:Destroy(Vec(0,1,0), 10, true)
+	gd.map.spawnSpidersOnEggs(Entity.Get(objectId):GetCoords())
+end
+
+function gd.map.destroyEggs03(objectId)
+	gd.GDLeague.Bosses.SpiderEggDestroyed()
+	spider_egg_03a:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_03b:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_03b2:Destroy(Vec(0,1,0), 10, true)
+	gd.map.spawnSpidersOnEggs(Entity.Get(objectId):GetCoords())
+end
+
+function gd.map.destroyEggs04(objectId)
+	gd.GDLeague.Bosses.SpiderEggDestroyed()
+	spider_egg_04a:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_04b:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_04b2:Destroy(Vec(0,1,0), 10, true)
+	gd.map.spawnSpidersOnEggs(Entity.Get(objectId):GetCoords())
+end
+
+function gd.map.destroyEggs05(objectId)
+	gd.GDLeague.Bosses.SpiderEggDestroyed()
+	spider_egg_05a:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_05a2:Destroy(Vec(0,1,0), 10, true)
+	spider_egg_05b:Destroy(Vec(0,1,0), 10, true)
+	gd.map.spawnSpidersOnEggs(Entity.Get(objectId):GetCoords())
+end
+
+--- Ashen Waste / Ballog'Nath
 function gd.map.moveDungeonPortal03()
 	dungeon_portal_03:SetCoords(dungeon_portal_coords_03)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_03)
 	dungeon_completed_03 = true
 	dungeon_door_03:Open()
+end
+
+function gd.map.interactPortalDoor03(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
 end
 
 --- Town Square
@@ -43,11 +118,32 @@ function gd.map.moveDungeonPortal04()
 	dungeon_door_04:Open()
 end
 
+function gd.map.interactPortalDoor04(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
+end
+
+--- Otherworld
 function gd.map.moveDungeonPortal05()
 	dungeon_portal_05:SetCoords(dungeon_portal_coords_05)
 	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_05)
 	dungeon_completed_05 = true
 	dungeon_door_05:Open()
+end
+
+function gd.map.interactPortalDoor05(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
 end
 
 function gd.map.triggerHideout()
@@ -76,15 +172,6 @@ function gd.map.triggerPortals()
 	Game.GetLocalPlayer():GiveToken("GL_HIDEOUT_SHORTCUT_UNLOCKED")
 end
 
-function gd.map.interactPortalDoor(objectId)
-	if (Game.GetLocalPlayer():HasItem(boss_fee, boss_fee_amount, false) or Game.GetLocalPlayer():HasToken("GL_TESTING")) then
-		Door.Get(objectId):SetLocked(false)
-		Door.Get(objectId):Open()
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-		Game.GetLocalPlayer():TakeItem(boss_fee, boss_fee_amount, false)
-	end
-end
-
 function gd.map.playSoundEffectPortalDoor(coords)
 	local sound_effect = Character.Create("records/__map/sound_door_dungeon_npc.dbr")
 		sound_effect:SetCoords(coords)
@@ -100,6 +187,14 @@ function gd.map.playSoundEffectPortalMoved(coords)
 		sound_effect:PlaySound(SoundType.VoxSound)
 	Entity.Create("records/fx/ambient/korvaakdoor01_deactivate_fx.dbr"):SetCoords(coords)
 	UI.Notify("tag_CompletionDungeon")
+end
+
+function gd.map.spawnSpidersOnEggs(coords)
+	Proxy.Create("records/creatures/spider_proxy.dbr"):SetCoords(coords)
+end
+
+function gd.map.spawnSpidersOnEggsFew(objectId)
+	Proxy.Create("records/creatures/spider_few_proxy.dbr"):SetCoords(Entity.Get(objectId):GetCoords())
 end
 
 -- Hideout
@@ -260,4 +355,66 @@ function gd.map.triggerCloseDungeonDoor05()
 	if (not dungeon_completed_05) then
 		dungeon_door_05:Close()
 	end
+end
+
+-- Egg Stuff
+
+function gd.map.getEggs01a(objectId)	
+	spider_egg_01a = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs01b(objectId)	
+	spider_egg_01b = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs01b2(objectId)	
+	spider_egg_01b2 = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs02a(objectId)	
+	spider_egg_02a = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs02a2(objectId)	
+	spider_egg_02a2 = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs02b(objectId)	
+	spider_egg_02b = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs03a(objectId)	
+	spider_egg_03a = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs03b(objectId)	
+	spider_egg_03b = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs03b2(objectId)	
+	spider_egg_03b2 = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs04a(objectId)	
+	spider_egg_04a = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs04b(objectId)	
+	spider_egg_04b = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs04b2(objectId)	
+	spider_egg_04b2 = Destructible.Get(objectId)
+end
+		
+function gd.map.getEggs05a(objectId)	
+	spider_egg_05a = Destructible.Get(objectId)
+end
+			
+function gd.map.getEggs05a2(objectId)	
+	spider_egg_05a2 = Destructible.Get(objectId)
+end
+	
+function gd.map.getEggs05b(objectId)	
+	spider_egg_05b = Destructible.Get(objectId)
 end

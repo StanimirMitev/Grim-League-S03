@@ -1,6 +1,6 @@
 templateName,database/templates/scriptentity.tpl,
 editorMesh,creatures/enemies/insects/spidergianta01.msh,
-editorScale,3,
+editorScale,2,
 pathing,0,
 cacheObjects,,
 ActorName,,

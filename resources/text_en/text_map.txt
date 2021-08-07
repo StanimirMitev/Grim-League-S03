@@ -49,6 +49,10 @@ tag_Merchant=Common Goods
 tag_Merchant01=Eadwig
 tag_Merchant02=
 
+tag_SmolSpider=Spider
+tag_SpiderEggs=Spider Eggs
+tag_SpiderEggsCluster=Large Egg Cluster
+
 ## Faction Merchants
 
 tag_MerchantFaction=Faction Merchant
