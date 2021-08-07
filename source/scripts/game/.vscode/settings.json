@@ -11,6 +11,7 @@
         "GiveTokenToLocalPlayer",
         "Proxy",
         "Time",
-        "random"
+        "random",
+        "Script"
     ]
 }

@@ -1,7 +1,7 @@
 templateName,database/templates/patrolpoint.tpl,
 ActorName,,
 Class,PatrolPoint,
-FileDescription,,
+FileDescription,blade spirit patrol points,
 description,,
 mesh,fx/meshfx/ui_exclamation01.msh,
 baseTexture,system/textures/purple.tex,

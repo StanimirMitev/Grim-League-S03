@@ -1,7 +1,7 @@
 gd.GDLeague.Bosses = {}
 
 function gd.GDLeague.Bosses.MonsterLevel()
-	return 110, nil
+	return 112, nil
 end
 
 function gd.GDLeague.Bosses.SpawnMonster(id, record)
@@ -37,7 +37,7 @@ function gd.GDLeague.Bosses.SpiderEggDestroyed()
 	UI.Notify(spider_eggs_notifications[spider_eggs_destroyed])
 	if(spider_eggs_destroyed == 5) then
 		-- local spider = Proxy.Create("records/proxies/GrimLeague/proxy_boss_aranea.dbr", Game.GetLocalPlayer().GetCoords().origin, true)
-		-- spider.SetCoords(Game.GetLocalPlayer().GetCoords().origin)
+		-- spider.SetCoords(Game.GetLocalPlayer().GetCoords())
 		local coords = Game.GetLocalPlayer():GetCoords()
 		local proxy = Proxy.Create("records/proxies/GrimLeague/proxy_boss_aranea.dbr", coords.origin, true)
 		proxy:SetCoords(coords)
@@ -232,11 +232,21 @@ function gd.GDLeague.Bosses.SpawnGalakrosCrystals(id)
 end
 
 
--- Ascended Spellbreaker Moira
+-- ASCENDED SPELLBREAKER MOIRA
+
 local blade_spirit_proxy_ids = {}
 local blade_spirit_script_spawns_01 = {}
 local blade_spirit_script_spawns_02 = {}
 local swap_location_id = nil
+local attack_location_id = nil
+local invunerable_monster_id = nil
+local walk_to_center_monster_id = nil
+local has_invunerable_stage_finished = false
+local script_invunerable_stage_controller_id = nil
+local invunerable_stage_function_list = {}
+local invunerable_stage_function_list_index = 1
+local invunerable_stage_start_time = 0
+local invenrable_stage_attack_times = {30,30,30,30}
 
 function gd.GDLeague.Bosses.onAddToWorldBladeSpiritPatrol(id)
 	--Proxy.Get(id):LinkPatrolPointGroup("-- Moira_spirits_patrol_points")
@@ -262,13 +272,6 @@ function gd.GDLeague.Bosses.SetUpBladeSpiritPatrol01(id)
 	gd.GDLeague.Bosses.onDeathSetUpNextStage(id)
 end
 
-function gd.GDLeague.Bosses.quicktest()
-	-- for index, value in ipairs(test_list) do
-	-- 	Character.Get(value):UseSkillAction("records/skills/GrimLeague/moira/blade_spirit_patrol_aura.dbr", value, false)
-	-- 	Character.Get(value):UseSkillAction("records/skills/GrimLeague/moira/blade_spirit_patrol_aura_01.dbr", value, false)
-	-- end
-end
-
 function gd.GDLeague.Bosses.BladeSpiritSuicide(id)
 	test_list[#test_list+1] = id
 	gd.GDLeague.Bosses.MoveMonster(id, Game.GetLocalPlayer():GetId())
@@ -277,10 +280,95 @@ function gd.GDLeague.Bosses.BladeSpiritSuicide(id)
 end
 
 function gd.GDLeague.Bosses.onDeathSetUpNextStage(id)
-	Proxy.Create("records/proxies/GrimLeague/proxy_boss_moira_invunerable_stage_01.dbr", Entity.Get(id):GetCoords().origin, true)
+	local proxy = Proxy.Create("records/proxies/GrimLeague/proxy_boss_moira_walk_stage.dbr", Entity.Get(id):GetCoords().origin, true)
+	proxy:SetCoords(Entity.Get(id):GetCoords())
+end
+
+function gd.GDLeague.Bosses.onAddToWorldInvunerableStageProxy(id)
+	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_swap_point")
+	Proxy.Get(id):Run()
+end
+
+function gd.GDLeague.Bosses.onAddToWorldPositionSwapper(id)
+	swap_location_id = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldObjectToAttack(id)
+	attack_location_id = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldWalkStage(id)
+	walk_to_center_monster_id = id
+end
+
+function gd.GDLeague.Bosses.onDieWalkStage(id)
+	walk_to_center_monster_id = nil
+	gd.GDLeague.Bosses.SpawnMonster(id, "records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_01.dbr")
+end
+
+function gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
+	invunerable_monster_id = id
+	has_invunerable_stage_finished = false
+end
+
+function gd.GDLeague.Bosses.onDieInvunerableStage(id)
+	invunerable_monster_id = nil
+end
+
+function gd.GDLeague.Bosses.onAddToWorldInvunerableScriptController(id)
+	script_invunerable_stage_controller_id = id
+end
+
+function gd.GDLeague.Bosses.boxTriggerSwapToCenter(id)
+	if(walk_to_center_monster_id == nil or swap_location_id == nil) then
+		return
+	end
+	Character.Get(walk_to_center_monster_id):UseSkillAction("records/skills/GrimLeague/moira/teleportswap.dbr", swap_location_id, false)
+end
+
+function gd.GDLeague.Bosses.SwapWithCenter(id)
+	Character.Get(id):UseSkillAction("records/skills/GrimLeague/moira/teleportswap.dbr", swap_location_id, false)
+	invunerable_stage_function_list_index = invunerable_stage_function_list_index + 1
+end
+
+function gd.GDLeague.Bosses.ActivateSphere(id)
+	Character.Get(id):UseSkillAction("records/skills/grimleague/moira/sphereofprotection_large.dbr", id, false)
+	invunerable_stage_function_list_index = invunerable_stage_function_list_index + 1
+	invunerable_stage_start_time = Game.GetGameTime()
+end
+
+function gd.GDLeague.Bosses.SurvivalStage(id)
+	if((Game.GetGameTime() - invunerable_stage_start_time) / 1000 >= invenrable_stage_attack_times[1]) then
+		invunerable_stage_start_time = 0
+		invunerable_stage_function_list_index = invunerable_stage_function_list_index + 1
+		return
+	end
+	Character.Get(id):Attack(attack_location_id)
+end
+
+function gd.GDLeague.Bosses.KillInvunerableStage(id)
+	Character.Get(id):Kill()
+	invunerable_stage_function_list_index = invunerable_stage_function_list_index + 1
+end
+
+function gd.GDLeague.Bosses.boxTriggerAttackCenter(id)
+	if(walk_to_center_monster_id == nil or attack_location_id == nil) then
+		return
+	end	
+	Character.Get(walk_to_center_monster_id):Kill()
+	invunerable_stage_function_list[1] = gd.GDLeague.Bosses.ActivateSphere
+	invunerable_stage_function_list[2] = gd.GDLeague.Bosses.SurvivalStage
+	invunerable_stage_function_list[3] = gd.GDLeague.Bosses.ActivateSphere
+	invunerable_stage_function_list[4] = gd.GDLeague.Bosses.SwapWithCenter
+	invunerable_stage_function_list[5] = gd.GDLeague.Bosses.KillInvunerableStage
+	Script.RegisterForUpdate(script_invunerable_stage_controller_id, "gd.GDLeague.Bosses.InvunerableStageController", 2000)
 end
 
 
-function gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
-	Proxy.Get(id):LinkPatrolPointGroup("-- Moira_swap_point")
+function gd.GDLeague.Bosses.InvunerableStageController(id)
+	if(invunerable_stage_function_list[invunerable_stage_function_list_index] == nil) then
+		Script.UnregisterForUpdate(script_invunerable_stage_controller_id, "gd.GDLeague.Bosses.InvunerableStageController")
+		return
+	end
+	invunerable_stage_function_list[invunerable_stage_function_list_index](invunerable_monster_id)
 end
