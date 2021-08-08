@@ -418,3 +418,10 @@ end
 function gd.map.getEggs05b(objectId)	
 	spider_egg_05b = Destructible.Get(objectId)
 end
+
+function gd.map.UnlockPortalToHideOut(objectId)
+	local player = Game.GetLocalPlayer()
+	if (player:GetQuestState() == QuestState.Complete(0x85B30C00)) then
+		Door.Get(objectId):SetLocked(false)
+	end
+end

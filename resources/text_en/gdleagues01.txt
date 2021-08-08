@@ -246,6 +246,9 @@ tagGDLeagueTorsoD001=Amatok's Chestguard
 tagGDLeagueWaistD001=Amatok's Waistguard
 tagGDLeagueHeadD001=Amatok's Winter Cowl
 tagGDLeagueSetD001=Amatok's Harbinger
+tagGDLeagueChestPoints01=Mildly Cursed Seal
+tagGDLeagueChestPoints02=Moderately Cursed Seal
+tagGDLeagueChestPoints03=Severely Cursed Seal
 
 tagGDLeagueRolderathisKey1=<----I---->How Benny and the Boys Got Real Rich and Probably Became Lords<----I---->
 tagGDLeagueRolderathisKeyDescription1=If 'yer readin' this, then this tombs already been plucked by Benny and the boys! But yer not leavin' empty handed, no, cause yer good pal Benny is gonna give ya the story of a lifetime. I call it "How Benny and the Boys got real rich and probably became lords."{^n}{^n}It all started when I was pissing away the daylight at one of my usual haunts out near burrwitch. I was gonna meet the boys for a drink and wait for the sun to go down so we could dig up a few corpses, maybe get some finery to sell. That's when this sullen fella came up to me, and- on menhir- a winter breeze followed 'im in, cut through the summer heat it did! He tells me about the score of a lifetime, corpses buried with mountains of gold. He barely got a word out afore I sprinted outta there! That blabber mouth was gonna tell anyone that would listen about MY treasure, nobody is gonna beat old Benny to the punch, no sir.{^n}{^n}I was already spendin' the coin in my head afore we even loaded the wagon. According to that spooky fella, this was gonna be a big job, so I gathered the boys: "Slippy" is crack with the dynamite, blow us a new entrance iffin he has to, "Bigun" is the size of three men and can carry the gold out like a pack mule, and "Marge" is well ... Marge is funny, and this is gonna be a long trip.{^n}{^n}It was a full day afore we made it to the cave. Now, caves aren't no different than tombs, 'cept maybe a bit damper and more humid. This cave were a different story. Further we got in, the colder it got, and it weren't no normal cold, neither. Felt like no matter how much we bundled up, the cold cut right through and it weren't just cold in me body, it was like, me head was gettin' froze to its core. It's almost like there was a delay between me thoughts and me actions. Sooner we get the gold and leave, the better.
@@ -307,3 +310,4 @@ tagGDLeagueRiftRolderathis=Way To Rolderathis
 tagGDLeagueRiftBallogNath=Way To Ballog'Nath
 tagGDLeagueRiftGalakros=Way To Galakros
 tagGDLeagueHomeRift=Way To Safety
+

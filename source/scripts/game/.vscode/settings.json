@@ -12,6 +12,7 @@
         "Proxy",
         "Time",
         "random",
-        "Script"
+        "Script",
+        "QuestState"
     ]
 }
