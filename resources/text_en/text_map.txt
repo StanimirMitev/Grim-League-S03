@@ -6,7 +6,7 @@ tag_RiftgateHideout=Hideout
 tag_Portals=Portals ^o(Boss Fights)
 tag_ShortcutHideout=^yShortcut to Portals
 
-tag_EntranceHideout=Boat ^a(Hideout)
+tag_EntranceHideout=Boat to ^yHideout
 tag_EntranceDungeon01=Portal to ^oDesert Ruins
 tag_EntranceDungeon02=Portal to ^oSpider Nest
 tag_EntranceDungeon03=Portal to ^oAshen Waste
@@ -20,11 +20,11 @@ tag_DoorDungeon03=Ashen Waste
 tag_DoorDungeon04=Town Square
 tag_DoorDungeon05=Otherworld
 
-tag_DoorDungeon01Locked=^r(Something is required)
-tag_DoorDungeon02Locked=^r(Something is required)
-tag_DoorDungeon03Locked=^r(Something is required)
-tag_DoorDungeon04Locked=^r(Something is required)
-tag_DoorDungeon05Locked=^r(Something is required)
+tag_DoorDungeon01Locked=^r(Requirement)
+tag_DoorDungeon02Locked=^r(Requirement)
+tag_DoorDungeon03Locked=^r(Requirement)
+tag_DoorDungeon04Locked=^r(Requirement)
+tag_DoorDungeon05Locked=^r(Requirement)
 
 tag_DoorPortals=Protected Gate
 tag_DoorPortalsLocked=^r(Level 100 and Ultimate)
