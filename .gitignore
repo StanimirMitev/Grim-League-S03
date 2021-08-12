@@ -1,7 +1,13 @@
 resources/**.arc
+resources/Maps/**.map
 database/**.arz
 source/levels/*
+source/Sandbox/*
+source/Maps/**.wrl
+source/Maps/**.sd
 
 resources/Maps/GrimLeagueMap.map
 
 !source/levels/GrimLeague/
+!source/levels/__Dungeons/
+!source/levels/__Hideout/

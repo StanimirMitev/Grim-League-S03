@@ -372,3 +372,8 @@ function gd.GDLeague.Bosses.InvunerableStageController(id)
 	end
 	invunerable_stage_function_list[invunerable_stage_function_list_index](invunerable_monster_id)
 end
+
+function gd.GDLeague.Bosses.QuickTestID(objectid, otherid)
+	print(objectid)
+	print(otherid)
+end

@@ -421,7 +421,7 @@ end
 
 function gd.map.UnlockPortalToHideOut(objectId)
 	local player = Game.GetLocalPlayer()
-	if (player:GetQuestState() == QuestState.Complete(0x85B30C00)) then
+	if (player:GetQuestState(0x85B30C00) == QuestState.Complete) then
 		Door.Get(objectId):SetLocked(false)
 	end
 end
