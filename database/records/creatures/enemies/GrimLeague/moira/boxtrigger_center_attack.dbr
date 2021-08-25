@@ -1,7 +1,7 @@
 templateName,database/templates/boxtrigger.tpl,
 ActorName,,
 Class,BoxTrigger,
-FileDescription,move walk phase to center,
+FileDescription,invunerable stage to attack center,
 extentsX,6,
 extentsY,6,
 extentsZ,6,

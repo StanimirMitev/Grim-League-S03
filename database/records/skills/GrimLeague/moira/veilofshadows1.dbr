@@ -1,4 +1,6 @@
 templateName,database/templates/skill_buffradiustoggled.tpl,
+ActorName,,
 Class,Skill_BuffRadiusToggled,
-buffSkillName,records/skills/playerclass04/veilofshadows1_buff.dbr,
+FileDescription,,
 instantCast,0,
+buffSkillName,records/skills/grimleague/moira/veilofshadows1_buff.dbr,

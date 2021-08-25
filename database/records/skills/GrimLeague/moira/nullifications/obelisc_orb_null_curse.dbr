@@ -1,0 +1,6 @@
+templateName,database/templates/skill_attackbuff.tpl,
+ActorName,,
+Class,Skill_AttackBuff,
+FileDescription,,
+buffSkillName,records/skills/GrimLeague/moira/nullifications/obelisc_orb_null_curse_buff.dbr,
+fileNameHistoryEntry,mods/grimleagues03/records/skills/grimleague/moira/nullifications/copy of obelisc_nova_null_curse.dbr,

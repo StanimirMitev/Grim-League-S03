@@ -3,9 +3,47 @@ gd.GDLeague.Chests = {}
 local base_chance = 10
 local current_chance = base_chance
 local step_increment = 2
+local chest_chance_seal_modifier = 5 * 2
+local seals_per_tier = 60
+local seal = "records/items/grimleagues03/questitems/grim_league_cursed_seals.dbr"
+local is_setup_done = false
+local chest_notifications = {
+	"tagGDLeagueChest10",
+	"tagGDLeagueChest20",
+	"tagGDLeagueChest30",
+	"tagGDLeagueChest40",
+	"tagGDLeagueChest50",
+	"tagGDLeagueChest60",
+	"tagGDLeagueChest70",
+	"tagGDLeagueChest80",
+	"tagGDLeagueChest90"}
 --math.randomseed(os.time())
+--
+
+function gd.GDLeague.Chests.NotifyChestChance()
+	print(current_chance)
+	if(current_chance >= 20) then
+		UI.Notify(chest_notifications[math.min(math.floor(current_chance / 20), 9)])
+	end
+end
+
+function gd.GDLeague.Chests.EvaluateInitialChance()
+	for i = 13, 1, -1 do
+		local player = Game.GetLocalPlayer()
+		if(player:HasItem(seal, i * seals_per_tier, false)) then
+			base_chance = base_chance + i * chest_chance_seal_modifier
+			current_chance = base_chance
+			gd.GDLeague.Chests.NotifyChestChance()
+			is_setup_done = true
+			return
+		end
+	end
+end
 
 function gd.GDLeague.Chests.TriggerTrap(chest_tier)
+	if(not is_setup_done) then
+		gd.GDLeague.Chests.EvaluateInitialChance()
+	end
 	if( current_chance >= random(1, 200)) then
 		print("Success ")
 		base_chance = base_chance + 6
@@ -16,10 +54,9 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 		return
 	else
 		current_chance = current_chance + step_increment + chest_tier
-		current_chance = min(current_chance, 190)
+		current_chance = math.min(current_chance, 190)
+		gd.GDLeague.Chests.NotifyChestChance()
 	end
-	print("current change:")
-	print(current_chance)
 end
 
 function gd.GDLeague.Chests.OnOpenTier1()

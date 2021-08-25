@@ -281,6 +281,20 @@ gd.GDLeague.TokenTable = {
 		reward_notification = "tagGDLeagueBossRolderathisNitification",
 		points = 100
 	},
+	Super_Boss_Mod_Aranea = {
+		token = "GDL_Boss_Aranea",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "tagGDLeagueSuperBossKillNotification",
+		reward_notification = "tagGDLeagueBossRolderathisNitification",
+		points = 100
+	},
+	Super_Boss_Mod_Moira = {
+		token = "GDL_Boss_Moira",
+		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
+		notification = "tagGDLeagueSuperBossKillNotification",
+		reward_notification = "tagGDLeagueBossRolderathisNitification",
+		points = 100
+	},
 	Boss_Galeslice = {
 		token = "GDL_Boss_Galeslice",
 		item = "records/items/grimleagues03/questitems/token_bossmod_rolderathis.dbr",
@@ -1493,14 +1507,6 @@ function gd.GDLeague.SpawnGalakros(id)
 	if (not is_Galakros_spawned and (Game.GetGameDifficulty() == LeagueDifficultyRequirement and player:GetLevel() >= LeagueLevelRequirement) ) then
 		gd.GDLeague.SpawnMonster("records/creatures/enemies/GrimLeague/super_boss_galakros.dbr", id)
 		is_Galakros_spawned = true
-	end
-end
-
-function gd.GDLeague.GrantTokenGalakros(id)
-	gd.GDLeague.GrantGDLTokenItem(quest_super_boss_mod_galakros)
-	if(Galakros_Shortcut_id ~= nil) then
-		local door = Door.Get(Galakros_Shortcut_id)
-		door:SetLocked(false)
 	end
 end
 

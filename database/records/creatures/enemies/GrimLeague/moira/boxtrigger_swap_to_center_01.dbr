@@ -1,7 +1,7 @@
 templateName,database/templates/boxtrigger.tpl,
 ActorName,,
 Class,BoxTrigger,
-FileDescription,spawn invunerable stage,
+FileDescription,walk stage to swap to center,
 extentsX,5,
 extentsY,5,
 extentsZ,5,
