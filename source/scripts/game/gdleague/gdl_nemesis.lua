@@ -37,7 +37,7 @@ local function CharacterCreateArgs()
 	local maxLevel = 0
 
 	if (Game.GetGameDifficulty() == Game.Difficulty.Normal) then
-		minLevel = 40
+		minLevel = 30
 		maxLevel = 70
 	elseif (Game.GetGameDifficulty() == Game.Difficulty.Epic) then
 		minLevel = 55
@@ -46,7 +46,7 @@ local function CharacterCreateArgs()
 		minLevel = 114
 		maxLevel = 200
 	end
-   
+  
 	if (averageLevel < minLevel) then
 		monsterLevel = ((minLevel+(minLevel/50))+4)
 	elseif (averageLevel > maxLevel) then
@@ -108,7 +108,7 @@ function gd.GDLeague.Nemesis.kymonNemesisOnAddToWorld(objectId)
 
 	if Server then
 		local player = Game.GetLocalPlayer()
-		if (Game.GetAveragePlayerLevel() >= 30 and kymonChosenSpawned == false and kymonChosenChestDestroyed == false) then
+		if (Game.GetAveragePlayerLevel() >= 30 and player:GetFaction("USER8") < 0 and kymonChosenSpawned == false and kymonChosenChestDestroyed == false) then
 			kymonChosenSpawned = true
 			monsterId = objectId
 			local totalNemesis = table.getn(kymonChosenNemesisDBRs)
@@ -130,7 +130,7 @@ function gd.GDLeague.Nemesis.orderDeathVigilNemesisOnAddToWorld(objectId)
 
 	if Server then
 		local player = Game.GetLocalPlayer()
-		if (Game.GetAveragePlayerLevel() >= 30 and orderDeathVigilSpawned == false and orderDeathVigilChestDestroyed == false) then
+		if (Game.GetAveragePlayerLevel() >= 30 and player:GetFaction("USER5") < 0 and orderDeathVigilSpawned == false and orderDeathVigilChestDestroyed == false) then
 			orderDeathVigilSpawned = true
 			monsterId = objectId
 			local totalNemesis = table.getn(orderDeathVigilNemesisDBRs)
@@ -494,7 +494,7 @@ function gd.GDLeague.Nemesis.wendigoNemesisOnAddToWorld(objectId)
 
 	if Server then
 		local player = Game.GetLocalPlayer()
-		if (Game.GetAveragePlayerLevel() >= 30 and wendigoSpawned == false and wendigoChestDestroyed == false) then
+		if (Game.GetAveragePlayerLevel() >= 30 and player:GetFaction("USER10") < 0 and wendigoSpawned == false and wendigoChestDestroyed == false) then
 			wendigoSpawned = true
 			monsterId = objectId
 			local coords = Entity.Get(objectId):GetCoords()

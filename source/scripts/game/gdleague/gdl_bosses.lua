@@ -24,9 +24,10 @@ end
 local spider_script_spawns = {0,0,0,0,0,0,0,0}
 spider_script_spawns[0] = 0
 local spider_spawns_left = 9
-local spider_spawn_timers = {75, 60, 45, 30, 15}
+--local spider_spawn_timers = {75, 60, 45, 30, 15}
+local spider_spawn_timers = {30, 30, 30, 30, 30,30,30}
 local spider_spawn_difficulty = 1
-local has_player_enered = false
+local has_player_entered = false
 local spawn_time = 0;
 local spider_eggs_destroyed = 0
 local spider_eggs_notifications = {"tagGDLeagueSuperBoss4EggDestory01", "tagGDLeagueSuperBoss4EggDestory02", "tagGDLeagueSuperBoss4EggDestory03", "tagGDLeagueSuperBoss4EggDestory04", "tagGDLeagueSuperBoss4EggDestory05"}
@@ -51,7 +52,7 @@ function gd.GDLeague.Bosses.IncreaseBattleDifficulty()
 	if(spider_spawn_difficulty == 1 and spider_spawns_left == 9) then
 		spider_spawn_difficulty = 3
 		return
-	elseif (spider_spawn_difficulty <= 3 and spider_spawns_left <= 5) then
+	elseif (spider_spawn_difficulty <= 3 and spider_spawns_left >= 5) then
 		spider_spawn_difficulty = 5
 		return
 	else
@@ -60,7 +61,7 @@ function gd.GDLeague.Bosses.IncreaseBattleDifficulty()
 end
 
 function gd.GDLeague.Bosses.StartSpiderBattle(id)
-	has_player_enered = true
+	has_player_entered = true
 	spawn_time = Game.GetGameTime()
 end
 
@@ -110,7 +111,7 @@ function gd.GDLeague.Bosses.FindCorrectSpiderToSpawn(index)
 end
 
 function gd.GDLeague.Bosses.ControlSpiderSpawns(index)
-	if(has_player_enered or spider_spawns_left == 0) then
+	if(has_player_entered and spider_spawns_left > 0) then
 		if( ( Game.GetGameTime() - spawn_time ) / 1000 >= spider_spawn_timers[spider_spawn_difficulty] ) then
 			index = gd.GDLeague.Bosses.FindCorrectSpiderToSpawn(index)
 			if(index == nil) then
@@ -120,7 +121,7 @@ function gd.GDLeague.Bosses.ControlSpiderSpawns(index)
 			spider_script_spawns[index] = nil
 			spider_spawns_left = spider_spawns_left - 1
 			spawn_time = Game.GetGameTime()
-		end	
+		end
 	end
 end
 
@@ -469,6 +470,37 @@ function gd.GDLeague.Bosses.InvunerableStageController(id)
 end
 
 function gd.GDLeague.Bosses.onDieMoira(id)
+	invunerable_monster_id = nil
 	gd.map.moveDungeonPortal01()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Moira")
 end
+
+-- GARIA THE GATE TAKER
+
+local trap_gates_id_01 = {}
+local garia_id
+
+function gd.GDLeague.Bosses.onAddToWorldGaria(id)
+	garia_id = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldTrapGate01(id)
+	trap_gates_id_01[id] = true
+	Door.Get(id):Open()
+end
+
+function gd.GDLeague.Bosses.onInteractTrapGate01(id)
+	for gate_id,v in pairs(trap_gates_id_01) do
+		if(id ~= gate_id) then
+			Door.Get(gate_id):Open()
+		end
+	end
+end
+
+function gd.GDLeague.Bosses.ActivateTrap01(id)
+	--Character.Get(garia_id):UseSkillAction("records/skills/grimleague/garia/gateshard.dbr", Game.GetLocalPlayer():GetId(), true)
+	for gate_id,v in pairs(trap_gates_id_01) do
+		Door.Get(gate_id):Close()
+	end
+end
+

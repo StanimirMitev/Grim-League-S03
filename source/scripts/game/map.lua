@@ -287,6 +287,11 @@ end
 
 -- Dungeons
 
+function gd.map.DungeonTeleporterClose(objectId)
+	Door.Get(objectId):SetLocked(true)
+	Door.Get(objectId):Close()
+end
+
 function gd.map.getDungeonDoor01(objectId)
 	dungeon_door_01 = Door.Get(objectId)
 end

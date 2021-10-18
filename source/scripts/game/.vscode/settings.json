@@ -14,5 +14,8 @@
         "random",
         "Script",
         "QuestState"
+    ],
+    "Lua.diagnostics.disable": [
+        "unused-local"
     ]
 }
