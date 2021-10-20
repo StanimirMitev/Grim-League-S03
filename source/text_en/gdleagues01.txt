@@ -219,6 +219,8 @@ tagGDLeagueBossRolderathisNitification=You have gained points for defeating the 
 
 
 #Items
+tagNoExpPotion=Potion of Stubbornness
+tagNoExpPotionBlueprint=Blueprint: Potion of Stuburness
 token_item_vanquisher_armor=Grim League Prime Ring of Morgoneth Token
 tagGDLeagueItemVanquisherHelmToken=Grim League Vanquisher's Helm Token
 tagGDLeagueItemVanquisherMantleToken=Grim League Vanquisher's Mantle Token
@@ -306,6 +308,7 @@ tagGDLeagueSuperBoss4EggDestory03=You should not have done that!!! Large Egg Clu
 tagGDLeagueSuperBoss4EggDestory04=You should not have done that!!! Large Egg Cluster Destroyed (4/5)
 tagGDLeagueSuperBoss4EggDestory05=Large Egg Cluster Destroyed (5/5). WHAT is that SOUND?
 tagGDLeagueSuperBoss5=Ascended Spellbreaker Moira
+tagGDLeagueSuperBoss6=Garia, The Gate Taker
 
 #Level Art
 tagGDLeagueRiftRolderathis=Way To Rolderathis

@@ -6,7 +6,7 @@ end
 
 function gd.GDLeague.Bosses.SpawnMonster(id, record)
 	local coords = Entity.Get(id):GetCoords()
-	local spawn = Character.Create(record, gd.GDLeague.MonsterLevel(), nil)
+	local spawn = Character.Create(record, gd.GDLeague.Bosses.MonsterLevel(), nil)
 	spawn:SetCoords(coords)
 end
 
@@ -32,6 +32,7 @@ local spawn_time = 0;
 local spider_eggs_destroyed = 0
 local spider_eggs_notifications = {"tagGDLeagueSuperBoss4EggDestory01", "tagGDLeagueSuperBoss4EggDestory02", "tagGDLeagueSuperBoss4EggDestory03", "tagGDLeagueSuperBoss4EggDestory04", "tagGDLeagueSuperBoss4EggDestory05"}
 local spider_bomber_dbr = "records/creatures/enemies/GrimLeague/aranea/spider_bomber.dbr"
+local spider_list = {}
 
 function gd.GDLeague.Bosses.SpiderEggDestroyed()
 	spider_eggs_destroyed = spider_eggs_destroyed + 1
@@ -110,6 +111,13 @@ function gd.GDLeague.Bosses.FindCorrectSpiderToSpawn(index)
 	return nil
 end
 
+function gd.GDLeague.Bosses.ForcePlayerAttack()
+	local player_id = Game.GetLocalPlayer():GetId()
+	for index, value in ipairs(spider_list) do
+		Character.Get(index):Attack(player_id)
+	end
+end
+
 function gd.GDLeague.Bosses.ControlSpiderSpawns(index)
 	if(has_player_entered and spider_spawns_left > 0) then
 		if( ( Game.GetGameTime() - spawn_time ) / 1000 >= spider_spawn_timers[spider_spawn_difficulty] ) then
@@ -123,6 +131,7 @@ function gd.GDLeague.Bosses.ControlSpiderSpawns(index)
 			spawn_time = Game.GetGameTime()
 		end
 	end
+	gd.GDLeague.Bosses.ForcePlayerAttack()
 end
 
 function gd.GDLeague.Bosses.SpiderBoxTrigger01(id)
@@ -211,6 +220,9 @@ function gd.GDLeague.Bosses.onDieAranea(id)
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Aranea")
 end
 
+function gd.GDLeague.Bosses.onAddToWorldSpiderBomber(id)
+	spider_list[id] = true;
+end
 
 -- GALAKROS THE DEVASTATING MOUNTAIN
 local script_crystal_spawns_tier_01 = {}
@@ -314,7 +326,7 @@ end
 function gd.GDLeague.Bosses.BladeSpiritSuicide(id)
 	local char = Character.Get(id)
 	char:SetCoords(Game.GetLocalPlayer():GetCoords())
-	local spawn = Character.Create("records/creatures/enemies/GrimLeague/moira/aetherial_echos_spawner02.dbr", gd.GDLeague.MonsterLevel(), nil)
+	local spawn = Character.Create("records/creatures/enemies/GrimLeague/moira/aetherial_echos_spawner02.dbr", gd.GDLeague.Bosses.MonsterLevel(), nil)
 	spawn:SetCoords(Game.GetLocalPlayer():GetCoords())
 end
 
@@ -477,30 +489,7 @@ end
 
 -- GARIA THE GATE TAKER
 
-local trap_gates_id_01 = {}
-local garia_id
-
-function gd.GDLeague.Bosses.onAddToWorldGaria(id)
-	garia_id = id
+function gd.GDLeague.Bosses.onDieGaria()
+	gd.map.moveDungeonPortal05()
+	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Garia")
 end
-
-function gd.GDLeague.Bosses.onAddToWorldTrapGate01(id)
-	trap_gates_id_01[id] = true
-	Door.Get(id):Open()
-end
-
-function gd.GDLeague.Bosses.onInteractTrapGate01(id)
-	for gate_id,v in pairs(trap_gates_id_01) do
-		if(id ~= gate_id) then
-			Door.Get(gate_id):Open()
-		end
-	end
-end
-
-function gd.GDLeague.Bosses.ActivateTrap01(id)
-	--Character.Get(garia_id):UseSkillAction("records/skills/grimleague/garia/gateshard.dbr", Game.GetLocalPlayer():GetId(), true)
-	for gate_id,v in pairs(trap_gates_id_01) do
-		Door.Get(gate_id):Close()
-	end
-end
-

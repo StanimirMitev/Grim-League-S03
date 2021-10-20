@@ -398,6 +398,7 @@ end
 -- Grant starter itmes to new characters
 function gd.GDLeague.GiveStartingItems(id)
 	local player = Game.GetLocalPlayer()
+
 	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
 
 	gd.GDLeague.RecoverToken()
@@ -420,7 +421,7 @@ function gd.GDLeague.GiveStartingItems(id)
 	player:GiveItem("records/items/faction/booster/boost_wgb_b01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boost_wgs_b01.dbr", 1, false)
 	player:GiveItem("records/items/misc/difficultyunlock_ultimate.dbr", 1, false)
-	player:GiveItem("records/items/crafting/consumables/gdl_xppotion_malmouth.dbr", 26, false)
+	player:GiveItem("records/items/grimleague/xppotion_negative.dbr", 26, false)
 	player:GiveItem("records/items/faction/booster/boosthostile_odv_c01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boosthostile_kc_c01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boosthostile_outlaw_c01.dbr", 1, false)

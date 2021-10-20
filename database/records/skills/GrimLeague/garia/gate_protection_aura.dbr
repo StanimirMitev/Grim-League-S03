@@ -1,0 +1,6 @@
+templateName,database/templates/skill_buffradiustoggled.tpl,
+ActorName,,
+Class,Skill_BuffRadiusToggled,
+FileDescription,applies protective aura,
+instantCast,1,
+buffSkillName,records/skills/grimleague/garia/gate_protection_aura_buff.dbr,
