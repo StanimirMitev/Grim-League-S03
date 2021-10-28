@@ -67,7 +67,7 @@ gd.GDLeague.TokenTable = {
 	},
 	Nemesis_Normal = {
 		token = "GDL_Nemesis_Normal",
-		notification = "",
+		notification = "tagGDLeagueNemesisKillNotification",
 	},
 	Shatterred_Realms_16 = {
 		token = "GDL_SR_16",
@@ -143,11 +143,11 @@ gd.GDLeague.TokenTable = {
 	},
 	Boss_Elite_Challenge_Theodin= {
 		token = "GDL_Boss_Theodin",
-		notification = "tagGDLeagueWorldBossChallengeNotification",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Elite_Challenge_Korvaak= {
 		token = "GDL_Boss_Korvaak",
-		notification = "tagGDLeagueWorldBossChallengeNotification",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Super_Boss_Mod_Galakros = {
 		token = "GDL_Boss_Galakros",
@@ -175,67 +175,67 @@ gd.GDLeague.TokenTable = {
 	},
 	Boss_Galeslice = {
 		token = "GDL_Boss_Galeslice",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_NarenKur = {
 		token = "GDL_Boss_NarenKur",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Karnath = {
 		token = "GDL_Boss_Karnath",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Rutnick = {
 		token = "GDL_Boss_Rutnick",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Blugrug = {
 		token = "GDL_Boss_Blugrug",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Astros = {
 		token = "GDL_Boss_Astros",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Abaddoth = {
 		token = "GDL_Boss_Abaddoth",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Celestial_Totem = {
 		token = "GDL_Totem",
-		notification = "",
+		notification = "tagGDLeagueTotemNotification",
 	},
 	Boss_Gutworm = {
 		token = "GDL_Boss_Gutworm",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_HeraldStars = {
 		token = "GDL_Boss_HeraldStars",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_HeraldDestruction = {
 		token = "GDL_Boss_HeraldDestruction",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_HeraldFlame = {
 		token = "GDL_Boss_HeraldFlame",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Krieg = {
 		token = "GDL_Boss_Krieg",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Salazar = {
 		token = "GDL_Boss_Salazar",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Shambler = {
 		token = "GDL_Boss_Shambler",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 	Boss_Ronaprax = {
 		token = "GDL_Boss_Ronaprax",
-		notification = "",
+		notification = "tagGDLeagueWorldBossKillNotification",
 	},
 }
 
@@ -383,6 +383,7 @@ function gd.GDLeague.GrantGDLTokenItem(key, condition)
 	condition = condition or gd.GDLeague.DefaultLeagueCondition
 	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
 		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
+		player:GiveItem("records/items/misc/difficultyunlock_ultimate.dbr", 1, false)
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
 	end
 end
@@ -395,18 +396,8 @@ function gd.GDLeague.GrantGDLNemesisToken(key)
 	end
 end
 
--- Grant starter itmes to new characters
-function gd.GDLeague.GiveStartingItems(id)
+function gd.GDLeague.GiveBoostItems()
 	local player = Game.GetLocalPlayer()
-
-	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
-
-	gd.GDLeague.RecoverToken()
-	
-	if(player:HasToken("Received_Start_Items") or player:GetLevel() > 2 or Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
-		return
-	end
-	GiveTokenToLocalPlayer("Received_Start_Items")
 	player:GiveItem("records/items/faction/booster/boost_dc_b01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boost_ro_b01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boost_hs_b01.dbr", 1, false)
@@ -426,6 +417,18 @@ function gd.GDLeague.GiveStartingItems(id)
 	player:GiveItem("records/items/faction/booster/boosthostile_kc_c01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boosthostile_outlaw_c01.dbr", 1, false)
 	player:GiveItem("records/items/crafting/blueprints/other/craft_endlessdungeon_keystone_04.dbr", 1, false)
+end
+
+-- Grant starter itmes to new characters
+function gd.GDLeague.GiveStartingItems(id)
+	local player = Game.GetLocalPlayer()
+	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
+	gd.GDLeague.RecoverToken()
+	if(player:HasToken("Received_Start_Items") or player:GetLevel() > 2 or Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
+		return
+	end
+	GiveTokenToLocalPlayer("Received_Start_Items")
+	player:GiveItem("records/items/grimleague/comsumables/starting_items_gift.dbr", 1, false)
 	player:GiveItem(LeagueEntryToken, 1, false)
 	GiveTokenToLocalPlayer(participationtoken)
 end

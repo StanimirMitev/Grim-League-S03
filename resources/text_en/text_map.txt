@@ -12,6 +12,7 @@ tag_EntranceDungeon02=Portal to ^oSpider Nest
 tag_EntranceDungeon03=Portal to ^oAshen Waste
 tag_EntranceDungeon04=Portal to ^oTown Square
 tag_EntranceDungeon05=Portal to ^oOtherworld
+tag_EntranceDungeon06=Portal to ^oArkovian Ruins
 tag_DungeonBack=Portal to ^yHideout
 
 tag_DoorDungeon01=Desert Ruins
@@ -19,12 +20,14 @@ tag_DoorDungeon02=Spider Nest
 tag_DoorDungeon03=Ashen Waste
 tag_DoorDungeon04=Town Square
 tag_DoorDungeon05=Otherworld
+tag_DoorDungeon06=Arkovian Ruins
 
 tag_DoorDungeon01Locked=^r(Requirement)
 tag_DoorDungeon02Locked=^r(Requirement)
 tag_DoorDungeon03Locked=^r(Requirement)
 tag_DoorDungeon04Locked=^r(Requirement)
 tag_DoorDungeon05Locked=^r(Requirement)
+tag_DoorDungeon06Locked=^r(Requirement)
 
 tag_DoorPortals=Protected Gate
 tag_DoorPortalsLocked=^r(Level 100 and Ultimate)

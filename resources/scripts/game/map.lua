@@ -5,6 +5,7 @@ local dungeon_completed_02 = false
 local dungeon_completed_03 = false
 local dungeon_completed_04 = false
 local dungeon_completed_05 = false
+local dungeon_completed_06 = false
 
 -- After completing a fight, the exit gets moved to the given coordinates
 -- moveDungeonPortal() should be called when the dungeon is completed
@@ -146,6 +147,24 @@ function gd.map.interactPortalDoor05(objectId)
 	end
 end
 
+--- Arkovian Ruins
+function gd.map.moveDungeonPortal06()
+	dungeon_portal_06:SetCoords(dungeon_portal_coords_06)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_06)
+	dungeon_completed_06 = true
+	dungeon_door_06:Open()
+end
+
+function gd.map.interactPortalDoor06(objectId)
+	if (false) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
+		Door.Get(objectId):SetLocked(false)
+		Door.Get(objectId):Open()
+	end
+end
+
 function gd.map.triggerHideout()
 	Game.GetLocalPlayer():RemoveToken("GL_TESTING")
 	-- !!! Remove line on Live Version
@@ -265,6 +284,10 @@ function gd.map.getDungeonPortalCoords05(objectId)
 	dungeon_portal_coords_05 = Entity.Get(objectId):GetCoords()
 end
 
+function gd.map.getDungeonPortalCoords06(objectId)
+	dungeon_portal_coords_06 = Entity.Get(objectId):GetCoords()
+end
+
 function gd.map.getDungeonPortal01(objectId)
 	dungeon_portal_01 = Entity.Get(objectId)
 end
@@ -283,6 +306,10 @@ end
 
 function gd.map.getDungeonPortal05(objectId)
 	dungeon_portal_05 = Entity.Get(objectId)
+end
+
+function gd.map.getDungeonPortal06(objectId)
+	dungeon_portal_06 = Entity.Get(objectId)
 end
 
 -- Dungeons
@@ -312,6 +339,10 @@ function gd.map.getDungeonDoor05(objectId)
 	dungeon_door_05 = Door.Get(objectId)
 end
 
+function gd.map.getDungeonDoor06(objectId)
+	dungeon_door_06 = Door.Get(objectId)
+end
+
 function gd.map.triggerOpenDungeonDoor01()
 	dungeon_door_01:Open()
 end
@@ -330,6 +361,10 @@ end
 
 function gd.map.triggerOpenDungeonDoor05()
 	dungeon_door_05:Open()
+end
+
+function gd.map.triggerOpenDungeonDoor06()
+	dungeon_door_06:Open()
 end
 
 function gd.map.triggerCloseDungeonDoor01()
@@ -359,6 +394,12 @@ end
 function gd.map.triggerCloseDungeonDoor05()
 	if (not dungeon_completed_05) then
 		dungeon_door_05:Close()
+	end
+end
+
+function gd.map.triggerCloseDungeonDoor06()
+	if (not dungeon_completed_06) then
+		dungeon_door_06:Close()
 	end
 end
 

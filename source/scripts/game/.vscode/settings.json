@@ -13,7 +13,10 @@
         "Time",
         "random",
         "Script",
-        "QuestState"
+        "QuestState",
+        "Destructible",
+        "SoundType",
+        "Vec"
     ],
     "Lua.diagnostics.disable": [
         "unused-local"
