@@ -493,3 +493,151 @@ function gd.GDLeague.Bosses.onDieGaria()
 	gd.map.moveDungeonPortal05()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Garia")
 end
+
+-- Rolderathis, The Shatterer of Wills
+local is_boss_below_80hp = false
+local trigger_trap_start_time = 0
+local trap_duration = 30
+local trap_list = {}
+local trap_patterns_list = {}
+local trap_skill = "records/skills/grimleague/rolderathis/trap_rimefire.dbr"
+local trap_manager_id = nil
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrapManager(id)
+	trap_manager_id = id
+	Script.RegisterForUpdate(id, "gd.GDLeague.RolderathisTrapManager", 2000)
+end
+
+function gd.GDLeague.Bosses.RolderathisAt80hpTrigger(id)
+	trigger_trap_start_time = Game.GetGameTime()
+	is_boss_below_80hp = true
+	trap_patterns_list[0] = gd.GDLeague.Bosses.TrapRowEven
+	trap_patterns_list[1] = gd.GDLeague.Bosses.TrapOddPattern
+	trap_patterns_list[2] = gd.GDLeague.Bosses.TrapZigZagLeft
+	trap_patterns_list[3] = gd.GDLeague.Bosses.TrapRowEven
+	trap_patterns_list[4] = gd.GDLeague.Bosses.TrapZigZagRight
+	trap_patterns_list[5] = gd.GDLeague.Bosses.TrapEvenPattern
+	trap_patterns_list[6] = gd.GDLeague.Bosses.TrapRowAll
+end
+
+local counter = 0;
+function gd.GDLeague.RolderathisTrapManager(id)
+	if(is_boss_below_80hp) then
+		print("BELOW 80")
+		if(((Game.GetGameTime() - trigger_trap_start_time) / 1000 >= trap_duration) or counter == 0) then
+			print("IT IS TIME")
+			trigger_trap_start_time = Game.GetGameTime()
+			trap_patterns_list[counter]()
+			counter = ( counter + 1 ) % 7
+			return
+		end
+	end
+end
+
+function gd.GDLeague.Bosses.TrapOddPattern()
+	Character.Get(trap_list[1]):UseSkillAction(trap_skill, trap_list[1], false)
+	Character.Get(trap_list[3]):UseSkillAction(trap_skill, trap_list[3], false)
+	Character.Get(trap_list[5]):UseSkillAction(trap_skill, trap_list[5], false)
+	Character.Get(trap_list[7]):UseSkillAction(trap_skill, trap_list[7], false)
+	Character.Get(trap_list[9]):UseSkillAction(trap_skill, trap_list[9], false)
+end
+
+function gd.GDLeague.Bosses.TrapEvenPattern()
+	Character.Get(trap_list[0]):UseSkillAction(trap_skill, trap_list[0], false)
+	Character.Get(trap_list[2]):UseSkillAction(trap_skill, trap_list[2], false)
+	Character.Get(trap_list[4]):UseSkillAction(trap_skill, trap_list[4], false)
+	Character.Get(trap_list[6]):UseSkillAction(trap_skill, trap_list[6], false)
+	Character.Get(trap_list[8]):UseSkillAction(trap_skill, trap_list[8], false)
+end
+
+
+function gd.GDLeague.Bosses.TrapZigZagLeft()
+	Character.Get(trap_list[0]):UseSkillAction(trap_skill, trap_list[0], false)
+	Character.Get(trap_list[3]):UseSkillAction(trap_skill, trap_list[3], false)
+	Character.Get(trap_list[4]):UseSkillAction(trap_skill, trap_list[4], false)
+	Character.Get(trap_list[7]):UseSkillAction(trap_skill, trap_list[7], false)
+	Character.Get(trap_list[8]):UseSkillAction(trap_skill, trap_list[8], false)
+end
+
+function gd.GDLeague.Bosses.TrapZigZagRight()
+	Character.Get(trap_list[1]):UseSkillAction(trap_skill, trap_list[1], false)
+	Character.Get(trap_list[2]):UseSkillAction(trap_skill, trap_list[2], false)
+	Character.Get(trap_list[5]):UseSkillAction(trap_skill, trap_list[5], false)
+	Character.Get(trap_list[6]):UseSkillAction(trap_skill, trap_list[6], false)
+	Character.Get(trap_list[9]):UseSkillAction(trap_skill, trap_list[9], false)
+end
+
+function gd.GDLeague.Bosses.TrapRowOdd()
+	Character.Get(trap_list[0]):UseSkillAction(trap_skill, trap_list[0], false)
+	Character.Get(trap_list[1]):UseSkillAction(trap_skill, trap_list[1], false)
+	Character.Get(trap_list[4]):UseSkillAction(trap_skill, trap_list[4], false)
+	Character.Get(trap_list[5]):UseSkillAction(trap_skill, trap_list[5], false)
+	Character.Get(trap_list[8]):UseSkillAction(trap_skill, trap_list[8], false)
+	Character.Get(trap_list[9]):UseSkillAction(trap_skill, trap_list[9], false)
+end
+
+function gd.GDLeague.Bosses.TrapRowEven()
+	Character.Get(trap_list[2]):UseSkillAction(trap_skill, trap_list[2], false)
+	Character.Get(trap_list[3]):UseSkillAction(trap_skill, trap_list[3], false)
+	Character.Get(trap_list[6]):UseSkillAction(trap_skill, trap_list[6], false)
+	Character.Get(trap_list[7]):UseSkillAction(trap_skill, trap_list[7], false)
+end
+
+function gd.GDLeague.Bosses.TrapRowAll()
+	Character.Get(trap_list[1]):UseSkillAction(trap_skill, trap_list[1], false)
+	Character.Get(trap_list[3]):UseSkillAction(trap_skill, trap_list[3], false)
+	Character.Get(trap_list[5]):UseSkillAction(trap_skill, trap_list[5], false)
+	Character.Get(trap_list[7]):UseSkillAction(trap_skill, trap_list[7], false)
+	Character.Get(trap_list[9]):UseSkillAction(trap_skill, trap_list[9], false)
+	Character.Get(trap_list[0]):UseSkillAction(trap_skill, trap_list[0], false)
+	Character.Get(trap_list[2]):UseSkillAction(trap_skill, trap_list[2], false)
+	Character.Get(trap_list[4]):UseSkillAction(trap_skill, trap_list[4], false)
+	Character.Get(trap_list[6]):UseSkillAction(trap_skill, trap_list[6], false)
+	Character.Get(trap_list[8]):UseSkillAction(trap_skill, trap_list[8], false)
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap00(id)
+	trap_list[0] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap01(id)
+	trap_list[1] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap02(id)
+	trap_list[2] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap03(id)
+	trap_list[3] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap04(id)
+	trap_list[4] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap05(id)
+	trap_list[5] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap06(id)
+	trap_list[6] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap07(id)
+	trap_list[7] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap08(id)
+	trap_list[8] = id
+end
+
+function gd.GDLeague.Bosses.onAddToWorldRolderathisTrap09(id)
+	trap_list[9] = id
+end
+
+function gd.GDLeague.Bosses.onDieRolderathis()
+	Script.UnregisterForUpdate(trap_manager_id, "gd.GDLeague.RolderathisTrapManager")
+	gd.map.moveDungeonPortal06()
+	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Rolderathis")
+end
