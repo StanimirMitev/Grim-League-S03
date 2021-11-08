@@ -1,0 +1,7 @@
+templateName,database/templates/skill_buffradiustoggled.tpl,
+ActorName,,
+Class,Skill_BuffRadiusToggled,
+FileDescription,,
+buffSkillName,records/skills/grimleague/itemskills/set_d004_pet_banner_aura_buff.dbr,
+instantCast,1,
+fileNameHistoryEntry,mods/grimleagues03/records/skills/grimleague/itemskills/fieldcommand1.dbr,

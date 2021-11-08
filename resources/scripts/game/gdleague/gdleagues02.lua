@@ -247,14 +247,14 @@ local participationtoken = "S03_Participation"
 local LeagueDifficultyRequirement = Game.Difficulty.Legendary
 local LeagueLevelRequirement = 100
 local LeagueSRChallengeRequirement = 25
-local LeagueNormalBossRequirement = 27
+local LeagueNormalBossRequirement = 35
 local LeagueNormalNemesisRequirement = 45
 local LeagueEliteSideBossRequirement = 65
 local LeagueEliteDungeonRequirement = 65
 local LeagueEliteChallengeRequirement = 75
 local LeagueUltimateBossesRequirement = 90
 local LeagueUltimateBossChallengeRequirement = 35
-local level_to_enter_sr = 0
+local level_to_enter_sr = 101
 
 function gd.GDLeague.DefaultLeagueCondition(player)
 	return ( Game.GetGameDifficulty() == LeagueDifficultyRequirement and player:GetLevel() >= LeagueLevelRequirement )
@@ -352,8 +352,9 @@ function gd.GDLeague.TestAllTokens()
 		gd.GDLeague.GrantTokenShatteredRealm46()
 		gd.GDLeague.GrantTokenShatteredRealm31()
 		gd.GDLeague.GrantTokenShatteredRealm16()
+		level_to_enter_sr = 25
 		gd.GDLeague.GrantTokenShatteredRealm50Challenge()
-
+		level_to_enter_sr = 101
 		player:TakeItem("records/items/grimleagues03/questitems/grim_league_s02_test_all_token.dbr", 1, false)
 		
 		gd.GDLeague.GrantTokenProtossKill()
@@ -371,9 +372,12 @@ function gd.GDLeague.TestAllTokens()
 		gd.GDLeague.GrantTokenTheodinKill()
 		gd.GDLeague.GrantTokenKorvaakKill()
 
-		-- gd.GDLeague.GrantTokenRolderathis()
-		-- gd.GDLeague.GrantTokenGalakros()
-		-- gd.GDLeague.GrantTokenBallogNath()
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Garia")
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Galakros")
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Aranea")
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Moira")
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Rolderathis")
+		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_BallogNath")
 	end
 end
 
@@ -383,7 +387,6 @@ function gd.GDLeague.GrantGDLTokenItem(key, condition)
 	condition = condition or gd.GDLeague.DefaultLeagueCondition
 	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
 		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
-		player:GiveItem("records/items/misc/difficultyunlock_ultimate.dbr", 1, false)
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
 	end
 end
@@ -392,6 +395,7 @@ function gd.GDLeague.GrantGDLNemesisToken(key)
 	local player = Game.GetLocalPlayer()
 	if (player:HasItem(LeagueEntryToken, 1, false) and Game.GetGameDifficulty() == Game.Difficulty.Legendary and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
 		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"]..player:GetLevel())
+		GiveTokenToLocalPlayer(gd.GDLeague.TokenTable[key]["token"])
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
 	end
 end
@@ -412,10 +416,10 @@ function gd.GDLeague.GiveBoostItems()
 	player:GiveItem("records/items/faction/booster/boost_wgb_b01.dbr", 1, false)
 	player:GiveItem("records/items/faction/booster/boost_wgs_b01.dbr", 1, false)
 	player:GiveItem("records/items/misc/difficultyunlock_ultimate.dbr", 1, false)
-	player:GiveItem("records/items/grimleague/xppotion_negative.dbr", 26, false)
-	player:GiveItem("records/items/faction/booster/boosthostile_odv_c01.dbr", 1, false)
-	player:GiveItem("records/items/faction/booster/boosthostile_kc_c01.dbr", 1, false)
-	player:GiveItem("records/items/faction/booster/boosthostile_outlaw_c01.dbr", 1, false)
+	-- player:GiveItem("records/items/grimleague/xppotion_negative.dbr", 26, false)
+	-- player:GiveItem("records/items/faction/booster/boosthostile_odv_c01.dbr", 1, false)
+	-- player:GiveItem("records/items/faction/booster/boosthostile_kc_c01.dbr", 1, false)
+	-- player:GiveItem("records/items/faction/booster/boosthostile_outlaw_c01.dbr", 1, false)
 	player:GiveItem("records/items/crafting/blueprints/other/craft_endlessdungeon_keystone_04.dbr", 1, false)
 end
 
@@ -862,4 +866,17 @@ end
 function gd.GDLeague.GrantTokenKorvaakKill(id)
 	gd.quests.areaGKorvaak.bossPhase03Finished(id)
 	gd.GDLeague.GrantGDLTokenItem(quest_boss_elite_challenge_Korvaak, gd.GDLeague.EliteLeagueRequirement )
+end
+
+local banner_id = nil
+function gd.GDLeague.OnSpawnSetD004Banner(id)
+	if(banner_id ~= nil) then
+		gd.GDLeague.OnDieSetD004Banner()
+	end
+	banner_id = Entity.Create("records/skills/grimleague/itemskills/set_d004_banner.dbr")
+	banner_id:SetCoords(Entity.Get(id):GetCoords())
+end
+
+function gd.GDLeague.OnDieSetD004Banner()
+	banner_id:Destroy()
 end

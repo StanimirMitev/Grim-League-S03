@@ -495,6 +495,7 @@ function gd.GDLeague.Bosses.onDieGaria()
 end
 
 -- Rolderathis, The Shatterer of Wills
+
 local is_boss_below_80hp = false
 local trigger_trap_start_time = 0
 local trap_duration = 30
@@ -523,9 +524,7 @@ end
 local counter = 0;
 function gd.GDLeague.RolderathisTrapManager(id)
 	if(is_boss_below_80hp) then
-		print("BELOW 80")
 		if(((Game.GetGameTime() - trigger_trap_start_time) / 1000 >= trap_duration) or counter == 0) then
-			print("IT IS TIME")
 			trigger_trap_start_time = Game.GetGameTime()
 			trap_patterns_list[counter]()
 			counter = ( counter + 1 ) % 7
@@ -640,4 +639,44 @@ function gd.GDLeague.Bosses.onDieRolderathis()
 	Script.UnregisterForUpdate(trap_manager_id, "gd.GDLeague.RolderathisTrapManager")
 	gd.map.moveDungeonPortal06()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Rolderathis")
+end
+
+
+-- BALLOG NATH
+local ballog_nath_id = nil
+local ballog_nath_summons_remaining = 0
+local minion_list_id = {}
+
+function gd.GDLeague.Bosses.OnAddToWorldBallogNath(id)
+	ballog_nath_id = id
+end
+
+function gd.GDLeague.Bosses.onDieBallogNath()
+	gd.map.moveDungeonPortal03()
+	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_BallogNath")
+end
+
+function gd.GDLeague.Bosses.BallogNathUseShield()
+	Character.Get(ballog_nath_id):UseSkillAction("records/skills/grimleague/ballognath/ballog_nath_invincibility.dbr", ballog_nath_id, false)
+	print("invincible")
+end
+
+function gd.GDLeague.Bosses.onAddToWorldBallogSummon(id)
+	if(minion_list_id[id] == true) then
+		print("return")
+		return
+	end
+	minion_list_id[id] = true
+	ballog_nath_summons_remaining = ballog_nath_summons_remaining + 1
+	print("increment")
+	if(ballog_nath_summons_remaining == 2) then
+		gd.GDLeague.Bosses.BallogNathUseShield()
+	end
+end
+
+function gd.GDLeague.Bosses.onDieBallogSummon()
+	ballog_nath_summons_remaining = ballog_nath_summons_remaining - 1
+	if(ballog_nath_summons_remaining == 0) then
+		gd.GDLeague.Bosses.BallogNathUseShield()
+	end
 end
