@@ -1,6 +1,5 @@
 tagWeaponBluntB017=Laudos Vagra's Bludgeon
 tagWeaponAxeB009=Nomos Dred's Axe
-tagWeaponCrossbow2hB004=Rhovena Kur's Arbalest
 tagMedalB017=Farros' Ribbon
 tagMedalB018=Jillius' Ribbon
 tagMedalB019=Neegan's Ribbon
@@ -30,6 +29,8 @@ tagGDLSword002=Lozakal's Claw
 tagGDLSword003=Anoxis' Claw
 tagGDLBlunt001=Balros' Fiery Arm
 tagGDLBlunt002=Hagra's Chilling Arm
+tagGDL2hgun001=Rhovena Kur's Arbalest
+tagGDL2hgun001_Desc="A sweet yet very poisonous mist emanates from this extraordinarily cold crossbow..."
 tagGDL2hgun002=Marrowill's Soulpiercer
 tagGDL2hgun002_Desc="This will excite your soul!"
 tagGDL2hmelee001=Titanclaw Slicer
