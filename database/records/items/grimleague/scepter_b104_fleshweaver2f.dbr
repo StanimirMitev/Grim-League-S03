@@ -1,7 +1,7 @@
 templateName,database/templates/weapon_scepter.tpl,
 ActorName,,
 Class,WeaponMelee_Scepter,
-FileDescription,Fleshweaver2,
+FileDescription,Skull of Hinissius,
 hitSound,records/sounds/items/weaponattacks/spak_blunt_impact.dbr,
 swipeSound,records/sounds/items/weaponattacks/spak_blunt_swing.dbr,
 weaponTrail,records/fx/fxtrails/swordflamepurple_fxtrail.dbr,

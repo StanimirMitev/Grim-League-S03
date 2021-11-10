@@ -1,7 +1,7 @@
 templateName,database/templates/armor_head.tpl,
 ActorName,,
 Class,ArmorProtective_Head,
-FileDescription,Krieg V3,
+FileDescription,Krieg's Bonemask,
 armorClassification,Heavy,
 armorMaleMesh,items/gearhead/head_060_01a.msh,
 armorMaleBaseTexture,,

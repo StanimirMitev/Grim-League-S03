@@ -1,7 +1,7 @@
 templateName,database/templates/armor_head.tpl,
 ActorName,,
 Class,ArmorProtective_Head,
-FileDescription,Krieg V2,
+FileDescription,Krieg's Fleshmask,
 armorClassification,Heavy,
 armorMaleMesh,items/gearhead/head_060_01a.msh,
 armorMaleBaseTexture,,

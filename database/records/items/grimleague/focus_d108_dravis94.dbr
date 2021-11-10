@@ -1,7 +1,7 @@
 templateName,database/templates/weapon_offhand.tpl,
 ActorName,,
 Class,WeaponArmor_Offhand,
-FileDescription,Fiendgaze Tome,
+FileDescription,Book of Dravis,
 hitSound,,
 swipeSound,,
 weaponTrail,,

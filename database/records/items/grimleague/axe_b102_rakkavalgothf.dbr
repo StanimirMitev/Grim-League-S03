@@ -1,7 +1,7 @@
 templateName,database/templates/weapon_axe.tpl,
 ActorName,,
 Class,WeaponMelee_Axe,
-FileDescription,Chthonian Servitor,
+FileDescription,Rakka's Fleshcarver,
 hitSound,records/sounds/items/weaponattacks/sword1h_impactdefault.dbr,
 swipeSound,records/sounds/items/weaponattacks/sword1h_swipe.dbr,
 weaponTrail,records/fx/fxtrails/swordchaos_fxtrail.dbr,
