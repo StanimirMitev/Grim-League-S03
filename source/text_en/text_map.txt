@@ -13,7 +13,7 @@ tag_EntranceDungeon03=Portal to ^oAshen Waste
 tag_EntranceDungeon04=Portal to ^oTown Square
 tag_EntranceDungeon05=Portal to ^oOtherworld
 tag_EntranceDungeon06=Portal to ^oArkovian Ruins
-tag_DungeonBack=Portal to ^yHideout
+tag_DungeonBack=Exit
 
 tag_DoorDungeon01=Desert Ruins
 tag_DoorDungeon02=Spider Nest
@@ -32,7 +32,7 @@ tag_DoorDungeon06Locked=^r(Requirement)
 tag_DoorPortals=Protected Gate
 tag_DoorPortalsLocked=^r(Level 100 and Ultimate)
 
-tag_CompletionDungeon=^cYou can now leave near the entrance
+tag_CompletionDungeon=^c> You can now leave through the exit <
 
 tag_DungeonTeleporter=Temporary Dungeon
 
@@ -51,6 +51,9 @@ tag_Merchant=Common Goods
 
 tag_Merchant01=Eadwig
 tag_Merchant02=
+
+# Cook
+tag_Mirglu=Mirglu
 
 tag_SmolSpider=Spider
 tag_SpiderEggs=Spider Eggs

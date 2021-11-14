@@ -1,7 +1,7 @@
 templateName,database/templates/boxtrigger.tpl,
 ActorName,,
 Class,BoxTrigger,
-FileDescription,,
+FileDescription,Grants Token,
 extentsX,8.0,
 extentsY,10.0,
 extentsZ,8.0,

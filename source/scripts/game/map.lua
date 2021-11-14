@@ -19,13 +19,15 @@ local dungeon_completed_06 = false
 
 --- Desert Ruins
 function gd.map.moveDungeonPortal01()
-	dungeon_portal_01:SetCoords(dungeon_portal_coords_01)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_01)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_01:GetCoords())
 	dungeon_completed_01 = true
+	dungeon_portal_01:SetLocked(false)
+	dungeon_portal_01:Open()
 	dungeon_door_01:Open()
 end
 
 function gd.map.interactPortalDoor01(objectId)
+	portal_area_door_01 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -33,17 +35,24 @@ function gd.map.interactPortalDoor01(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor01()
+	portal_area_door_01:Close()
+	portal_area_door_01:SetLocked(true)
 end
 
 --- Spider Nest
 function gd.map.moveDungeonPortal02()
-	dungeon_portal_02:SetCoords(dungeon_portal_coords_02)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_02)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_02:GetCoords())
 	dungeon_completed_02 = true
+	dungeon_portal_02:SetLocked(false)
+	dungeon_portal_02:Open()
 	dungeon_door_02:Open()
 end
 
 function gd.map.interactPortalDoor02(objectId)
+	portal_area_door_02 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -51,6 +60,11 @@ function gd.map.interactPortalDoor02(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor02()
+	portal_area_door_02:Close()
+	portal_area_door_02:SetLocked(true)
 end
 
 function gd.map.destroyEggs01(objectId)
@@ -95,13 +109,15 @@ end
 
 --- Ashen Waste / Ballog'Nath
 function gd.map.moveDungeonPortal03()
-	dungeon_portal_03:SetCoords(dungeon_portal_coords_03)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_03)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_03:GetCoords())
 	dungeon_completed_03 = true
+	dungeon_portal_03:SetLocked(false)
+	dungeon_portal_03:Open()
 	dungeon_door_03:Open()
 end
 
 function gd.map.interactPortalDoor03(objectId)
+	portal_area_door_03 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -109,17 +125,24 @@ function gd.map.interactPortalDoor03(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor03()
+	portal_area_door_03:Close()
+	portal_area_door_03:SetLocked(true)
 end
 
 --- Town Square
 function gd.map.moveDungeonPortal04()
-	dungeon_portal_04:SetCoords(dungeon_portal_coords_04)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_04)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_04:GetCoords())
 	dungeon_completed_04 = true
+	dungeon_portal_04:SetLocked(false)
+	dungeon_portal_04:Open()
 	dungeon_door_04:Open()
 end
 
 function gd.map.interactPortalDoor04(objectId)
+	portal_area_door_04 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -127,17 +150,24 @@ function gd.map.interactPortalDoor04(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor04()
+	portal_area_door_04:Close()
+	portal_area_door_04:SetLocked(true)
 end
 
 --- Otherworld
 function gd.map.moveDungeonPortal05()
-	dungeon_portal_05:SetCoords(dungeon_portal_coords_05)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_05)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_05:GetCoords())
 	dungeon_completed_05 = true
+	dungeon_portal_05:SetLocked(false)
+	dungeon_portal_05:Open()
 	dungeon_door_05:Open()
 end
 
 function gd.map.interactPortalDoor05(objectId)
+	portal_area_door_05 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -145,17 +175,24 @@ function gd.map.interactPortalDoor05(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor01()
+	portal_area_door_05:Close()
+	portal_area_door_05:SetLocked(true)
 end
 
 --- Arkovian Ruins
 function gd.map.moveDungeonPortal06()
-	dungeon_portal_06:SetCoords(dungeon_portal_coords_06)
-	gd.map.playSoundEffectPortalMoved(dungeon_portal_coords_06)
+	gd.map.playSoundEffectPortalMoved(dungeon_portal_06:GetCoords())
 	dungeon_completed_06 = true
+	dungeon_portal_06:SetLocked(false)
+	dungeon_portal_06:Open()
 	dungeon_door_06:Open()
 end
 
 function gd.map.interactPortalDoor06(objectId)
+	portal_area_door_06 = Door.Get(objectId)
 	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
@@ -163,6 +200,11 @@ function gd.map.interactPortalDoor06(objectId)
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
+end
+
+function gd.map.closePortalDoor06()
+	portal_area_door_06:Close()
+	portal_area_door_06:SetLocked(true)
 end
 
 function gd.map.triggerHideout()
@@ -289,35 +331,30 @@ function gd.map.getDungeonPortalCoords06(objectId)
 end
 
 function gd.map.getDungeonPortal01(objectId)
-	dungeon_portal_01 = Entity.Get(objectId)
+	dungeon_portal_01 = Door.Get(objectId)
 end
 
 function gd.map.getDungeonPortal02(objectId)
-	dungeon_portal_02 = Entity.Get(objectId)
+	dungeon_portal_02 = Door.Get(objectId)
 end
 
 function gd.map.getDungeonPortal03(objectId)
-	dungeon_portal_03 = Entity.Get(objectId)
+	dungeon_portal_03 = Door.Get(objectId)
 end
 
 function gd.map.getDungeonPortal04(objectId)
-	dungeon_portal_04 = Entity.Get(objectId)
+	dungeon_portal_04 = Door.Get(objectId)
 end
 
 function gd.map.getDungeonPortal05(objectId)
-	dungeon_portal_05 = Entity.Get(objectId)
+	dungeon_portal_05 = Door.Get(objectId)
 end
 
 function gd.map.getDungeonPortal06(objectId)
-	dungeon_portal_06 = Entity.Get(objectId)
+	dungeon_portal_06 = Door.Get(objectId)
 end
 
 -- Dungeons
-
-function gd.map.DungeonTeleporterClose(objectId)
-	Door.Get(objectId):SetLocked(true)
-	Door.Get(objectId):Close()
-end
 
 function gd.map.getDungeonDoor01(objectId)
 	dungeon_door_01 = Door.Get(objectId)
@@ -467,7 +504,7 @@ end
 
 function gd.map.UnlockPortalToHideOut(objectId)
 	local player = Game.GetLocalPlayer()
-	if (player:GetQuestState(0x85B30C00) == QuestState.Complete) then
+	if ((player:GetQuestState(0x85B30C00) == QuestState.Complete) or player:HasToken("GL_TESTING")) then
 		Door.Get(objectId):SetLocked(false)
 	end
 end
