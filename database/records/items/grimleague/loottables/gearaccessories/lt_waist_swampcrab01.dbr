@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/gearaccessories/tdyn_waist_b101_swampcrab.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/gearaccessories/tdyn_ring_b101_livingplant.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

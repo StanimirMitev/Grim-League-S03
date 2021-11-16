@@ -203,9 +203,9 @@ local undeadChestId = 0
 function gd.GDLeague.Nemesis.aetherialChestOnAddToWorld(objectId)
 	
 	if Server then	
+		local player = Game.GetLocalPlayer()
 		aetherialChestId = objectId
 		local chestEntity = Entity.Get(objectId)
-		local player = Game.GetLocalPlayer()
 	
 		-- Destroy chest if this is the initial load and the player does not meet the faction requirements to spawn the Nemesis
 		if (player ~= nil) and (chestEntity:IsReloaded() == false) and (Game.GetAveragePlayerLevel() < 30) then
@@ -245,10 +245,14 @@ end
 function gd.GDLeague.Nemesis.kymonChosenChestOnAddToWorld(objectId)
 	
 	if Server then	
-		kymonChosenChestId = objectId
-		local chestEntity = Entity.Get(objectId)
 		local player = Game.GetLocalPlayer()
-	
+		local chestEntity = Entity.Get(objectId)
+		kymonChosenChestId = objectId
+		if(player:GetFaction("USER8") >= 0) then
+			chestEntity:Destroy()
+			kymonChosenChestDestroyed = true
+			return
+		end
 		-- Destroy chest if this is the initial load and the player does not meet the faction requirements to spawn the Nemesis
 		if (player ~= nil) and (chestEntity:IsReloaded() == false) and (Game.GetAveragePlayerLevel() < 30) then
 			chestEntity:Destroy()
@@ -265,10 +269,15 @@ end
 
 function gd.GDLeague.Nemesis.orderDeathVigilChestOnAddToWorld(objectId)
 	
-	if Server then	
+	if Server then
 		orderDeathVigilChestId = objectId
-		local chestEntity = Entity.Get(objectId)
 		local player = Game.GetLocalPlayer()
+		local chestEntity = Entity.Get(objectId)
+		if(player:GetFaction("USER5") >= 0) then
+			chestEntity:Destroy()
+			orderDeathVigilChestDestroyed = true
+			return
+		end	
 	
 		-- Destroy chest if this is the initial load and the player does not meet the faction requirements to spawn the Nemesis
 		if (player ~= nil) and (chestEntity:IsReloaded() == false) and (Game.GetAveragePlayerLevel() < 30) then
@@ -580,10 +589,15 @@ end
 
 function gd.GDLeague.Nemesis.wendigoChestOnAddToWorld(objectId)
 	
-	if Server then	
+	if Server then
 		wendigoChestId = objectId
-		local chestEntity = Entity.Get(objectId)
 		local player = Game.GetLocalPlayer()
+		local chestEntity = Entity.Get(objectId)
+		if(player:GetFaction("USER10") >= 0) then
+			chestEntity:Destroy()
+			wendigoChestDestroyed = true
+			return
+		end
 	
 		-- Destroy chest if this is the initial load and the player does not meet the faction requirements to spawn the Nemesis
 		if (player ~= nil) and (chestEntity:IsReloaded() == false) and (Game.GetAveragePlayerLevel() < 30) then

@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_shield_b101_aetherialcolossus.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

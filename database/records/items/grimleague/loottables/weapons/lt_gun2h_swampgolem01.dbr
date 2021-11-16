@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_gun2h_b101_swampgolem.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

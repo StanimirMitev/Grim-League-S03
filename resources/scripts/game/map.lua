@@ -6,6 +6,12 @@ local dungeon_completed_03 = false
 local dungeon_completed_04 = false
 local dungeon_completed_05 = false
 local dungeon_completed_06 = false
+local portal_area_door_01_id = nil
+local portal_area_door_02_id = nil
+local portal_area_door_03_id = nil
+local portal_area_door_04_id = nil
+local portal_area_door_05_id = nil
+local portal_area_door_06_id = nil
 
 -- After completing a fight, the exit gets moved to the given coordinates
 -- moveDungeonPortal() should be called when the dungeon is completed
@@ -27,10 +33,11 @@ function gd.map.moveDungeonPortal01()
 end
 
 function gd.map.interactPortalDoor01(objectId)
-	portal_area_door_01 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_01_id ~= nil) then
+		return
+	end
+	portal_area_door_01_id = objectId
+	if (true) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -38,6 +45,7 @@ function gd.map.interactPortalDoor01(objectId)
 end
 
 function gd.map.closePortalDoor01()
+	local portal_area_door_01 = Door.Get(portal_area_door_01_id)
 	portal_area_door_01:Close()
 	portal_area_door_01:SetLocked(true)
 end
@@ -52,10 +60,11 @@ function gd.map.moveDungeonPortal02()
 end
 
 function gd.map.interactPortalDoor02(objectId)
-	portal_area_door_02 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_02_id ~= nil) then
+		return
+	end
+	portal_area_door_02_id = objectId
+	if (true) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -63,8 +72,9 @@ function gd.map.interactPortalDoor02(objectId)
 end
 
 function gd.map.closePortalDoor02()
-	portal_area_door_02:Close()
+	local portal_area_door_02 = Door.Get(portal_area_door_02_id)
 	portal_area_door_02:SetLocked(true)
+	portal_area_door_02:Close()
 end
 
 function gd.map.destroyEggs01(objectId)
@@ -117,10 +127,11 @@ function gd.map.moveDungeonPortal03()
 end
 
 function gd.map.interactPortalDoor03(objectId)
-	portal_area_door_03 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_03_id ~= nil) then
+		return
+	end
+	portal_area_door_03_id = objectId
+	if (true) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -128,6 +139,7 @@ function gd.map.interactPortalDoor03(objectId)
 end
 
 function gd.map.closePortalDoor03()
+	local portal_area_door_03 = Door.Get(portal_area_door_03_id)
 	portal_area_door_03:Close()
 	portal_area_door_03:SetLocked(true)
 end
@@ -142,10 +154,11 @@ function gd.map.moveDungeonPortal04()
 end
 
 function gd.map.interactPortalDoor04(objectId)
-	portal_area_door_04 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_04_id ~= nil) then
+		return
+	end
+	portal_area_door_04_id = objectId
+	if ( true ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -153,6 +166,7 @@ function gd.map.interactPortalDoor04(objectId)
 end
 
 function gd.map.closePortalDoor04()
+	local portal_area_door_04 = Door.Get(portal_area_door_04_id)
 	portal_area_door_04:Close()
 	portal_area_door_04:SetLocked(true)
 end
@@ -167,17 +181,19 @@ function gd.map.moveDungeonPortal05()
 end
 
 function gd.map.interactPortalDoor05(objectId)
-	portal_area_door_05 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_05_id ~= nil) then
+		return
+	end
+	portal_area_door_05_id = objectId
+	if ( true ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
 	end
 end
 
-function gd.map.closePortalDoor01()
+function gd.map.closePortalDoor05()
+	local portal_area_door_05 = Door.Get(portal_area_door_05_id)
 	portal_area_door_05:Close()
 	portal_area_door_05:SetLocked(true)
 end
@@ -191,11 +207,13 @@ function gd.map.moveDungeonPortal06()
 	dungeon_door_06:Open()
 end
 
+
 function gd.map.interactPortalDoor06(objectId)
-	portal_area_door_06 = Door.Get(objectId)
-	if (false) then
-		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
-	elseif (Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if (portal_area_door_06_id ~= nil) then
+		return
+	end
+	portal_area_door_06_id = objectId
+	if ( true ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -203,14 +221,12 @@ function gd.map.interactPortalDoor06(objectId)
 end
 
 function gd.map.closePortalDoor06()
+	local portal_area_door_06 = Door.Get(portal_area_door_06_id)
 	portal_area_door_06:Close()
 	portal_area_door_06:SetLocked(true)
 end
 
 function gd.map.triggerHideout()
-	Game.GetLocalPlayer():RemoveToken("GL_TESTING")
-	-- !!! Remove line on Live Version
-	Game.GetLocalPlayer():GiveToken("GL_TESTING")
 	-- These NPCs are for some reason moved to the edge of the region the player loads in, this moves them back
 	faction_merchant_01:SetCoords(faction_merchant_coords_01)
 	faction_merchant_02:SetCoords(faction_merchant_coords_02)
@@ -223,7 +239,7 @@ end
 
 function gd.map.triggerPortalsDoor()
 	-- Normal; Epic; Legendary
-	if ((Game.GetLocalPlayer():GetLevel() == 100 and Game.GetGameDifficulty() == Game.Difficulty.Legendary) or Game.GetLocalPlayer():HasToken("GL_TESTING")) then
+	if ((Game.GetLocalPlayer():GetLevel() == 100 and Game.GetGameDifficulty() == Game.Difficulty.Legendary)) then
 		door_portals:SetLocked(false)
 		door_portals:Open()
 	end
@@ -504,7 +520,7 @@ end
 
 function gd.map.UnlockPortalToHideOut(objectId)
 	local player = Game.GetLocalPlayer()
-	if ((player:GetQuestState(0x85B30C00) == QuestState.Complete) or player:HasToken("GL_TESTING")) then
+	if ((player:GetQuestState(0xD631D200) == QuestState.Complete)) then
 		Door.Get(objectId):SetLocked(false)
 	end
 end

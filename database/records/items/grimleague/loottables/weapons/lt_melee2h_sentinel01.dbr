@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_melee2h_b101_aetherialsentinel.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

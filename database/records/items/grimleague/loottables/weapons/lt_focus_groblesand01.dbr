@@ -1,0 +1,4 @@
+levels,1,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+records,records/items/grimleague/loottables/weapons/tdyn_focus_b201_groblesand.dbr,

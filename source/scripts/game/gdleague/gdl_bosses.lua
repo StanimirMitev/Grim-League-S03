@@ -266,7 +266,6 @@ local swap_location_id = nil
 local attack_location_id = nil
 local invunerable_monster_id = nil
 local walk_to_center_monster_id = nil
-local has_invunerable_stage_finished = false
 local script_invunerable_stage_controller_id = nil
 local invunerable_stage_records = {
 	"records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_01.dbr",
@@ -280,6 +279,20 @@ local invunerable_stage_function_list_index = 1
 local invunerable_stage_start_time = 0
 local invenrable_stage_attack_times = {35,35,35,35}
 local echos_alive = 3
+local sword_id = nil
+
+function gd.GDLeague.Bosses.onAddToWorldMoiraSword(id)
+	sword_id = id
+	print("SWOOOOOOOORD ADEEED")
+	print(sword_id)
+end
+
+function gd.GDLeague.Bosses.DestroyMoiraSword()
+	if(sword_id ~= nil) then
+		local itemEntity = Entity.Get(sword_id)
+		itemEntity:Destroy()
+	end
+end
 
 function gd.GDLeague.Bosses.onAddToWorldBladeSpiritPatrol(id)
 	blade_spirit_proxy_ids[id] = true
@@ -381,7 +394,11 @@ end
 
 function gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
 	invunerable_monster_id = id
-	has_invunerable_stage_finished = false
+end
+
+function gd.GDLeague.Bosses.onAddToWorldInvunerableStage04(id)
+	gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
+	gd.GDLeague.Bosses.DestroyMoiraSword()
 end
 
 function gd.GDLeague.Bosses.onDieInvunerableStage(id)
@@ -484,7 +501,11 @@ end
 function gd.GDLeague.Bosses.onDieMoira(id)
 	invunerable_monster_id = nil
 	gd.map.moveDungeonPortal01()
-	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Moira")
+	gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira")
+end
+
+function gd.GDLeague.Bosses.onDieMoira2(id)
+	gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira", 80)
 end
 
 -- GARIA THE GATE TAKER
@@ -658,17 +679,14 @@ end
 
 function gd.GDLeague.Bosses.BallogNathUseShield()
 	Character.Get(ballog_nath_id):UseSkillAction("records/skills/grimleague/ballognath/ballog_nath_invincibility.dbr", ballog_nath_id, false)
-	print("invincible")
 end
 
 function gd.GDLeague.Bosses.onAddToWorldBallogSummon(id)
 	if(minion_list_id[id] == true) then
-		print("return")
 		return
 	end
 	minion_list_id[id] = true
 	ballog_nath_summons_remaining = ballog_nath_summons_remaining + 1
-	print("increment")
 	if(ballog_nath_summons_remaining == 2) then
 		gd.GDLeague.Bosses.BallogNathUseShield()
 	end

@@ -1,0 +1,4 @@
+levels,1,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+records,records/items/grimleague/loottables/gearaccessories/tdyn_ring_b04_cultist.dbr,

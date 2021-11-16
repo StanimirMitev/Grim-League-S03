@@ -16,7 +16,10 @@
         "QuestState",
         "Destructible",
         "SoundType",
-        "Vec"
+        "Vec",
+        "getn",
+        "gi_getVersion",
+        "QuestEvent"
     ],
     "Lua.diagnostics.disable": [
         "unused-local"

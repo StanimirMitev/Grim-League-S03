@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_caster1h_b104_aetherialascended.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

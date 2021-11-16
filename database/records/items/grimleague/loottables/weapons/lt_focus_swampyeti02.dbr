@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_focus_b109_swampyeti.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,

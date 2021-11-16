@@ -1,0 +1,4 @@
+levels,1;20;45,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+records,records/items/loottables/gearaccessories/tdyn_medal_a01.dbr;records/items/loottables/gearaccessories/tdyn_medal_a02.dbr;records/items/grimleague/loottables/gearaccessories/tdyn_medal_b201_basilisk.dbr,

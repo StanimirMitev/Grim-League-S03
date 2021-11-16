@@ -1,0 +1,4 @@
+records,records/items/grimleague/loottables/weapons/tdyn_blunt1h_b102_bargoll.dbr,
+Class,LevelTable,
+templateName,database/templates/leveltable.tpl,
+levels,1,
