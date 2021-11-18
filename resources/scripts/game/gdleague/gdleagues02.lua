@@ -1029,3 +1029,27 @@ end
 
 -- end
 
+function gd.GDLeague.onAcceptHunterQuest()
+	
+end
+
+function gd.GDLeague.onMeetHunterThrawn()
+	GiveTokenToLocalPlayer("grimleague_hunter_thrown_meet")
+end
+
+function gd.GDLeague.onMeetHunterSygrund()
+	GiveTokenToLocalPlayer("grimleague_hunter_sygrund_meet")
+end
+
+function gd.GDLeague.onMeetHunterCyrrah()
+	GiveTokenToLocalPlayer("grimleague_hunter_cyrrah_meet")
+end
+
+function gd.GDLeague.HasPlayerToken(token)
+	local player = Game.GetLocalPlayer()
+	return player:HasToken(token)
+end
+
+function gd.GDLeague.CanExchangeTokens()
+
+end
