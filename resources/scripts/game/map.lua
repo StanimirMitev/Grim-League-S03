@@ -213,7 +213,7 @@ function gd.map.interactPortalDoor06(objectId)
 		return
 	end
 	portal_area_door_06_id = objectId
-	if ( true ) then
+	if ( true and dungeon_completed_01 == false ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()

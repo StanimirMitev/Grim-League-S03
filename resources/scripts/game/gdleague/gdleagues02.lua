@@ -429,7 +429,7 @@ function gd.GDLeague.GrantGDLTokenItem(key, condition)
 	end
 	-- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
 	condition = condition or gd.GDLeague.DefaultLeagueCondition
-	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(gd.GDLeague.TokenTable[key]["token"])) then
+	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(season_prefix..gd.GDLeague.TokenTable[key]["token"])) then
 		GiveTokenToLocalPlayer(season_prefix..gd.GDLeague.TokenTable[key]["token"])
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
 	end
@@ -491,12 +491,18 @@ function gd.GDLeague.SpawnMPMonster()
 end
 
 function gd.GDLeague.CheckForMP()
-	if Server then
-		local totalPlayers = Game.GetNumPlayers()
-		if(gi_version ~= nil or totalPlayers > 1) then
-			gd.GDLeague.SpawnMPMonster()
-		end
+	local totalPlayers = Game.GetNumPlayers()
+	if(gi_version ~= nil or totalPlayers > 1) then
+		--gd.GDLeague.SpawnMPMonster()
+		return
 	end
+	if(gi_getVersion()) then
+		--gd.GDLeague.SpawnMPMonster()
+	end
+end
+
+function gd.GDLeague.BoxTriggerMPCheck()
+	QuestGlobalEvent("GDLeagueMP")
 end
 
 -- Grant starter itmes to new characters
@@ -508,7 +514,6 @@ function gd.GDLeague.GiveStartingItems(id)
 	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
 	gd.GDLeague.RecoverToken()
 	gd.GDLeague.TestAllTokens()
-	gd.GDLeague.CheckForMP()
 	if(player:HasToken("Received_Start_Items") or player:GetLevel() > 2 or Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
 		return
 	end

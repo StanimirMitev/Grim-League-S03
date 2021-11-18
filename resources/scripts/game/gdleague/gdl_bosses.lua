@@ -268,23 +268,27 @@ local invunerable_monster_id = nil
 local walk_to_center_monster_id = nil
 local script_invunerable_stage_controller_id = nil
 local invunerable_stage_records = {
-	"records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_01.dbr",
-	"records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_02.dbr",
-	"records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_03.dbr",
-	"records/creatures/enemies/GrimLeague/moira/super_boss_moira_invunerable_stage_04.dbr"
+	"records/proxies/grimleague/proxy_boss_moira_inv_01.dbr",
+	"records/proxies/grimleague/proxy_boss_moira_inv_02.dbr",
+	"records/proxies/grimleague/proxy_boss_moira_inv_03.dbr",
+	"records/proxies/grimleague/proxy_boss_moira_inv_04.dbr"
+}
+local moira_taunts = {
+	SoundType.SpecialAttackSoun1,
+	SoundType.SpecialAttackSoun2,
+	SoundType.SpecialAttackSoun3,
+	SoundType.SpecialAttackSoun4,
 }
 local invunerable_stage_records_enumerator = 0
 local invunerable_stage_function_list = {}
 local invunerable_stage_function_list_index = 1
 local invunerable_stage_start_time = 0
 local invenrable_stage_attack_times = {35,35,35,35}
-local echos_alive = 3
+local echos_alive = 2
 local sword_id = nil
 
 function gd.GDLeague.Bosses.onAddToWorldMoiraSword(id)
 	sword_id = id
-	print("SWOOOOOOOORD ADEEED")
-	print(sword_id)
 end
 
 function gd.GDLeague.Bosses.DestroyMoiraSword()
@@ -389,7 +393,8 @@ end
 function gd.GDLeague.Bosses.onDieWalkStage(id)
 	walk_to_center_monster_id = nil
 	invunerable_stage_records_enumerator = invunerable_stage_records_enumerator + 1
-	gd.GDLeague.Bosses.SpawnMonster(id, invunerable_stage_records[invunerable_stage_records_enumerator])
+	local spawn_proxy = Entity.Create(invunerable_stage_records[invunerable_stage_records_enumerator])
+	spawn_proxy:SetCoords(Entity.Get(id):GetCoords())
 end
 
 function gd.GDLeague.Bosses.onAddToWorldInvunerableStage(id)
