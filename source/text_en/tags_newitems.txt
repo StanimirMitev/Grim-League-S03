@@ -14,7 +14,7 @@ tagGDLFocus003=Head of Azaleon
 tagGDLFocus003_Desc="His head still cries out for his brethren!"
 tagGDLFocus003_Pet=Gryphondor
 tagGDLFocus003_Skill=Bretheren's Call
-tagGDLFocus003_Skill_Desc="Azaleon's Head calls out for his most loyal of bretherens to join him in battle."
+tagGDLFocus003_Skill_Desc="Azaleon's Head calls out for his most loyal of bretherens to join him in battle, Gryphondor. ^oYou can only summon one Gryphondor at any one time. Gryphondor scales with player damage bonuses."
 tagGDLFocus003_Pet_skill=Gryphon Claws
 tagGDLFocus003_Pet_skill2=Bloody Swipe
 tagGDLFocus003_Pet_skill3=Wing Flap
@@ -54,3 +54,7 @@ tagGDLMedal002=Vigil of Bandragos
 tagGDLMedal002_Desc="It really liked looking at that flower."
 tagGDLMedal003=Gabal'Thunn's Heart
 tagGDLMedal003_Desc="This Chthonian's heart might be cold, but it still keeps pumping."
+
+tagGDLeagueHeadD002b=Cyrrah's Hunting Hat
+tagGDLeagueScepterD003b=Thrawn's Cynosure
+tagGDLeagueSetD004bHead=Sygrund's Gold Cage

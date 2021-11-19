@@ -1,7 +1,7 @@
 templateName,database/templates/monster.tpl,
 ActorName,,
 Class,Monster,
-FileDescription,Hagrad,
+FileDescription,Hagra,
 stunResistanceInc,0.0,
 ambientSound,records/sounds/enemies/vocalizations/spak_zombievox.dbr,
 ambientPeriodMin,3.0,
