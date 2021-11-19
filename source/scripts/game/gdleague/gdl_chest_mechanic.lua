@@ -49,7 +49,7 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 		base_chance = base_chance + 6
 		current_chance = base_chance
 		local coords = Game.GetLocalPlayer():GetCoords()
-		local proxy = Proxy.Create("records/proxies/GrimLeagueChests/devotionproxy_b01.dbr", coords.origin, true)
+		local proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
 		proxy:SetCoords(coords)
 		return
 	else

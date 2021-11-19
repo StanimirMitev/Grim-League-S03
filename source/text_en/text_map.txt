@@ -1,12 +1,12 @@
 ### Tags for Custom Areas
 
-tag_Hideout=Hideout
-tag_RiftgateHideout=Hideout
+tag_Hideout=Hunter's Blind
+tag_RiftgateHideout=Hunter's Blind
 
 tag_Portals=Portals ^o(Boss Fights)
 tag_ShortcutHideout=^yShortcut to Portals
 
-tag_EntranceHideout=Boat to ^yHideout
+tag_EntranceHideout=Boat to ^Hunter's Blind
 tag_EntranceDungeon01=Portal to ^oDesert Ruins
 tag_EntranceDungeon02=Portal to ^oSpider Nest
 tag_EntranceDungeon03=Portal to ^oAshen Waste
@@ -22,12 +22,12 @@ tag_DoorDungeon04=Town Square
 tag_DoorDungeon05=Otherworld
 tag_DoorDungeon06=Arkovian Ruins
 
-tag_DoorDungeon01Locked=^r(Requirement)
-tag_DoorDungeon02Locked=^r(Requirement)
-tag_DoorDungeon03Locked=^r(Requirement)
-tag_DoorDungeon04Locked=^r(Requirement)
-tag_DoorDungeon05Locked=^r(Requirement)
-tag_DoorDungeon06Locked=^r(Requirement)
+tag_DoorDungeon01Locked=^r(Difficulty: Hard)
+tag_DoorDungeon02Locked=^r(Difficulty: Medium)
+tag_DoorDungeon03Locked=^r(Difficulty: Easy)
+tag_DoorDungeon04Locked=^r(Difficulty: Medium)
+tag_DoorDungeon05Locked=^r(Difficulty: Medium)
+tag_DoorDungeon06Locked=^r(Difficulty: Easy)
 
 tag_DoorPortals=Protected Gate
 tag_DoorPortalsLocked=^r(Level 100 and Ultimate)

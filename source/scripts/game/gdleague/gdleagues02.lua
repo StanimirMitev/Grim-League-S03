@@ -493,11 +493,11 @@ end
 function gd.GDLeague.CheckForMP()
 	local totalPlayers = Game.GetNumPlayers()
 	if(gi_version ~= nil or totalPlayers > 1) then
-		--gd.GDLeague.SpawnMPMonster()
+		gd.GDLeague.SpawnMPMonster()
 		return
 	end
 	if(gi_getVersion()) then
-		--gd.GDLeague.SpawnMPMonster()
+		gd.GDLeague.SpawnMPMonster()
 	end
 end
 

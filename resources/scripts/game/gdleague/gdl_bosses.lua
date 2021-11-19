@@ -503,6 +503,13 @@ function gd.GDLeague.Bosses.InvunerableStageController(id)
 	invunerable_stage_function_list[invunerable_stage_function_list_index](invunerable_monster_id)
 end
 
+function gd.GDLeague.Bosses.onDieMoiraInvunerableStage04(id)
+	local coords = Entity.Get(id):GetCoords()
+	local proxy = Proxy.Create("records/proxies/grimleague/proxy_boss_moira_inv_final.dbr", coords.origin, true)
+	proxy:SetCoords(coords)
+	
+end
+
 function gd.GDLeague.Bosses.onDieMoira(id)
 	invunerable_monster_id = nil
 	gd.map.moveDungeonPortal01()
