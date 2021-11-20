@@ -98,3 +98,5 @@ tagGDLeagueSetD004Blunt2hSummonSkill=Arkovian Formation
 
 tagGDLeagueHunterStone=Stone of Salvation
 tagGDLeagueHunterStoneDesc=Provides protection in the Shattered Realms.{^n}{^o}Only one may be active at a time
+tagGDLeagueHunterScroll=Magical Scroll
+tagGDLeagueHunterScrollDesc=A piece of the legendary scrolls. Stolen by traitors, driven to the brink of madness from immortality. {^n}Thought to require the might of the entire order, to be returned to Hunter's Blind.{^n}And yet here it is, in your hands.

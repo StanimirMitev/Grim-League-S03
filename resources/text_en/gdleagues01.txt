@@ -33,9 +33,7 @@ tagStartingItemsGiftDescription=Right click to receive gifts. Throw away if a ne
 tagNoExpPotion=Potion of Stubbornness
 tagNoExpPotionDescription=Only for the truely stubborn
 tagNoExpPotionBlueprint=Blueprint: Potion of Stuburness
-tagGDLeagueChestPoints01=Mildly Cursed Seal
-tagGDLeagueChestPoints02=Moderately Cursed Seal
-tagGDLeagueChestPoints03=Severely Cursed Seal
+tagGDLeagueChestPoints01=Hunter's Seal
 tagGDLeagueMoiraCurse=Arcane Constriction
 
 tagGDLeagueMoiraCurseDescription=Those afflicted with the curse suffer from decreased combat prowess and are more susceptible to harm
@@ -70,6 +68,7 @@ tagGDLeagueSkillRolderathisAura=Dreadful Presence
 tagGDLeagueSkillDescriptionRolderathisAura=Rolderathis' chilling presence spreads across the battlefield, numbing all foes' combat prowess and reflexes, leaving them defenseless against his cold touch of death.
 tagGDLeagueSkillBallogNathAura=Voice of Ch'thonic
 tagGDLeagueSkillDescriptionBallogNathAura=Ch'thon's presence engulfs reality itself, spreding eternaly in search of new subjects. They will hear a voice encoruging them to join the one true god, acting as a distraction at all times till one has joined Ch'thon or met their end.
+tagGDLeagueTradeOnly=Trade Only Buff
 
 #monsters
 tagGDLeagueSuperBoss1=Rolderathis, The Shatterer Of Wills
@@ -95,15 +94,33 @@ tagGDLeagueSuperBoss4EggDestory04=You should not have done that!!! Large Egg Clu
 tagGDLeagueSuperBoss4EggDestory05=Large Egg Cluster Destroyed (5/5). WHAT is that SOUND?
 tagGDLeagueSuperBoss5=Ascended Spellbreaker Moira
 tagGDLeagueSuperBoss6=Garia, The Gate Taker
-
+tagGDLeagueGhostNemesis=Lucia, the Cunning
+tagGDLeagueGhostNemesis2=Derivius, the Dashing
+tagGDLeagueGhostNemesis3=Uro, The Unpredictable
 
 #cursed chest mechanic
-tagGDLeagueChest10=Cursed chest chance is over 10%
-tagGDLeagueChest20=Cursed chest chance is over 20%
-tagGDLeagueChest30=Cursed chest chance is over 30%
-tagGDLeagueChest40=Cursed chest chance is over 40%
-tagGDLeagueChest50=Cursed chest chance is over 50%
-tagGDLeagueChest60=Cursed chest chance is over 60%
-tagGDLeagueChest70=Cursed chest chance is over 70%
-tagGDLeagueChest80=Cursed chest chance is over 80%
-tagGDLeagueChest90=Cursed chest chance is over 90%
+tagGDLeagueChest01=Ambush chest chance is 1%
+tagGDLeagueChest02=Ambush chest chance is 2%
+tagGDLeagueChest03=Ambush chest chance is 3%
+tagGDLeagueChest04=Ambush chest chance is 4%
+tagGDLeagueChest05=Ambush chest chance is 5%
+tagGDLeagueChest06=Ambush chest chance is 6%
+tagGDLeagueChest07=Ambush chest chance is 7%
+tagGDLeagueChest08=Ambush chest chance is 8%
+tagGDLeagueChest09=Ambush chest chance is 9%
+tagGDLeagueChest10=Ambush chest chance is 10%
+tagGDLeagueChest11=Ambush chest chance is 11%
+tagGDLeagueChest12=Ambush chest chance is 12%
+tagGDLeagueChest13=Ambush chest chance is 13%
+tagGDLeagueChest14=Ambush chest chance is 14%
+tagGDLeagueChest15=Ambush chest chance is 15%
+tagGDLeagueChest16=Ambush chest chance is 16%
+tagGDLeagueChest17=Ambush chest chance is 17%
+tagGDLeagueChest18=Ambush chest chance is 18%
+tagGDLeagueChest19=Ambush chest chance is 19%
+tagGDLeagueChest20=Ambush chest chance is 20%
+tagGDLeagueChest21=Ambush chest chance is 21%
+tagGDLeagueChest22=Ambush chest chance is 22%
+tagGDLeagueChest23=Ambush chest chance is 23%
+tagGDLeagueChest24=Ambush chest chance is 24%
+tagGDLeagueChest25=Ambush chest chance is 25%

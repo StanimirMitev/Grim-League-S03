@@ -1,37 +1,55 @@
 gd.GDLeague.Chests = {}
 
-local base_chance = 10
+local chest_nemesis_chance = 5
+local base_chance = 5
 local current_chance = base_chance
-local step_increment = 2
-local chest_chance_seal_modifier = 5 * 2
-local seals_per_tier = 60
+local step_increment = 0.5
+local seals_per_tier = 100
 local seal = "records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr"
 local is_setup_done = false
 local chest_notifications = {
-	"tagGDLeagueChest10",
-	"tagGDLeagueChest20",
-	"tagGDLeagueChest30",
-	"tagGDLeagueChest40",
-	"tagGDLeagueChest50",
-	"tagGDLeagueChest60",
-	"tagGDLeagueChest70",
-	"tagGDLeagueChest80",
-	"tagGDLeagueChest90"}
---math.randomseed(os.time())
---
+"tagGDLeagueChest01",
+"tagGDLeagueChest02",
+"tagGDLeagueChest03",
+"tagGDLeagueChest04",
+"tagGDLeagueChest05",
+"tagGDLeagueChest06",
+"tagGDLeagueChest07",
+"tagGDLeagueChest08",
+"tagGDLeagueChest09",
+"tagGDLeagueChest10",
+"tagGDLeagueChest11",
+"tagGDLeagueChest12",
+"tagGDLeagueChest13",
+"tagGDLeagueChest14",
+"tagGDLeagueChest15",
+"tagGDLeagueChest16",
+"tagGDLeagueChest17",
+"tagGDLeagueChest18",
+"tagGDLeagueChest19",
+"tagGDLeagueChest20",
+"tagGDLeagueChest21",
+"tagGDLeagueChest22",
+"tagGDLeagueChest23",
+"tagGDLeagueChest24",
+"tagGDLeagueChest25"}
 
 function gd.GDLeague.Chests.NotifyChestChance()
 	print(current_chance)
-	if(current_chance >= 20) then
-		UI.Notify(chest_notifications[math.min(math.floor(current_chance / 20), 9)])
-	end
+	UI.Notify(chest_notifications[math.floor(current_chance)])
 end
 
 function gd.GDLeague.Chests.EvaluateInitialChance()
-	for i = 13, 1, -1 do
-		local player = Game.GetLocalPlayer()
+	local player = Game.GetLocalPlayer()
+	for i =20, 11, -1 do
 		if(player:HasItem(seal, i * seals_per_tier, false)) then
-			base_chance = base_chance + i * chest_chance_seal_modifier
+			chest_nemesis_chance = chest_nemesis_chance + (i - 10)
+			break
+		end
+	end
+	for i = 10, 1, -1 do
+		if(player:HasItem(seal, i * seals_per_tier, false)) then
+			base_chance = base_chance + i
 			current_chance = base_chance
 			gd.GDLeague.Chests.NotifyChestChance()
 			is_setup_done = true
@@ -40,39 +58,72 @@ function gd.GDLeague.Chests.EvaluateInitialChance()
 	end
 end
 
+function gd.GDLeague.Chests.SpawnNemesisChest(num)
+	if( 17 > random(1, 100) ) then
+		local chest = Entity.Create("records/items/grimleague/faction/hunter/quest/quest_chest.dbr")
+		chest:SetCoords(Game.GetLocalPlayer():GetCoords())
+		GiveTokenToLocalPlayer("grimleague_hunter_nemesis_down_"..num)
+	end
+end
+
+function gd.GDLeague.Chests.onDieGhostNemesis(id)
+	local player = Game.GetLocalPlayer()
+	local chest = Entity.Create("records/items/grimleague/faction/hunter/quest/chest_ghost_nemesis.dbr")
+	chest:SetCoords(player:GetCoords())
+	if(not player:HasToken("grimleague_hunter_nemesis_down_1")) then
+		gd.GDLeague.Chests.SpawnNemesisChest(1)
+	elseif(not player:HasToken("grimleague_hunter_nemesis_down_2")) then
+		gd.GDLeague.Chests.SpawnNemesisChest(2)
+	end
+
+end
+
+function gd.GDLeague.Chests.TrySpawnNemesis()
+	local player = Game.GetLocalPlayer()
+	local result = false
+	if(player:HasToken("grimleague_hunter_quest_start") and chest_nemesis_chance >= random(1, 100)) then
+		result = true
+		local proxy = Proxy.Create("records/proxies/grimleague/proxy_nemesis_ghost.dbr", player:GetCoords().origin, true)
+		proxy:SetCoords(player:GetCoords())
+	end
+	return result
+end
+
 function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 	if(not is_setup_done) then
 		gd.GDLeague.Chests.EvaluateInitialChance()
 	end
-	if( current_chance >= random(1, 200)) then
-		print("Success ")
-		base_chance = base_chance + 6
+	if(gd.GDLeague.Chests.TrySpawnNemesis()) then
+		return
+	end
+	if( current_chance * 2 >= random(1, 200)) then
+		base_chance = base_chance + 0.5
+		base_chance = math.min(base_chance, 15)
 		current_chance = base_chance
 		local coords = Game.GetLocalPlayer():GetCoords()
 		local proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
 		proxy:SetCoords(coords)
-		return
 	else
 		current_chance = current_chance + step_increment + chest_tier
-		current_chance = math.min(current_chance, 190)
-		gd.GDLeague.Chests.NotifyChestChance()
+		current_chance = math.min(current_chance, 25)
 	end
+	gd.GDLeague.Chests.NotifyChestChance()
 end
 
 function gd.GDLeague.Chests.OnOpenTier1()
-	gd.GDLeague.Chests.TriggerTrap(1)
+	gd.GDLeague.Chests.TriggerTrap(0.5)
 end
 
 function gd.GDLeague.Chests.OnOpenTier2()
-	gd.GDLeague.Chests.TriggerTrap(2)
+	gd.GDLeague.Chests.TriggerTrap(1)
 end
 
 function gd.GDLeague.Chests.OnOpenTier3()
-	gd.GDLeague.Chests.TriggerTrap(3)
+	gd.GDLeague.Chests.TriggerTrap(1.5)
 end
 
 function gd.GDLeague.Chests.OnOpenTier4()
-	gd.GDLeague.Chests.TriggerTrap(4)
+	gd.GDLeague.Chests.TriggerTrap(2)
 end
 
 function gd.GDLeague.Chests.gauntletWaveEventChestOpened()

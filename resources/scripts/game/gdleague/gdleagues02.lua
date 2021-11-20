@@ -1029,9 +1029,6 @@ end
 
 -- end
 
-function gd.GDLeague.onAcceptHunterQuest()
-
-end
 local stones_of_salvation = {
 	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_01.dbr",
 	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_02.dbr",
@@ -1066,5 +1063,13 @@ function gd.GDLeague.GiveRandomStoneOfSalvation()
 		player:TakeItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 100, false)
 		player:GiveItem(stones_of_salvation[rand], 1, false)
 	end
+end
+
+function gd.GDLeague.OnItemPickUpParchment()
+	GiveTokenToLocalPlayer("grimleague_hunter_has_parchment")
+end
+
+function gd.GDLeague.OnItemPickUpScroll()
+	GiveTokenToLocalPlayer("grimleague_hunter_has_scroll")
 end
 

@@ -37,7 +37,7 @@ function gd.map.interactPortalDoor01(objectId)
 		return
 	end
 	portal_area_door_01_id = objectId
-	if (true) then
+	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -64,7 +64,7 @@ function gd.map.interactPortalDoor02(objectId)
 		return
 	end
 	portal_area_door_02_id = objectId
-	if (true) then
+	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -131,7 +131,7 @@ function gd.map.interactPortalDoor03(objectId)
 		return
 	end
 	portal_area_door_03_id = objectId
-	if (true) then
+	if (false) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -158,7 +158,7 @@ function gd.map.interactPortalDoor04(objectId)
 		return
 	end
 	portal_area_door_04_id = objectId
-	if ( true ) then
+	if ( false ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -185,7 +185,7 @@ function gd.map.interactPortalDoor05(objectId)
 		return
 	end
 	portal_area_door_05_id = objectId
-	if ( true ) then
+	if ( false ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -213,7 +213,7 @@ function gd.map.interactPortalDoor06(objectId)
 		return
 	end
 	portal_area_door_06_id = objectId
-	if ( true and dungeon_completed_01 == false ) then
+	if ( false and dungeon_completed_01 == false ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
