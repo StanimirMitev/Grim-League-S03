@@ -6,7 +6,7 @@ tag_RiftgateHideout=Hunter's Blind
 tag_Portals=Portals ^o(Boss Fights)
 tag_ShortcutHideout=^yShortcut to Portals
 
-tag_EntranceHideout=Boat to ^Hunter's Blind
+tag_EntranceHideout=Boat to ^yHunter's Blind
 tag_EntranceDungeon01=Portal to ^oDesert Ruins
 tag_EntranceDungeon02=Portal to ^oSpider Nest
 tag_EntranceDungeon03=Portal to ^oAshen Waste
