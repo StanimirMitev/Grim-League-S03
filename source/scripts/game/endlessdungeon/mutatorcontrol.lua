@@ -42,6 +42,60 @@ local mutatorList = {"records/game/mutators/mutatorpak_monster_01.dbr",
 local totalMutators = 0
 local currentMutators = 0
 local assignedMutators = { }
+local reroll_number = 0
+
+local function Mutator_Protection()
+	local player = Game.GetLocalPlayer()
+	if(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_01.dbr", 1, false)) then
+		reroll_number = 1
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_02.dbr", 1, false)) then
+		reroll_number = 2
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_03.dbr", 1, false)) then
+		reroll_number = 3
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_04.dbr", 1, false)) then
+		reroll_number = 4
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_05.dbr", 1, false)) then
+		reroll_number = 5
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_06.dbr", 1, false)) then
+		reroll_number = 6
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_07.dbr", 1, false)) then
+		reroll_number = 7
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_08.dbr", 1, false)) then
+		reroll_number = 8
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_09.dbr", 1, false)) then
+		reroll_number = 9
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_10.dbr", 1, false)) then
+		reroll_number = 10
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_11.dbr", 1, false)) then
+		reroll_number = 11
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_12.dbr", 1, false)) then
+		reroll_number = 12
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_13.dbr", 1, false)) then
+		reroll_number = 13
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_14.dbr", 1, false)) then
+		reroll_number = 14
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_15.dbr", 1, false)) then
+		reroll_number = 15
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_16.dbr", 1, false)) then
+		reroll_number = 16
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_monster_17.dbr", 1, false)) then
+		reroll_number = 17
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_01.dbr", 1, false)) then
+		reroll_number = 18
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_02.dbr", 1, false)) then
+		reroll_number = 19
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_03.dbr", 1, false)) then
+		reroll_number = 20
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_04.dbr", 1, false)) then
+		reroll_number = 21
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_05.dbr", 1, false)) then
+		reroll_number = 22
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_06.dbr", 1, false)) then
+		reroll_number = 23
+	elseif(player:HasItem("records/items/grimleague/faction/hunter/anti_mutator_stone_player_07.dbr", 1, false)) then
+		reroll_number = 24
+	end
+end
 
 -- Select Mutator(s)
 local function EndlessDungeon_MutatorRandomizer()
@@ -50,12 +104,16 @@ local function EndlessDungeon_MutatorRandomizer()
 	local selectedList = {}
 	
 	print "selecting mutators"
+	Mutator_Protection()
 	-- randomly select mutators until a unique list of length totalMutators is created
 	if totalMutators <= maxMutators then
 		math.randomseed(Time.Now())
 		
 		while table.getn(assignedMutators) ~= totalMutators do
-			local rand = random(1,maxMutators)
+			local rand = 0
+			repeat
+				rand = random(1,maxMutators)
+			until( rand ~= reroll_number )
 			local found = false
 			
 			if rand <= maxMutators then
@@ -92,7 +150,7 @@ local function EndlessDungeon_MutatorRandomizer()
 		local totalMutatorsSelected = table.getn(selectedList)
 		
 		for id = 1, totalMutatorsSelected do
-			--Game.AddMutator(selectedList[id])
+			Game.AddMutator(selectedList[id])
 		
 		end		
 	

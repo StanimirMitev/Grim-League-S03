@@ -493,11 +493,11 @@ end
 function gd.GDLeague.CheckForMP()
 	local totalPlayers = Game.GetNumPlayers()
 	if(gi_version ~= nil or totalPlayers > 1) then
-		--gd.GDLeague.SpawnMPMonster()
+		gd.GDLeague.SpawnMPMonster()
 		return
 	end
 	if(gi_getVersion()) then
-		--gd.GDLeague.SpawnMPMonster()
+		gd.GDLeague.SpawnMPMonster()
 	end
 end
 
@@ -1030,26 +1030,41 @@ end
 -- end
 
 function gd.GDLeague.onAcceptHunterQuest()
-	
-end
 
-function gd.GDLeague.onMeetHunterThrawn()
-	GiveTokenToLocalPlayer("grimleague_hunter_thrown_meet")
 end
-
-function gd.GDLeague.onMeetHunterSygrund()
-	GiveTokenToLocalPlayer("grimleague_hunter_sygrund_meet")
-end
-
-function gd.GDLeague.onMeetHunterCyrrah()
-	GiveTokenToLocalPlayer("grimleague_hunter_cyrrah_meet")
-end
-
-function gd.GDLeague.HasPlayerToken(token)
+local stones_of_salvation = {
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_01.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_02.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_03.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_04.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_05.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_06.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_07.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_08.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_09.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_10.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_11.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_12.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_13.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_14.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_15.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_16.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_monster_17.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_01.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_02.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_03.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_04.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_05.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_06.dbr",
+	"records/items/grimleague/faction/hunter/anti_mutator_stone_player_07.dbr"
+}
+function gd.GDLeague.GiveRandomStoneOfSalvation()
+	local maxStones = table.getn(stones_of_salvation)
+	local rand = random(1,maxStones)
 	local player = Game.GetLocalPlayer()
-	return player:HasToken(token)
+	if(player:HasItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 100, false)) then
+		player:TakeItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 100, false)
+		player:GiveItem(stones_of_salvation[rand], 1, false)
+	end
 end
 
-function gd.GDLeague.CanExchangeTokens()
-
-end

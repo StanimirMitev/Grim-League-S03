@@ -89,3 +89,8 @@ tag_DevilsCrossingSmithA=Devil's Crossing (Master)
 tag_DevilsCrossingSmithB=Devil's Crossing (Apprentice)
 tag_ConclaveSmith=Conclave
 tag_MalmouthSmith=Malmouth
+
+## Hunters
+tag_hunter_01=Sygrund the Brave
+tag_hunter_02=Cyrrah the Precise
+tag_hunter_03=Thrawn, the Curious

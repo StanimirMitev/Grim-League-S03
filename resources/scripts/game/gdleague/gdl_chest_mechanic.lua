@@ -5,7 +5,7 @@ local current_chance = base_chance
 local step_increment = 2
 local chest_chance_seal_modifier = 5 * 2
 local seals_per_tier = 60
-local seal = "records/items/grimleagues03/questitems/grim_league_cursed_seals.dbr"
+local seal = "records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr"
 local is_setup_done = false
 local chest_notifications = {
 	"tagGDLeagueChest10",

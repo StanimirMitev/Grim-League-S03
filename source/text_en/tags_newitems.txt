@@ -55,6 +55,46 @@ tagGDLMedal002_Desc="It really liked looking at that flower."
 tagGDLMedal003=Gabal'Thunn's Heart
 tagGDLMedal003_Desc="This Chthonian's heart might be cold, but it still keeps pumping."
 
+
+
+
+
+tagGDLeagueShieldD001=Amatok's Blessing
+tagGDLeagueTorsoD001=Amatok's Chestguard
+tagGDLeagueWaistD001=Amatok's Waistguard
+tagGDLeagueHeadD001=Amatok's Winter Cowl
+tagGDLeagueSetD001=Amatok's Harbinger
+tagGDLeagueSetD002=Cyrrah's Ingenuity
+tagGDLeagueGun2hD002=Cyrrah's Blade Launcher
+tagGDLeagueGun2hD002Skill=Tactical Precision
+tagGDLeagueGun2hD002SkillDesc=Masters of hunt can deliver a series of devastating blows.
+tagGDLeagueNecklaceD002=Cyrrah's Tactical Choker
+tagGDLeagueTorsoD002=Cyrrah's Concealed Doublet
 tagGDLeagueHeadD002b=Cyrrah's Hunting Hat
+tagGDLeagueGlovesD002=Cyrrah's Fingerless Gloves
+tagGDLeagueSetD003=Curiosity of Thrawn
+tagGDLeagueSetD003Skill=Perfect Elemental Storm
+tagGDLeagueSetD003SkillDesc=Unleash the culmination of Thrawn's studies, a massive elemental storm of ice, flame, and lightning.
 tagGDLeagueScepterD003b=Thrawn's Cynosure
+tagGDLeagueScepterD003Skill=Arctic Tempest
+tagGDLeagueScepterD003SkillDesc=Releases a concentrated burst of arcane energy around you, freezing the air in an instant.
+tagGDLeagueFocusD003=Thrawn's Limitless Archives 
+tagGDLeagueNecklaceD003=Thrawn's Magnifying Glass
+tagGDLeagueNecklaceD003Skill=Flame Patch
+tagGDLeagueNecklaceD003SkillDesc=You ignite the very ground your foes stand upon.
+tagGDLeagueSetD004=Sygrund's Unyielding Legacy
+tagGDLeagueSetD004Blunt2h=Sygrund's Cudgel of Camaraderie
 tagGDLeagueSetD004bHead=Sygrund's Gold Cage
+tagGDLeagueSetD004SHoulder=Sygrund's Pauldrons
+tagGDLeagueSetD004Torso=Sygrund's Beating Heart
+tagGDLeagueSetD004Summon=Arkovian Hunter
+tagGDLeagueSetD004SummonDesc="To my side, comrades!"" Calls upon a shadow of an arkovian hunter from the past to fight by your side!
+tagGDLeagueSetD004SummonCurse=Hunter's Mark
+tagGDLeagueSetD004SummonAttack=Arkovian Aim
+tagGDLeagueSetD004Blunt2hSummon=Hunter's Banner
+tagGDLeagueSetD004Blunt2hSummonDesc=Summon a banner of the Arkovian hunters, a symbol of strength and renewed purpose, empowering all who rally under it.
+tagGDLeagueSetD004Blunt2hSummonSkill=Arkovian Formation
+
+
+tagGDLeagueHunterStone=Stone of Salvation
+tagGDLeagueHunterStoneDesc=Provides protection in the Shattered Realms.{^n}{^o}Only one may be active at a time
