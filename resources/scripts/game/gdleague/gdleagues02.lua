@@ -251,8 +251,8 @@ local LeagueLevelRequirement = 100
 local LeagueSRChallengeRequirement = 25
 local LeagueNormalBossRequirement = 35
 local LeagueNormalNemesisRequirement = 45
-local LeagueEliteSideBossRequirement = 65
-local LeagueEliteDungeonRequirement = 65
+local LeagueEliteSideBossRequirement = 80
+local LeagueEliteDungeonRequirement = 70
 local LeagueEliteChallengeRequirement = 80
 local LeagueUltimateBossesRequirement = 90
 local LeagueUltimateBossChallengeRequirement = 35
@@ -328,95 +328,10 @@ function gd.GDLeague.RecoverToken()
 	if (player:HasToken(participationtoken) and not player:HasItem(LeagueEntryToken, 1, false)) then
 		player:GiveItem(LeagueEntryToken, 1, false)
 	end
-end
-
-function gd.GDLeague.TestAllTokens()
-	local player = Game.GetLocalPlayer()
-	if(player == nil) then
-		return
+	if(not player:HasItem(LeagueEntryToken, 1, false) and Game.GetGameDifficulty() ~= Game.Difficulty.Normal ) then
+		UI.Notify("tagGDLeagueMissingToken")
 	end
-	if(player:HasItem("records/items/grimleagues03/questitems/grim_league_s02_test_all_token.dbr", 1, false)) then
-		is_in_testing = true
-		gd.GDLeague.GrantTokenBoss_Galeslice()
-		gd.GDLeague.GrantTokenBoss_NarenKur()
-		gd.GDLeague.GrantTokenBoss_Karnath()
-		gd.GDLeague.GrantTokenBoss_Rutnick()
-		gd.GDLeague.GrantTokenBoss_Astros()
-		gd.GDLeague.GrantTokenBoss_Abaddoth()
-		gd.GDLeague.GrantTokenCelestialTotem()
-		gd.GDLeague.GrantTokenGutworm()
-		gd.GDLeague.GrantTokenHeraldStars()
-		gd.GDLeague.GrantTokenHeraldDestruction()
-		gd.GDLeague.GrantTokenHeraldFlame()
-		gd.GDLeague.GrantTokenRonaprax()
-		gd.GDLeague.GrantTokenShambler()
-		gd.GDLeague.GrantTokenSalazar()
-		gd.GDLeague.GrantTokenKrieg()
-
-		
-		gd.GDLeague.GrantTokenDungeonSoT()
-		gd.GDLeague.GrantTokenDungeonBoC()
-		gd.GDLeague.GrantTokenDungeonPV()
-		gd.GDLeague.GrantTokenDungeonAG()
-		gd.GDLeague.GrantTokenDungeonTotH()
-		
-		
-		gd.GDLeague.GrantTokenNemesisAetherial()
-		gd.GDLeague.GrantTokenNemesisVanguard()
-		gd.GDLeague.GrantTokenNemesisChthonian()
-		gd.GDLeague.GrantTokenNemesisAOMChthonian()
-		gd.GDLeague.GrantTokenNemesisOutlaw()
-		gd.GDLeague.GrantTokenNemesisMaiden()
-		gd.GDLeague.GrantTokenNemesisOrder()
-		gd.GDLeague.GrantTokenNemesisEldritch()
-		gd.GDLeague.GrantTokenNemesisUndead()
-		gd.GDLeague.GrantTokenNemesisBeast()
-		gd.GDLeague.GrantTokenNemesisBeast()
-		gd.GDLeague.GrantTokenNemesisBeast()
-		gd.GDLeague.GrantTokenNemesisBeast()
-
-		-- gd.GDLeague.GrantTokenDeepShatteredRealm(81)
-		-- gd.GDLeague.GrantTokenDeepShatteredRealm(99)
-		-- gd.GDLeague.GrantTokenDeepShatteredRealm(100)
-		-- gd.GDLeague.GrantTokenDeepShatteredRealm(130)
 	
-		gd.GDLeague.GrantTokenShatteredRealm76()
-		gd.GDLeague.GrantTokenShatteredRealm61()
-		gd.GDLeague.GrantTokenShatteredRealm46()
-		gd.GDLeague.GrantTokenShatteredRealm31()
-		gd.GDLeague.GrantTokenShatteredRealm16()
-		level_to_enter_sr = 25
-		gd.GDLeague.GrantTokenShatteredRealm50Challenge()
-		level_to_enter_sr = 101
-		player:TakeItem("records/items/grimleagues03/questitems/grim_league_s02_test_all_token.dbr", 1, false)
-		
-		gd.GDLeague.GrantTokenProtossKill()
-		gd.GDLeague.GrantTokenAldricKill()
-		gd.GDLeague.GrantTokenAldricKill2()
-		gd.GDLeague.GrantTokenLoxmereKill()
-		gd.GDLeague.GrantTokenKravalKill()
-		gd.GDLeague.GrantTokenRashalgaKill()
-		gd.GDLeague.GrantTokenLokarrKill()
-		gd.GDLeague.GrantTokenBourbonKill()
-		gd.GDLeague.GrantTokenMogdrogenKill()
-		gd.GDLeague.GrantTokenRavagerKill()
-		gd.GDLeague.GrantTokenCallagadraKill()
-		gd.GDLeague.GrantTokenCrateKill()
-		gd.GDLeague.GrantTokenTheodinKill()
-		gd.GDLeague.GrantTokenKorvaakKill()
-		
-		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Garia")
-		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Galakros")
-		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Aranea")
-		if(player:HasToken("Nemesis_Moira_100")) then
-			gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira", 80)
-		else
-			gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira", 100)
-		end
-		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Rolderathis")
-		gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_BallogNath")
-		is_in_testing = false
-	end
 end
 
 function gd.GDLeague.GrantGDLTokenItem(key, condition)
@@ -502,6 +417,8 @@ function gd.GDLeague.CheckForMP()
 end
 
 function gd.GDLeague.BoxTriggerMPCheck()
+	local player = Game.GetLocalPlayer()
+	gd.GDLeague.RecoverToken()
 	QuestGlobalEvent("GDLeagueMP")
 end
 
@@ -513,7 +430,7 @@ function gd.GDLeague.GiveStartingItems(id)
 	end
 	gd.quests.devilsCrossingNPCSpiritGuide.triggerSpawnNecklace(id)
 	gd.GDLeague.RecoverToken()
-	gd.GDLeague.TestAllTokens()
+	--gd.GDLeague.TestAllTokens()
 	if(player:HasToken("Received_Start_Items") or player:GetLevel() > 2 or Game.GetGameDifficulty() ~= Game.Difficulty.Normal) then
 		return
 	end
@@ -745,6 +662,12 @@ function gd.GDLeague.GrantTokenNemesisUndead()
 	gd.GDLeague.Nemesis.undeadNemesisKilled()
 	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
 	gd.GDLeague.GrantGDLNemesisToken(quest_nemesis_undead)
+end
+
+-- Gives token for killing the Undead Nemesis
+function gd.GDLeague.GrantTokenNemesisWendigo()
+	gd.nemesisGDX1.wendigoNemesisKilled()
+	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
 end
 
 -- Gives token for killing the Beast Nemesis, must kill all 4 small Kubas

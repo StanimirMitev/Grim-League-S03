@@ -23,7 +23,7 @@ tagGDLeagueSRChallengeTokenEarned=You Have Earned Points For Conquering the Shat
 tagGDLeagueWorldBossKillNotification=You Have Earned Points For Defeating a Boss
 tagGDLeagueSuperBossKillNotification=You Have Earned Points For Defeating a Super Boss
 tagGDLeagueTotemNotification=You Have Earned Points For Completing a Celestial Totem
-
+tagGDLeagueMissingToken=You are MISSING the S03 league token. Go back to Normal Difficulty.
 
 
 
