@@ -251,7 +251,7 @@ local LeagueLevelRequirement = 100
 local LeagueSRChallengeRequirement = 25
 local LeagueNormalBossRequirement = 35
 local LeagueNormalNemesisRequirement = 45
-local LeagueEliteSideBossRequirement = 80
+local LeagueEliteSideBossRequirement = 65
 local LeagueEliteDungeonRequirement = 70
 local LeagueEliteChallengeRequirement = 80
 local LeagueUltimateBossesRequirement = 90
@@ -337,16 +337,21 @@ end
 function gd.GDLeague.GrantGDLTokenItem(key, condition)
 	local player = Game.GetLocalPlayer()
 	if(player == nil) then
+		UI.Notify("tagGDLeagueLuaDebug01")
 		return
 	end
 	if(key == nil) then
+		UI.Notify("tagGDleagueLuaDebug02")
 		return
 	end
 	-- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
 	condition = condition or gd.GDLeague.DefaultLeagueCondition
-	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(season_prefix..gd.GDLeague.TokenTable[key]["token"])) then
-		GiveTokenToLocalPlayer(season_prefix..gd.GDLeague.TokenTable[key]["token"])
+	local final_tag = season_prefix..gd.GDLeague.TokenTable[key]["token"]
+	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(final_tag)) then
+		GiveTokenToLocalPlayer(final_tag)
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
+	else
+		UI.Notify("tagGDleagueLuaDebug03")
 	end
 end
 

@@ -101,7 +101,17 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 		base_chance = math.min(base_chance, 15)
 		current_chance = base_chance
 		local coords = Game.GetLocalPlayer():GetCoords()
-		local proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
+		local level = Game.GetLocalPlayer():GetLevel()
+		local proxy
+		if(level <= 30 ) then
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap_level_low.dbr", coords.origin, true)
+		elseif(level <= 60) then
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap_level_medium.dbr", coords.origin, true)
+		else
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
+		end
+
+		
 		proxy:SetCoords(coords)
 	else
 		current_chance = current_chance + step_increment + chest_tier
