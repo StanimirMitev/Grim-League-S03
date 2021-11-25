@@ -337,16 +337,21 @@ end
 function gd.GDLeague.GrantGDLTokenItem(key, condition)
 	local player = Game.GetLocalPlayer()
 	if(player == nil) then
+		UI.Notify("tagGDLeagueLuaDebug01")
 		return
 	end
 	if(key == nil) then
+		UI.Notify("tagGDleagueLuaDebug02")
 		return
 	end
 	-- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
 	condition = condition or gd.GDLeague.DefaultLeagueCondition
-	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(season_prefix..gd.GDLeague.TokenTable[key]["token"])) then
-		GiveTokenToLocalPlayer(season_prefix..gd.GDLeague.TokenTable[key]["token"])
+	local final_tag = season_prefix..gd.GDLeague.TokenTable[key]["token"]
+	if (player:HasItem(LeagueEntryToken, 1, false) and condition(player) and not player:HasToken(final_tag)) then
+		GiveTokenToLocalPlayer(final_tag)
 		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
+	else
+		UI.Notify("tagGDleagueLuaDebug03")
 	end
 end
 
@@ -666,7 +671,7 @@ end
 
 -- Gives token for killing the Undead Nemesis
 function gd.GDLeague.GrantTokenNemesisWendigo()
-	gd.nemesisGDX1.wendigoNemesisKilled()
+	gd.GDLeague.Nemesis.wendigoNemesisKilled()
 	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
 end
 

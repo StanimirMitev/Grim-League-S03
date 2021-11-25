@@ -1,6 +1,6 @@
 gd.GDLeague.Chests = {}
 
-local chest_nemesis_chance = 5
+local chest_nemesis_chance = 3
 local base_chance = 5
 local current_chance = base_chance
 local step_increment = 0.5
@@ -44,6 +44,8 @@ function gd.GDLeague.Chests.EvaluateInitialChance()
 	for i =20, 11, -1 do
 		if(player:HasItem(seal, i * seals_per_tier, false)) then
 			chest_nemesis_chance = chest_nemesis_chance + (i - 10)
+			print("Initial Chance:")
+			print(chest_nemesis_chance)
 			break
 		end
 	end
@@ -59,7 +61,7 @@ function gd.GDLeague.Chests.EvaluateInitialChance()
 end
 
 function gd.GDLeague.Chests.SpawnNemesisChest(num)
-	if( 17 > random(1, 100) ) then
+	if( 7 > random(1, 100) ) then
 		local chest = Entity.Create("records/items/grimleague/faction/hunter/quest/quest_chest.dbr")
 		chest:SetCoords(Game.GetLocalPlayer():GetCoords())
 		GiveTokenToLocalPlayer("grimleague_hunter_nemesis_down_"..num)
@@ -81,9 +83,10 @@ end
 function gd.GDLeague.Chests.TrySpawnNemesis()
 	local player = Game.GetLocalPlayer()
 	local result = false
-	if(player:HasToken("grimleague_hunter_quest_start") and chest_nemesis_chance >= random(1, 100)) then
+	print(chest_nemesis_chance)
+	if(player:HasToken("grimleague_hunter_quest_start") and player:GetLevel() == 100 and chest_nemesis_chance >= random(1, 100)) then
 		result = true
-		local proxy = Proxy.Create("records/proxies/grimleague/proxy_nemesis_ghost.dbr", player:GetCoords().origin, true)
+		local proxy = Proxy.Create("records/proxies/grimleague/proxy_nemesis_ghost.dbr", player:GetCoords().origin, false)
 		proxy:SetCoords(player:GetCoords())
 	end
 	return result
@@ -101,7 +104,17 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 		base_chance = math.min(base_chance, 15)
 		current_chance = base_chance
 		local coords = Game.GetLocalPlayer():GetCoords()
-		local proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
+		local level = Game.GetLocalPlayer():GetLevel()
+		local proxy
+		if(level <= 30 ) then
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap_level_low.dbr", coords.origin, true)
+		elseif(level <= 60) then
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap_level_medium.dbr", coords.origin, true)
+		else
+			proxy = Proxy.Create("records/proxies/grimleaguechests/proxy_chest_trap.dbr", coords.origin, true)
+		end
+
+		
 		proxy:SetCoords(coords)
 	else
 		current_chance = current_chance + step_increment + chest_tier

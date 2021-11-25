@@ -14,9 +14,11 @@ tagGDLeagueEntryToken=Grim League S03
 tagGDLeagueEntryTokenFlovorText=Must be kept in inventory at all times.
 tagGDLeagueRecoveryToken=Grim League Recovery Token
 tagGDLeagueRecoveryTokenFlovorText=To regain lost items, first go to Devil's Crossing on Normal. Then visit Devil's Crossing on each difficulty the character has earned tokens on.
+tagGDLeagueLuaDebug01=Character reference is NULL
+tagGDleagueLuaDebug02=Key Parameter is NULL
+tagGDleagueLuaDebug03=Conditions Not Met
 
-
-tagGDLeagueDungeonTokenNotification=You Have Earned Points For Conquering the Shattered Realms
+tagGDLeagueDungeonTokenNotification=You Have Earned Points For Completing a Dungeon
 tagGDLeagueNemesisKillNotification=You Have Earned Points For Defeating a Nemesis
 tagGDLeagueSRTokenEarned=You Have Earned a Shattered Realm Token
 tagGDLeagueSRChallengeTokenEarned=You Have Earned Points For Conquering the Shattered Realms
@@ -33,7 +35,8 @@ tagStartingItemsGiftDescription=Right click to receive gifts. Throw away if a ne
 tagNoExpPotion=Potion of Stubbornness
 tagNoExpPotionDescription=Only for the truely stubborn
 tagNoExpPotionBlueprint=Blueprint: Potion of Stuburness
-tagGDLeagueChestPoints01=Hunter's Seal
+tagGDLeagueChestPoints01=Hunter's Coin
+tagGdLeagueChestPoints01Desc="Small Silver coins with the words 'strength through adversity' etched around the edge. When you hold them, your mind is flooded with memories of thrilling hunts against incredible foes."{^n}{^o}Can be used in an exchange with Cyrrah, or kept for a greater increase in ambush frequency.
 tagGDLeagueMoiraCurse=Arcane Constriction
 
 tagGDLeagueMoiraCurseDescription=Those afflicted with the curse suffer from decreased combat prowess and are more susceptible to harm
