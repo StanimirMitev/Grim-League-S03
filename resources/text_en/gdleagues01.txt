@@ -36,7 +36,7 @@ tagNoExpPotion=Potion of Stubbornness
 tagNoExpPotionDescription=Only for the truely stubborn
 tagNoExpPotionBlueprint=Blueprint: Potion of Stuburness
 tagGDLeagueChestPoints01=Hunter's Coin
-tagGdLeagueChestPoints01Desc="Small Silver coins with the words 'strength through adversity' etched around the edge. When you hold them, your mind is flooded with memories of thrilling hunts against incredible foes."{^n}{^o}Can be used in a exchange with Cyrrah, or kept for a greatrer increase in ambush frequency.
+tagGdLeagueChestPoints01Desc="Small Silver coins with the words 'strength through adversity' etched around the edge. When you hold them, your mind is flooded with memories of thrilling hunts against incredible foes."{^n}{^o}Can be used in an exchange with Cyrrah, or kept for a greater increase in ambush frequency.
 tagGDLeagueMoiraCurse=Arcane Constriction
 
 tagGDLeagueMoiraCurseDescription=Those afflicted with the curse suffer from decreased combat prowess and are more susceptible to harm

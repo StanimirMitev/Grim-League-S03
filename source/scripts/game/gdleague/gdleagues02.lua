@@ -671,7 +671,7 @@ end
 
 -- Gives token for killing the Undead Nemesis
 function gd.GDLeague.GrantTokenNemesisWendigo()
-	gd.nemesisGDX1.wendigoNemesisKilled()
+	gd.GDLeague.Nemesis.wendigoNemesisKilled()
 	gd.GDLeague.GrantGDLTokenItem(quest_nemesis_normal, gd.GDLeague.NormalNemesisRequirement)
 end
 
