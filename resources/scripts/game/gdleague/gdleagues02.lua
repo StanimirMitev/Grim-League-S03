@@ -424,7 +424,17 @@ end
 function gd.GDLeague.BoxTriggerMPCheck()
 	local player = Game.GetLocalPlayer()
 	gd.GDLeague.RecoverToken()
+	--gd.GDLeague.TestToken("Dungeon_PV")
 	QuestGlobalEvent("GDLeagueMP")
+end
+
+function gd.GDLeague.TestToken(key)
+	local player = Game.GetLocalPlayer()
+	-- if a custom condition is provided it will be used instead of the default one: lvl 100 on Ultimate
+	local final_tag = season_prefix..gd.GDLeague.TokenTable[key]["token"]
+	if (player:HasToken(final_tag)) then
+		UI.Notify(gd.GDLeague.TokenTable[key]["notification"])
+	end
 end
 
 -- Grant starter itmes to new characters
@@ -705,7 +715,7 @@ function gd.GDLeague.GrantTokenShatteredRealm()
 	if(player == nil) then
 		return
 	end
-	if (Game.IsEndlessDungeonBonusComplete()) then
+	if (Game.IsEndlessDungeonBonusComplete() and level_to_enter_sr < 101) then
 		local rewardTier = Game.GetEndlessDungeonsGenerated()
 		if(rewardTier > 80) then
 			gd.GDLeague.GrantTokenDeepShatteredRealm(rewardTier)
@@ -728,6 +738,7 @@ function gd.GDLeague.GrantTokenShatteredRealm()
 		if(rewardTier >= 16) then
 			gd.GDLeague.GrantTokenShatteredRealm16()
 		end
+		level_to_enter_sr = 101
 	end
 end
 -- grant toke for SR level 80+
