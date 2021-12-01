@@ -1,10 +1,11 @@
 gd.GDLeague.Chests = {}
 
 local chest_nemesis_chance = 3
+local chest_nemesis_chance_increment = 0.05
 local base_chance = 5
 local current_chance = base_chance
 local step_increment = 0.5
-local seals_per_tier = 100
+local seals_per_tier = 25
 local seal = "records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr"
 local is_setup_done = false
 local chest_notifications = {
@@ -41,18 +42,11 @@ end
 
 function gd.GDLeague.Chests.EvaluateInitialChance()
 	local player = Game.GetLocalPlayer()
-	for i =20, 11, -1 do
+	for i = 80, 1, -1 do
 		if(player:HasItem(seal, i * seals_per_tier, false)) then
-			chest_nemesis_chance = chest_nemesis_chance + (i - 10)
-			print("Initial Chance:")
-			print(chest_nemesis_chance)
-			break
-		end
-	end
-	for i = 10, 1, -1 do
-		if(player:HasItem(seal, i * seals_per_tier, false)) then
-			base_chance = base_chance + i
+			base_chance = base_chance + i * 0.25
 			current_chance = base_chance
+			chest_nemesis_chance = chest_nemesis_chance + i * 0.15
 			gd.GDLeague.Chests.NotifyChestChance()
 			is_setup_done = true
 			return
@@ -60,22 +54,22 @@ function gd.GDLeague.Chests.EvaluateInitialChance()
 	end
 end
 
-function gd.GDLeague.Chests.SpawnNemesisChest(num)
+function gd.GDLeague.Chests.SpawnNemesisChest(id, num)
 	if( 7 > random(1, 100) ) then
 		local chest = Entity.Create("records/items/grimleague/faction/hunter/quest/quest_chest.dbr")
-		chest:SetCoords(Game.GetLocalPlayer():GetCoords())
+		chest:SetCoords(Entity.Get(id):GetCoords())
 		GiveTokenToLocalPlayer("grimleague_hunter_nemesis_down_"..num)
 	end
 end
 
+local nemesis_kills = 0
 function gd.GDLeague.Chests.onDieGhostNemesis(id)
+	nemesis_kills = nemesis_kills + 1
 	local player = Game.GetLocalPlayer()
-	local chest = Entity.Create("records/items/grimleague/faction/hunter/quest/chest_ghost_nemesis.dbr")
-	chest:SetCoords(player:GetCoords())
 	if(not player:HasToken("grimleague_hunter_nemesis_down_1")) then
-		gd.GDLeague.Chests.SpawnNemesisChest(1)
+		gd.GDLeague.Chests.SpawnNemesisChest(id, 1)
 	elseif(not player:HasToken("grimleague_hunter_nemesis_down_2")) then
-		gd.GDLeague.Chests.SpawnNemesisChest(2)
+		gd.GDLeague.Chests.SpawnNemesisChest(id, 2)
 	end
 
 end
@@ -84,10 +78,12 @@ function gd.GDLeague.Chests.TrySpawnNemesis()
 	local player = Game.GetLocalPlayer()
 	local result = false
 	print(chest_nemesis_chance)
-	if(player:HasToken("grimleague_hunter_quest_start") and player:GetLevel() == 100 and chest_nemesis_chance >= random(1, 100)) then
+	if(player:HasToken("grimleague_hunter_quest_start") and player:GetLevel() == 100 and chest_nemesis_chance * 100 >= random(1, 10000) and nemesis_kills < 3) then
 		result = true
 		local proxy = Proxy.Create("records/proxies/grimleague/proxy_nemesis_ghost.dbr", player:GetCoords().origin, false)
 		proxy:SetCoords(player:GetCoords())
+	else
+		chest_nemesis_chance = chest_nemesis_chance + chest_nemesis_chance_increment
 	end
 	return result
 end
@@ -99,9 +95,10 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 	if(gd.GDLeague.Chests.TrySpawnNemesis()) then
 		return
 	end
-	if( current_chance * 2 >= random(1, 200)) then
-		base_chance = base_chance + 0.5
-		base_chance = math.min(base_chance, 15)
+	if( current_chance * 100 >= random(1, 10000)) then
+		--base_chance = base_chance + 0.5
+		base_chance = base_chance + chest_tier
+		base_chance = math.min(base_chance, 25)
 		current_chance = base_chance
 		local coords = Game.GetLocalPlayer():GetCoords()
 		local level = Game.GetLocalPlayer():GetLevel()
@@ -118,7 +115,7 @@ function gd.GDLeague.Chests.TriggerTrap(chest_tier)
 		proxy:SetCoords(coords)
 	else
 		current_chance = current_chance + step_increment + chest_tier
-		current_chance = math.min(current_chance, 25)
+		current_chance = math.min(current_chance, 35)
 	end
 	gd.GDLeague.Chests.NotifyChestChance()
 end

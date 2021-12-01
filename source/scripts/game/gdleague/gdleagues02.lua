@@ -1004,6 +1004,19 @@ function gd.GDLeague.GiveRandomStoneOfSalvation()
 	end
 end
 
+function gd.GDLeague.RefundAllSalvationStone()
+	local player = Game.GetLocalPlayer()
+	local maxStones = table.getn(stones_of_salvation)
+	for i = 1, maxStones do
+		for j = 1, 4 do
+			if(player:HasItem(stones_of_salvation[i], 1, false)) then
+				player:TakeItem(stones_of_salvation[i], 1, false)
+				player:GiveItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 70, false)
+			end
+		end
+	end
+end
+
 function gd.GDLeague.OnItemPickUpParchment()
 	GiveTokenToLocalPlayer("grimleague_hunter_has_parchment")
 end
