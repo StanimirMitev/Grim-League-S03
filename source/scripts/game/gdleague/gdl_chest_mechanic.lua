@@ -33,7 +33,17 @@ local chest_notifications = {
 "tagGDLeagueChest22",
 "tagGDLeagueChest23",
 "tagGDLeagueChest24",
-"tagGDLeagueChest25"}
+"tagGDLeagueChest25",
+"tagGDLeagueChest26",
+"tagGDLeagueChest27",
+"tagGDLeagueChest28",
+"tagGDLeagueChest29",
+"tagGDLeagueChest30",
+"tagGDLeagueChest31",
+"tagGDLeagueChest32",
+"tagGDLeagueChest33",
+"tagGDLeagueChest34",
+"tagGDLeagueChest35"}
 
 function gd.GDLeague.Chests.NotifyChestChance()
 	print(current_chance)
@@ -47,7 +57,6 @@ function gd.GDLeague.Chests.EvaluateInitialChance()
 			base_chance = base_chance + i * 0.25
 			current_chance = base_chance
 			chest_nemesis_chance = chest_nemesis_chance + i * 0.15
-			gd.GDLeague.Chests.NotifyChestChance()
 			is_setup_done = true
 			return
 		end
