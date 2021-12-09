@@ -998,8 +998,8 @@ function gd.GDLeague.GiveRandomStoneOfSalvation()
 	local maxStones = table.getn(stones_of_salvation)
 	local rand = random(1,maxStones)
 	local player = Game.GetLocalPlayer()
-	if(player:HasItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 100, false)) then
-		player:TakeItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 100, false)
+	if(player:HasItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 49, false)) then
+		player:TakeItem("records/items/grimleague/faction/hunter/grim_league_cursed_seals.dbr", 49, false)
 		player:GiveItem(stones_of_salvation[rand], 1, false)
 	end
 end
