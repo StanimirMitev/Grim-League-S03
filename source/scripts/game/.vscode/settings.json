@@ -19,7 +19,10 @@
         "Vec",
         "getn",
         "gi_getVersion",
-        "QuestEvent"
+        "QuestEvent",
+        "QuestGlobalEvent",
+        "gi_version",
+        "table.getn"
     ],
     "Lua.diagnostics.disable": [
         "unused-local"

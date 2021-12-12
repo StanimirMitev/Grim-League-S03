@@ -12,6 +12,18 @@ local portal_area_door_03_id = nil
 local portal_area_door_04_id = nil
 local portal_area_door_05_id = nil
 local portal_area_door_06_id = nil
+local is_boss_area_01_entered = false
+local is_boss_area_02_entered = false
+local is_boss_area_03_entered = false
+local is_boss_area_04_entered = false
+local is_boss_area_05_entered = false
+local is_boss_area_06_entered = false
+local is_boss_01_price_paid = false
+local is_boss_02_price_paid = false
+local is_boss_03_price_paid = false
+local is_boss_04_price_paid = false
+local is_boss_05_price_paid = false
+local is_boss_06_price_paid = false
 
 -- After completing a fight, the exit gets moved to the given coordinates
 -- moveDungeonPortal() should be called when the dungeon is completed
@@ -185,7 +197,7 @@ function gd.map.interactPortalDoor05(objectId)
 		return
 	end
 	portal_area_door_05_id = objectId
-	if ( false ) then
+	if ( true ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -396,63 +408,134 @@ function gd.map.getDungeonDoor06(objectId)
 	dungeon_door_06 = Door.Get(objectId)
 end
 
+function gd.map.PayPriceBoss01()
+
+end
+
+function gd.map.PayPriceBoss02()
+	
+end
+
+function gd.map.PayPriceBoss03()
+	
+end
+
+function gd.map.PayPriceBoss04()
+	
+end
+
+function gd.map.PayPriceBoss05()
+	if( is_boss_05_price_paid ) then
+		return true
+	end
+	local player = Game.GetLocalPlayer()
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_bloodchthon.dbr", 5, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_04 = player:HasItem("records/items/materia/compa_riftstone.dbr", 10, false)
+	local has_item_05 = player:HasItem("records/items/gearweapons/shields/c025_shield.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
+		player:TakeItem("records/items/crafting/materials/craft_bloodchthon.dbr", 5, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+		player:TakeItem("records/items/materia/compa_riftstone.dbr", 10, false)
+		player:TakeItem("records/items/gearweapons/shields/c025_shield.dbr", 1, false)
+		is_boss_05_price_paid = true
+		UI.Notify("tagGDLeagueEntryFeeSuccess")
+	else
+		UI.Notify("tagGDLeagueEntryFeeFail05")
+	end
+	return is_boss_05_price_paid
+end
+
+function gd.map.PayPriceBoss06()
+	
+end
+
+
 function gd.map.triggerOpenDungeonDoor01()
+	if(is_boss_area_01_entered) then
+		return
+	end
 	dungeon_door_01:Open()
 end
 
 function gd.map.triggerOpenDungeonDoor02()
+	if(is_boss_area_02_entered) then
+		return
+	end
 	dungeon_door_02:Open()
 end
 
 function gd.map.triggerOpenDungeonDoor03()
+	if(is_boss_area_03_entered) then
+		return
+	end
 	dungeon_door_03:Open()
 end
 
 function gd.map.triggerOpenDungeonDoor04()
+	if(is_boss_area_04_entered) then
+		return
+	end
 	dungeon_door_04:Open()
 end
 
 function gd.map.triggerOpenDungeonDoor05()
-	dungeon_door_05:Open()
+	if(is_boss_area_05_entered) then
+		return
+	end
+	if(gd.map.PayPriceBoss05()) then
+		dungeon_door_05:Open()
+	end
 end
 
 function gd.map.triggerOpenDungeonDoor06()
+	if(is_boss_area_06_entered) then
+		return
+	end
 	dungeon_door_06:Open()
 end
 
 function gd.map.triggerCloseDungeonDoor01()
 	if (not dungeon_completed_01) then
 		dungeon_door_01:Close()
+		is_boss_area_01_entered = true
 	end
 end
 
 function gd.map.triggerCloseDungeonDoor02()
 	if (not dungeon_completed_02) then
 		dungeon_door_02:Close()
+		is_boss_area_02_entered = true
 	end
 end
 
 function gd.map.triggerCloseDungeonDoor03()
 	if (not dungeon_completed_03) then
 		dungeon_door_03:Close()
+		is_boss_area_03_entered = true
 	end
 end
 
 function gd.map.triggerCloseDungeonDoor04()
 	if (not dungeon_completed_04) then
 		dungeon_door_04:Close()
+		is_boss_area_04_entered = true
 	end
 end
 
 function gd.map.triggerCloseDungeonDoor05()
 	if (not dungeon_completed_05) then
 		dungeon_door_05:Close()
+		is_boss_area_05_entered = true
 	end
 end
 
 function gd.map.triggerCloseDungeonDoor06()
 	if (not dungeon_completed_06) then
 		dungeon_door_06:Close()
+		is_boss_area_06_entered = true
 	end
 end
 
@@ -523,4 +606,8 @@ function gd.map.UnlockPortalToHideOut(objectId)
 	if ((player:GetQuestState(0xD631D200) == QuestState.Complete)) then
 		Door.Get(objectId):SetLocked(false)
 	end
+end
+
+function gd.map.LockPortalAfterUse(objectId)
+	Door.Get(objectId):SetLocked(true)
 end

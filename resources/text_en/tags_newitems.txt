@@ -103,8 +103,10 @@ tagGDLeagueHunterScrollDesc=A piece of the legendary scrolls. Stolen by traitors
 
 
 #itemsforsuperbosses, added postlaunch:
-tagGDLShieldD01=Galakros' Eternal Bulwark
-tagGDLShieldD01_Desc="Even though Galakros seems to have lost its obvious signs up life, this piece of its former body still refuses to die..."
-tagGDLShieldD01_Skill=Galakros' Neverending Pulse
-tagGDLShieldD01_Skill_Desc="The jelly parts seem to be allergic to touching... petrifying everything that touches them"
-tagGDLFocusD01=Skull of Rolderathis
+tagGDLGun1hD01=Garia's Gatekeeper
+tagGDLGun1hD01_Desc="So this is where all of bastion's gates went..."
+tagGDLGun1hD01_skill=Gates of Chaos
+tagGDLGun1hD01_skill_desc="Summon the most annoying of all foes from the Bastion of Chaos... the Gates of Chaos!" ^oThe Gates of Chaos scale with player damage bonuses.
+tagGDLGun1hD01_pet_skill1=Nova of Entropy
+tagGDLGun1hD01_pet_skill2=Aura of Anarchy
+tagGDLGun1hD01_pet_skill3=Aura of Discord

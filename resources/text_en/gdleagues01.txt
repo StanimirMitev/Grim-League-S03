@@ -143,3 +143,13 @@ tagGDLeagueStorageSuccess=Items trasnfer to cloud was a success
 tagGDLeagueStorageFailure=Items trasnfer to cloud FAILED
 tagGDLeagueStorageUnknown=Item Cloud Transfer Unknown Error
 tagGDLeagueStoragePending=Uploading items to cloud storage
+
+
+#Boss Entry Fee Notifications
+tagGDLeagueEntryFeeSuccess=Fee Accepted, The Gate is opened
+tagGDLeagueEntryFeeFail01=
+tagGDLeagueEntryFeeFail02=
+tagGDLeagueEntryFeeFail03=
+tagGDLeagueEntryFeeFail04=
+tagGDLeagueEntryFeeFail05=You must have:{^n}5x Blood of Chthon {^n}3x Celestial Lotus {^n}16x Ugdenblooms {^n}10x Riftstones {^n}1x Empowered Crest of The Black Legion
+tagGDLeagueEntryFeeFail06=
