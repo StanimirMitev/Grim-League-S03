@@ -1,6 +1,7 @@
 resources/**.arc
 resources/Maps/**.map
 database/**.arz
+database_mew/*
 source/levels/*
 source/Sandbox/*
 source/Maps/**.wrl

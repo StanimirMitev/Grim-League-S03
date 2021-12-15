@@ -114,7 +114,8 @@ end
 function gd.GDLeague.Bosses.ForcePlayerAttack()
 	local player_id = Game.GetLocalPlayer():GetId()
 	for index, value in ipairs(spider_list) do
-		Character.Get(index):Attack(player_id)
+		local character = Character.Get(index)
+		character:Attack(player_id)
 	end
 end
 
@@ -215,9 +216,19 @@ function gd.GDLeague.Bosses.onAddToWorldSpiderScript09(id)
 	gd.GDLeague.Bosses.AddScriptObjectToList(8, id)
 end
 
+function gd.GDLeague.Bosses.KillAraneaSpiders()
+	for index, value in ipairs(spider_list) do
+		local obj = Entity.Get(index)
+		if (obj ~= nil) then
+			obj:Destroy()
+		end
+	end
+end
+
 function gd.GDLeague.Bosses.onDieAranea(id)
 	gd.map.moveDungeonPortal02()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Aranea")
+	--gd.GDLeague.Bosses.KillAraneaSpiders()
 end
 
 function gd.GDLeague.Bosses.onAddToWorldSpiderBomber(id)

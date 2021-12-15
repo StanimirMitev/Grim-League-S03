@@ -110,3 +110,8 @@ tagGDLGun1hD01_skill_desc="Summon the most annoying of all foes from the Bastion
 tagGDLGun1hD01_pet_skill1=Nova of Entropy
 tagGDLGun1hD01_pet_skill2=Aura of Anarchy
 tagGDLGun1hD01_pet_skill3=Aura of Discord
+
+tagGDLNecklaceD01=Aranea's Gaze
+tagGDLNecklaceD01_Desc="Its eyes still maintain their glow..."
+tagGDLNecklaceD01_Skill=Gaze of Aranea
+tagGDLNecklaceD01_Skill_Desc="Whenever Aranea's eyes reach a critical brightness, they send out a pulse of piercing elemental energy, stripping enemies from their resistances."
