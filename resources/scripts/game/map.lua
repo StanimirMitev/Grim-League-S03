@@ -170,7 +170,7 @@ function gd.map.interactPortalDoor04(objectId)
 		return
 	end
 	portal_area_door_04_id = objectId
-	if ( false ) then
+	if ( true ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -225,7 +225,7 @@ function gd.map.interactPortalDoor06(objectId)
 		return
 	end
 	portal_area_door_06_id = objectId
-	if ( false and dungeon_completed_01 == false ) then
+	if ( true and dungeon_completed_01 == false ) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -409,22 +409,6 @@ function gd.map.getDungeonDoor06(objectId)
 end
 
 function gd.map.PayPriceBoss01()
-
-end
-
-function gd.map.PayPriceBoss02()
-	
-end
-
-function gd.map.PayPriceBoss03()
-	
-end
-
-function gd.map.PayPriceBoss04()
-	
-end
-
-function gd.map.PayPriceBoss01()
 	return false
 end
 
@@ -457,7 +441,27 @@ function gd.map.PayPriceBoss03()
 end
 
 function gd.map.PayPriceBoss04()
-	return false
+	if( is_boss_04_price_paid ) then
+		return true
+	end
+	local player = Game.GetLocalPlayer()
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_taintedbrain.dbr", 5, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_04 = player:HasItem("records/items/materia/compa_wrathstone.dbr", 10, false)
+	local has_item_05 = player:HasItem("records/items/gearweapons/shields/c019_shield.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
+		player:TakeItem("records/items/crafting/materials/craft_taintedbrain.dbr", 5, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+		player:TakeItem("records/items/materia/compa_wrathstone.dbr", 10, false)
+		player:TakeItem("records/items/gearweapons/shields/c019_shield.dbr", 1, false)
+		is_boss_04_price_paid = true
+		UI.Notify("tagGDLeagueEntryFeeSuccess")
+	else
+		UI.Notify("tagGDLeagueEntryFeeFail04")
+	end
+	return is_boss_04_price_paid
 end
 
 function gd.map.PayPriceBoss05()
@@ -485,7 +489,27 @@ function gd.map.PayPriceBoss05()
 end
 
 function gd.map.PayPriceBoss06()
-	return false
+	if( is_boss_06_price_paid ) then
+		return true
+	end
+	local player = Game.GetLocalPlayer()
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_skeletonkey.dbr", 3, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_04 = player:HasItem("records/items/materia/compa_deathchillbolts.dbr", 10, false)
+	local has_item_05 = player:HasItem("records/items/gearrelic/b004_relic.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
+		player:TakeItem("records/items/crafting/materials/craft_skeletonkey.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+		player:TakeItem("records/items/materia/compa_deathchillbolts.dbr", 10, false)
+		player:TakeItem("records/items/gearrelic/b004_relic.dbr", 1, false)
+		is_boss_06_price_paid = true
+		UI.Notify("tagGDLeagueEntryFeeSuccess")
+	else
+		UI.Notify("tagGDLeagueEntryFeeFail06")
+	end
+	return is_boss_06_price_paid
 end
 
 

@@ -113,7 +113,7 @@ end
 
 function gd.GDLeague.Bosses.ForcePlayerAttack()
 	local player_id = Game.GetLocalPlayer():GetId()
-	for index, value in ipairs(spider_list) do
+	for index, value in pairs(spider_list) do
 		local character = Character.Get(index)
 		character:Attack(player_id)
 	end
@@ -217,10 +217,10 @@ function gd.GDLeague.Bosses.onAddToWorldSpiderScript09(id)
 end
 
 function gd.GDLeague.Bosses.KillAraneaSpiders()
-	for index, value in ipairs(spider_list) do
-		local obj = Entity.Get(index)
-		if (obj ~= nil) then
-			obj:Destroy()
+	for index, value in pairs(spider_list) do
+		local spider = Character.Get(index)
+		if (spider ~= nil) then
+			spider:Kill()
 		end
 	end
 end
@@ -228,7 +228,7 @@ end
 function gd.GDLeague.Bosses.onDieAranea(id)
 	gd.map.moveDungeonPortal02()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Aranea")
-	--gd.GDLeague.Bosses.KillAraneaSpiders()
+	gd.GDLeague.Bosses.KillAraneaSpiders()
 end
 
 function gd.GDLeague.Bosses.onAddToWorldSpiderBomber(id)
@@ -241,6 +241,7 @@ local script_crystal_spawns_tier_02 = {}
 local crystals = {script_crystal_spawns_tier_01, script_crystal_spawns_tier_02}
 local crystals_counter = 1
 local crystal_dbr = "records/creatures/enemies/GrimLeague/galakros/galakros_aethercrystal.dbr"
+local crystal_list = {}
 
 function gd.GDLeague.Bosses.onAddToWorldCrystalScript01(id)
 	script_crystal_spawns_tier_01[id] = true
@@ -255,14 +256,27 @@ function gd.GDLeague.Bosses.SpawnGalakrosCrystals(id)
 		return
 	end
 	for i,v in pairs(crystals[crystals_counter]) do
-		gd.GDLeague.Bosses.SpawnMonster(i, crystal_dbr)
+		local coords = Entity.Get(i):GetCoords()
+		local spawn = Character.Create(crystal_dbr, gd.GDLeague.Bosses.MonsterLevel(), nil)
+		spawn:SetCoords(coords)
+		crystal_list[spawn:GetId()] = true
 	end
 	crystals_counter = crystals_counter + 1
+end
+
+function gd.GDLeague.Bosses.KillGalakrosCrystals()
+	for index, value in pairs(crystal_list) do
+		local crystal = Character.Get(index)
+		if (crystal ~= nil) then
+			crystal:Kill()
+		end
+	end
 end
 
 function gd.GDLeague.Bosses.onDieGalakros(id)
 	gd.map.moveDungeonPortal04()
 	gd.GDLeague.GrantGDLTokenItem("Super_Boss_Mod_Galakros")
+	gd.GDLeague.Bosses.KillGalakrosCrystals()
 end
 
 -- ASCENDED SPELLBREAKER MOIRA
@@ -532,6 +546,12 @@ function gd.GDLeague.Bosses.onDieMoira2(id)
 end
 
 -- GARIA THE GATE TAKER
+
+function gd.GDLeague.Bosses.ObsidianFiendOnDie(id)
+	local coords = Entity.Get(id):GetCoords()
+	local proxy = Proxy.Create("records/proxies/grimleague/proxy_boss_garia_obsidian_fiend.dbr", coords.origin, true)
+	proxy:SetCoords(coords)
+end
 
 function gd.GDLeague.Bosses.onDieGaria()
 	gd.map.moveDungeonPortal05()
