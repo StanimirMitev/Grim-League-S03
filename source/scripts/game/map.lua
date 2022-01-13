@@ -143,7 +143,7 @@ function gd.map.interactPortalDoor03(objectId)
 		return
 	end
 	portal_area_door_03_id = objectId
-	if (false) then
+	if (true) then
 		gd.map.playSoundEffectPortalDoor(Door.Get(objectId):GetCoords())
 		Door.Get(objectId):SetLocked(false)
 		Door.Get(objectId):Open()
@@ -437,7 +437,27 @@ function gd.map.PayPriceBoss02()
 end
 
 function gd.map.PayPriceBoss03()
-	return false
+	if( is_boss_03_price_paid ) then
+		return true
+	end
+	local player = Game.GetLocalPlayer()
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_cultistseal.dbr", 30, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_04 = player:HasItem("records/items/materia/compb_deviltouchedammo.dbr", 10, false)
+	local has_item_05 = player:HasItem("records/items/gearweapons/guns2h/c026_gun2h.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
+		player:TakeItem("records/items/crafting/materials/craft_cultistseal.dbr", 30, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+		player:TakeItem("records/items/materia/compb_deviltouchedammo.dbr", 10, false)
+		player:TakeItem("records/items/gearweapons/guns2h/c026_gun2h.dbr", 1, false)
+		is_boss_03_price_paid = true
+		UI.Notify("tagGDLeagueEntryFeeSuccess")
+	else
+		UI.Notify("tagGDLeagueEntryFeeFail03")
+	end
+	return is_boss_03_price_paid
 end
 
 function gd.map.PayPriceBoss04()
