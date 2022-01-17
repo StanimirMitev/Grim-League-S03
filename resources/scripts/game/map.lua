@@ -417,15 +417,16 @@ function gd.map.PayPriceBoss02()
 		return true
 	end
 	local player = Game.GetLocalPlayer()
-	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_ancientheart.dbr", 5, false)
-	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_ancientheart.dbr", 3, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 	local has_item_04 = player:HasItem("records/items/materia/compa_amber.dbr", 10, false)
 	local has_item_05 = player:HasItem("records/items/gearweapons/swords1h/c020_sword.dbr", 1, false)
-	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
-		player:TakeItem("records/items/crafting/materials/craft_ancientheart.dbr", 5, false)
-		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_06 = player:HasItem("records/items/grimleagues03/questitems/grim_league_participation_token.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05 and has_item_06) then
+		player:TakeItem("records/items/crafting/materials/craft_ancientheart.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 		player:TakeItem("records/items/materia/compa_amber.dbr", 10, false)
 		player:TakeItem("records/items/gearweapons/swords1h/c020_sword.dbr", 1, false)
 		is_boss_02_price_paid = true
@@ -441,15 +442,16 @@ function gd.map.PayPriceBoss03()
 		return true
 	end
 	local player = Game.GetLocalPlayer()
-	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_cultistseal.dbr", 30, false)
-	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_cultistseal.dbr", 20, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 	local has_item_04 = player:HasItem("records/items/materia/compb_deviltouchedammo.dbr", 10, false)
 	local has_item_05 = player:HasItem("records/items/gearweapons/guns2h/c026_gun2h.dbr", 1, false)
-	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
-		player:TakeItem("records/items/crafting/materials/craft_cultistseal.dbr", 30, false)
-		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_06 = player:HasItem("records/items/grimleagues03/questitems/grim_league_participation_token.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05 and has_item_06) then
+		player:TakeItem("records/items/crafting/materials/craft_cultistseal.dbr", 20, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 		player:TakeItem("records/items/materia/compb_deviltouchedammo.dbr", 10, false)
 		player:TakeItem("records/items/gearweapons/guns2h/c026_gun2h.dbr", 1, false)
 		is_boss_03_price_paid = true
@@ -465,15 +467,16 @@ function gd.map.PayPriceBoss04()
 		return true
 	end
 	local player = Game.GetLocalPlayer()
-	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_taintedbrain.dbr", 5, false)
-	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_taintedbrain.dbr", 3, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 	local has_item_04 = player:HasItem("records/items/materia/compa_wrathstone.dbr", 10, false)
 	local has_item_05 = player:HasItem("records/items/gearweapons/shields/c019_shield.dbr", 1, false)
-	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
-		player:TakeItem("records/items/crafting/materials/craft_taintedbrain.dbr", 5, false)
-		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_06 = player:HasItem("records/items/grimleagues03/questitems/grim_league_participation_token.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05 and has_item_06) then
+		player:TakeItem("records/items/crafting/materials/craft_taintedbrain.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 		player:TakeItem("records/items/materia/compa_wrathstone.dbr", 10, false)
 		player:TakeItem("records/items/gearweapons/shields/c019_shield.dbr", 1, false)
 		is_boss_04_price_paid = true
@@ -489,15 +492,16 @@ function gd.map.PayPriceBoss05()
 		return true
 	end
 	local player = Game.GetLocalPlayer()
-	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_bloodchthon.dbr", 5, false)
-	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_bloodchthon.dbr", 3, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 	local has_item_04 = player:HasItem("records/items/materia/compa_riftstone.dbr", 10, false)
 	local has_item_05 = player:HasItem("records/items/gearweapons/shields/c025_shield.dbr", 1, false)
-	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
-		player:TakeItem("records/items/crafting/materials/craft_bloodchthon.dbr", 5, false)
-		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_06 = player:HasItem("records/items/grimleagues03/questitems/grim_league_participation_token.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05 and has_item_06) then
+		player:TakeItem("records/items/crafting/materials/craft_bloodchthon.dbr", 3, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 		player:TakeItem("records/items/materia/compa_riftstone.dbr", 10, false)
 		player:TakeItem("records/items/gearweapons/shields/c025_shield.dbr", 1, false)
 		is_boss_05_price_paid = true
@@ -513,15 +517,16 @@ function gd.map.PayPriceBoss06()
 		return true
 	end
 	local player = Game.GetLocalPlayer()
-	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_skeletonkey.dbr", 3, false)
-	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_01 = player:HasItem("records/items/crafting/materials/craft_skeletonkey.dbr", 2, false)
+	local has_item_02 = player:HasItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+	local has_item_03 = player:HasItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 	local has_item_04 = player:HasItem("records/items/materia/compa_deathchillbolts.dbr", 10, false)
 	local has_item_05 = player:HasItem("records/items/gearrelic/b004_relic.dbr", 1, false)
-	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05) then
-		player:TakeItem("records/items/crafting/materials/craft_skeletonkey.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 3, false)
-		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 16, false)
+	local has_item_06 = player:HasItem("records/items/grimleagues03/questitems/grim_league_participation_token.dbr", 1, false)
+	if (has_item_01 and has_item_02 and has_item_03 and has_item_04 and has_item_05 and has_item_06) then
+		player:TakeItem("records/items/crafting/materials/craft_skeletonkey.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_celestiallotus.dbr", 2, false)
+		player:TakeItem("records/items/crafting/materials/craft_ugdenbloom.dbr", 7, false)
 		player:TakeItem("records/items/materia/compa_deathchillbolts.dbr", 10, false)
 		player:TakeItem("records/items/gearrelic/b004_relic.dbr", 1, false)
 		is_boss_06_price_paid = true

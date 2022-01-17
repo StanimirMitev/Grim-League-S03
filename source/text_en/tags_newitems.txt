@@ -135,3 +135,11 @@ tagGDLHeadD01_pet_skill1=Ballog's Corruption
 tagGDLHeadD01_pet_skill2=Ground Smash
 tagGDLHeadD01_pet_skill3=Molten Rock Throw
 tagGDLHeadD01_pet_skill4=Chaos Pulse
+
+tagGDLSwordD301=Dimensional Cloudburst Blade
+tagGDLSwordD302=Reforged Cloudburst Blade
+tagGDLSwordD302Skill=Negating Cloudburst Spirit
+tagGDLSwordD302SkillDesc=
+tagGDLFocusD301=Twin Strike Cloudburst Codex
+tagGDLFocusD301Skill=Collapsing Tempest
+tagGDLFocusD301SkillDesc=

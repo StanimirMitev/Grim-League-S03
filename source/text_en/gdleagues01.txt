@@ -149,8 +149,8 @@ tagGDLeagueScrollAllFound=You have found all the scrolls you could
 #Boss Entry Fee Notifications
 tagGDLeagueEntryFeeSuccess=Fee Accepted, The Gate is opened
 tagGDLeagueEntryFeeFail01=
-tagGDLeagueEntryFeeFail02=You must have:{^n}5x Ancient Heart {^n}3x Celestial Lotus {^n}16x Ugdenblooms {^n}10x Amber{^n}1x Empowered Omen
-tagGDLeagueEntryFeeFail03=You must have:{^n}30x Chthonic Seal of Binding {^n}3x Celestial Lotus {^n}16x Ugdenblooms {^n}10x Devil-Touched Ammo{^n}1x Empowered Boltspitter
-tagGDLeagueEntryFeeFail04=You must have:{^n}5x Tainted Brain Matter{^n}3x Celestial Lotus{^n}16x Ugdenblooms{^n}10x Wrathstone{^n}1x Empowered Defenser of Devil's Crossing
-tagGDLeagueEntryFeeFail05=You must have:{^n}5x Blood of Chthon {^n}3x Celestial Lotus {^n}16x Ugdenblooms {^n}10x Riftstones {^n}1x Empowered Crest of The Black Legion
-tagGDLeagueEntryFeeFail06=You must have:{^n}3x Skeleton Key {^n}3x Celestial Lotus {^n}16x Ugdenblooms {^n}10x Deathchill Bolts {^n}1x Glacier Relic
+tagGDLeagueEntryFeeFail02=You must have:{^n}3x Ancient Heart {^n}2x Celestial Lotus {^n}7x Ugdenblooms {^n}10x Amber{^n}1x Empowered Omen
+tagGDLeagueEntryFeeFail03=You must have:{^n}20x Chthonic Seal of Binding {^n}2x Celestial Lotus {^n}7x Ugdenblooms {^n}10x Devil-Touched Ammo{^n}1x Empowered Boltspitter
+tagGDLeagueEntryFeeFail04=You must have:{^n}3x Tainted Brain Matter{^n}2x Celestial Lotus{^n}7x Ugdenblooms{^n}10x Wrathstone{^n}1x Empowered Defenser of Devil's Crossing
+tagGDLeagueEntryFeeFail05=You must have:{^n}3x Blood of Chthon {^n}2x Celestial Lotus {^n}7x Ugdenblooms {^n}10x Riftstones {^n}1x Empowered Crest of The Black Legion
+tagGDLeagueEntryFeeFail06=You must have:{^n}2x Skeleton Key {^n}2x Celestial Lotus {^n}7x Ugdenblooms {^n}10x Deathchill Bolts {^n}1x Glacier Relic

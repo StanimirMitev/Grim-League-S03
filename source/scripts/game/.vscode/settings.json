@@ -22,7 +22,8 @@
         "QuestEvent",
         "QuestGlobalEvent",
         "gi_version",
-        "table.getn"
+        "table.getn",
+        "RemoveTokenFromLocalPlayer"
     ],
     "Lua.diagnostics.disable": [
         "unused-local"
