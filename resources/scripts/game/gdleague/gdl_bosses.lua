@@ -298,12 +298,6 @@ local invunerable_stage_records = {
 	"records/proxies/grimleague/proxy_boss_moira_inv_03.dbr",
 	"records/proxies/grimleague/proxy_boss_moira_inv_04.dbr"
 }
-local moira_taunts = {
-	SoundType.SpecialAttackSoun1,
-	SoundType.SpecialAttackSoun2,
-	SoundType.SpecialAttackSoun3,
-	SoundType.SpecialAttackSoun4,
-}
 local invunerable_stage_records_enumerator = 0
 local invunerable_stage_function_list = {}
 local invunerable_stage_function_list_index = 1
@@ -311,6 +305,50 @@ local invunerable_stage_start_time = 0
 local invenrable_stage_attack_times = {35,35,35,35}
 local echos_alive = 2
 local sword_id = nil
+local boss_data = {
+	value = 0,
+	save_prefix = "GDS03_Moira_",
+}
+
+
+-- function gd.GDLeague.Bosses.onAddToWorldNPCMoira(id)
+-- 	local player = Game.GetLocalPlayer()
+-- 	if (id and player:GetQuestState(0x650A5F80) == QuestState.Complete) then
+-- 		local char = Character.Get(id)
+-- 		char:Destroy()
+-- 	end
+-- end
+
+function gd.GDLeague.Bosses.ReadBinaryData(data, bits)
+	local player = Game.GetLocalPlayer()
+	local read_number = 0
+	for i = 0, bits - 1, 1 do
+		if(player:HasToken(data.save_prefix..i)) then
+			read_number = read_number + ( 1 * 2 ^ i)
+		end
+	end
+	data.value = read_number
+end
+
+function gd.GDLeague.Bosses.SaveBinaryData(data)
+	local bit_counter = 0
+	local num_to_save = data.value
+	repeat
+		RemoveTokenFromLocalPlayer(data.save_prefix..bit_counter)
+		if (num_to_save % 2 == 1) then
+			num_to_save = num_to_save - 1
+			GiveTokenToLocalPlayer(data.save_prefix..bit_counter)
+		end
+		num_to_save = num_to_save / 2
+		bit_counter = bit_counter + 1
+	until (num_to_save == 0)
+end
+
+function gd.GDLeague.Bosses.RecordAttempt()
+	gd.GDLeague.Bosses.ReadBinaryData(boss_data, 8)
+	boss_data.value = boss_data.value + 1
+	gd.GDLeague.Bosses.SaveBinaryData(boss_data)
+end
 
 function gd.GDLeague.Bosses.onAddToWorldMoiraSword(id)
 	sword_id = id
@@ -538,10 +576,16 @@ end
 function gd.GDLeague.Bosses.onDieMoira(id)
 	invunerable_monster_id = nil
 	gd.map.moveDungeonPortal01()
-	gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira")
+	if (boss_data.value > 100 ) then
+		boss_data.value = 100
+	end
+	print("BOSS DEFEATED AT ATTEMPT")
+	print(boss_data.value)
+	gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira", boss_data.value)
 end
 
 function gd.GDLeague.Bosses.onDieMoira2(id)
+	gd.map.moveDungeonPortal01()
 	gd.GDLeague.GrantGDLNemesisToken("Super_Boss_Mod_Moira", 80)
 end
 

@@ -1,10 +1,8 @@
-/*
 	
-	GRIM DAWN SURVIVAL MODE
+	-- GRIM DAWN SURVIVAL MODE
 	
-	For more information visit us at http://www.grimdawn.com
+	-- For more information visit us at http://www.grimdawn.com
 	
-*/
 
 
 gd.endlessDungeon.mutatorControl = {}
