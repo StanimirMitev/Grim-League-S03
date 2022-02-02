@@ -121,6 +121,7 @@ tagGDLShieldD01_Desc="Even though Galakros seems to have lost its obvious signs 
 tagGDLShieldD01_Skill=Galakros' Neverending Pulse
 tagGDLShieldD01_Skill_Desc="The jelly parts seem to be allergic to touching... petrifying everything that touches them"
 
+
 tagGDLFocusD01=Skull of Rolderathis
 tagGDLFocusD01_Desc="The Skull feels cold... too cold... as if it was sapping all of your vitality when you touch it."
 tagGDLFocusD01_Skill=Frozen Souls of Arkovia
@@ -145,3 +146,4 @@ tagGDLFocusD301BP=Blueprint: Twin Strike Cloudburst Codex
 tagGDLFocusD301=Twin Strike Cloudburst Codex
 tagGDLFocusD301Skill=Collapsing Tempest
 tagGDLFocusD301SkillDesc=
+
